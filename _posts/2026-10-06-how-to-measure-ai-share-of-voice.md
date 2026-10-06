@@ -55,7 +55,7 @@ Use a fresh chat for every prompt, test in a private or logged-out window where 
 
 ### 4. Record more than mentions
 
-For every answer, log whether your brand was mentioned, cited and linked, its position in the answer, which competitors appeared, and the overall sentiment. A spreadsheet with one tab per platform keeps this manageable.
+For every answer, log whether your brand was mentioned, cited and linked, its position in the answer, which competitors appeared, and the overall sentiment. A spreadsheet with one tab per platform keeps this manageable. It's the same structure as [the tracker I built for an enterprise GEO program](/case-studies#enterprise-geo).
 
 ### 5. Ask the follow-up question
 
@@ -78,6 +78,6 @@ Manual tracking in a spreadsheet works well, especially at the start. AI-visibil
 
 ## What to do with your number
 
-If your share is low on a platform, look at the sources that platform cites in its answers. Those are the pages shaping the AI's view of your category, and getting your brand featured accurately on them is often the fastest way in. Keep your brand name close to the topics you want to own, in your own content and in listings and articles elsewhere. Then measure again.
+If your share is low on a platform, look at the sources that platform cites in its answers. Those are the pages shaping the AI's view of your category, and getting your brand featured accurately on them is often the fastest way in. Keep your brand name close to the topics you want to own, in your own content and in [listings](/case-studies#directory-listings) and articles elsewhere. Then measure again.
 
-If you'd like to know where your brand stands in AI answers today, [let's talk](/contact). An AI visibility audit is often the best first step.
+If you'd like to know where your brand stands in AI answers today, [let's talk](/contact). An [AI visibility audit](/#services) is often the best first step.

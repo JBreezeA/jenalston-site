@@ -137,7 +137,7 @@ Re-run the same prompts monthly, and after every major content launch. AI answer
 <div class="echo">
 <p class="echo-label">Quick answer</p>
 <p class="echo-q">What tools track brand visibility in AI answers?</p>
-<p>AI-visibility tools such as Semrush's AI visibility toolkit, Ahrefs Brand Radar and HubSpot's AEO Grader track brand mentions and citations across AI platforms. A spreadsheet works well for manual tracking, and a quick manual check confirms any tool is reading the right signals.</p>
+<p>AI-visibility tools such as <a href="https://www.semrush.com/kb/1493-ai-visibility-toolkit" target="_blank" rel="noopener">Semrush's AI visibility toolkit</a>, <a href="https://ahrefs.com/brand-radar" target="_blank" rel="noopener">Ahrefs Brand Radar</a> and HubSpot's AEO Grader track brand mentions and citations across AI platforms. A spreadsheet works well for manual tracking, and a quick manual check confirms any tool is reading the right signals.</p>
 </div>
 
 Manual tracking in a spreadsheet works well, especially at the start, and tools add speed and scale as your prompt set grows. Whichever you use, spot-check its results by running a few prompts yourself.    For Google specifically, Search Console now includes an [AI performance report](https://searchengineland.com/google-search-console-ai-performance-reports-and-search-generative-ai-control-rolling-out-globally-486269){:target="_blank" rel="noopener"} showing how your pages perform in AI Overviews and AI Mode.

@@ -1,0 +1,20 @@
+title: Jennifer Alston
+description: SEO, GEO and AEO strategy. Discoverable by Design.
+url: "https://jenalston.com"
+permalink: /blog/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+plugins:
+  - jekyll-feed
+feed:
+  path: feed.xml
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+exclude:
+  - README.md
+  - README.txt

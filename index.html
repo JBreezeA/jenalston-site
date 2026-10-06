@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,6 +34,7 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 <nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px">
 <a href="/about" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">About</a>
 <a href="/case-studies" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">Case Studies</a>
+<a href="/blog/" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">Blog</a>
 <a href="/contact" style="font-size: 16px; font-weight: 700; color: #14142B; background: #FF7A59; text-decoration: none; padding: 13px 24px; border-radius: 999px">Let's talk</a>
 </nav>
 </header>
@@ -171,6 +175,30 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 </div>
 </div>
 </section>
+
+{% if site.posts.size > 0 %}
+<section style="background: #EFECE4; padding: clamp(72px, 9vw, 128px) 5%">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
+<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #5B3FD9">[5] From the blog</div>
+<h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.02; letter-spacing: -0.03em">Field notes on AI search.</h2>
+</div>
+<a href="/blog/" style="font-size: 17px; font-weight: 700; color: #5B3FD9; text-decoration: none; padding: 12px 0; border-bottom: 2px solid #5B3FD9">All posts</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
+{% for post in site.posts limit:3 %}
+<a href="{{ post.url }}" style="display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 20px; padding: 32px; color: #14142B; text-decoration: none">
+<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; color: #5B3FD9"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time> · {{ post.content | number_of_words | divided_by: 220 | plus: 1 }} min read</div>
+<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">{{ post.title }}</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">{{ post.description }}</p>
+<span style="margin-top: auto; padding-top: 8px; font-size: 16px; font-weight: 700; color: #5B3FD9">Read the post</span>
+</a>
+{% endfor %}
+</div>
+</div>
+</section>
+{% endif %}
 
 <section style="background: #FF7A59; padding: clamp(64px, 8vw, 112px) 5%">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px">

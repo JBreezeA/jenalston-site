@@ -18,6 +18,57 @@ body{margin:0;background:#14142B}
 a{color:#F7F5F0}a:hover{color:#FF7A59}
 </style>
 <style>a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #A084FF;outline-offset:3px}</style>
+<style>
+.gw,.dw{background:#14142B;color:#F7F5F0;border-radius:24px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:22px;font-family:'DM Sans','Helvetica Neue',sans-serif}
+.gw-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;font-family:'JetBrains Mono','Courier New',monospace;font-size:12px;letter-spacing:1px;color:#A084FF}
+.gw-h{margin:0 0 10px;font-family:Syne,'Arial Black',sans-serif;font-weight:700;font-size:18px;color:#F7F5F0}
+.gw-sub{margin:-6px 0 12px;font-size:13px;line-height:1.5;color:#A9A8C8}
+.gw-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.gw-kpi{border:1px solid #3A3A5C;border-radius:14px;padding:14px}
+.gw-kpi b{display:block;font-family:Syne,'Arial Black',sans-serif;font-weight:800;font-size:clamp(24px,2.6vw,30px);line-height:1}
+.gw-kpi span{display:block;margin-top:6px;font-size:12.5px;line-height:1.4;color:#C9C8E0}
+.gw-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.gw-tab{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #3A3A5C;background:transparent;color:#F7F5F0;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.gw-tab[aria-pressed="true"]{background:#FF7A59;border-color:#FF7A59;color:#14142B}
+.gw-bar{display:grid;grid-template-columns:minmax(92px,120px) 1fr 52px;align-items:center;gap:10px;margin-bottom:10px;font-size:14px}
+.gw-track{height:14px;border-radius:7px;background:#2A2A48;overflow:hidden}
+.gw-fill{height:100%;border-radius:7px;background:#A084FF;transition:width .5s ease}
+.gw-val{font-weight:700;text-align:right}
+.gw-scroll{overflow-x:auto}
+.gw-m{width:100%;min-width:470px;border-collapse:collapse;font-size:14px}
+.gw-m th{padding:0 2px 8px;font-size:11.5px;font-weight:700;color:#A9A8C8;text-align:center}
+.gw-m th:first-child,.gw-m td:first-child{text-align:left}
+.gw-m td{padding:2px;border-top:1px solid #2A2A48;text-align:center;white-space:nowrap}
+.gw-none{color:#6B6A8A}
+.gw-dot{display:inline-flex;align-items:center;justify-content:center;gap:3px;min-width:40px;height:40px;padding:0 4px;border:none;border-radius:20px;background:transparent;color:#A084FF;font:inherit;font-size:11px;font-weight:700;cursor:pointer}
+.gw-dot::before{content:"";width:13px;height:13px;border-radius:50%;background:#A084FF}
+.gw-dot.no::before{background:transparent;border:2px solid #6B6A8A}
+.gw-dot:hover,.gw-dot[aria-pressed="true"]{background:#2A2A48}
+.gw-dot[aria-pressed="true"]{box-shadow:inset 0 0 0 2px #FF7A59}
+.gw-detail{margin-top:12px;min-height:72px;padding:12px 14px;border-left:3px solid #FF7A59;border-radius:0 12px 12px 0;background:#1C1C3A;font-size:14.5px;line-height:1.5}
+.gw-detail b{color:#FF7A59}
+.gw-note{font-size:12px;color:#A9A8C8;margin-top:8px}
+.dw-panel{display:flex;flex-direction:column;gap:12px;font-size:14.5px;line-height:1.55}
+.dw-panel[hidden]{display:none}
+.dw-tier{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center}
+.dw-tier i{display:block;height:12px;border-radius:6px;background:#A084FF}
+.dw-tier span{font-size:13.5px;color:#C9C8E0}
+.dw-card{background:#F7F5F0;color:#14142B;border-radius:16px;padding:18px}
+.dw-card b{font-family:Syne,'Arial Black',sans-serif;font-size:19px}
+.dw-card p{margin:6px 0 0;font-size:14px;line-height:1.5;color:#34334F}
+.dw-mark{background:#FFD9CC;padding:0 3px;border-radius:3px}
+.dw-btn{display:inline-block;margin-top:10px;padding:8px 14px;border-radius:999px;background:#14142B;color:#F7F5F0;font-size:12px;font-weight:700;letter-spacing:1px}
+.dw-stat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.dw-stat div{border:1px solid #3A3A5C;border-radius:14px;padding:14px}
+.dw-stat b{display:block;font-family:Syne,'Arial Black',sans-serif;font-size:26px}
+.dw-stat span{font-size:12.5px;color:#C9C8E0;line-height:1.4}
+.dw-c{border:1px solid #3A3A5C;border-radius:14px;padding:14px}
+.dw-c .who{font-size:12px;font-weight:700;color:#A9A8C8;margin-bottom:4px}
+.dw-c.me{border-color:#FF7A59;margin-left:24px}
+.dw-link{color:#A084FF;text-decoration:underline}
+@media (prefers-reduced-motion:reduce){.gw-fill{transition:none}}
+@media (max-width:480px){.gw-kpis,.dw-stat{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <div style="width: 100%; min-height: 100vh; display: flex; flex-direction: column; background: #F7F5F0; font-family: 'DM Sans', 'Helvetica Neue', sans-serif; color: #14142B">
@@ -44,7 +95,70 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 
 <section style="background: #F7F5F0; padding: clamp(64px, 8vw, 112px) 5%">
 <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(40px, 5vw, 72px); align-items: start">
-<div style="min-height: 460px; border-radius: 24px; background: #14142B; display: flex; align-items: center; justify-content: center; padding: 32px; text-align: center; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 14px; color: #A9A8C8">[PROJECT IMAGE: anonymized GEO dashboard or prompt-testing framework]</div>
+<div class="gw" aria-label="Interactive AI visibility tracker">
+<div class="gw-head"><span>AI visibility tracker</span><span>2025–2026 · client data anonymized</span></div>
+<div class="gw-kpis">
+<div class="gw-kpi"><b>24</b><span>Live placements tracked for AI citation</span></div>
+<div class="gw-kpi"><b>5</b><span>AI and search surfaces monitored</span></div>
+<div class="gw-kpi"><b>80%</b><span>Peak AI share of voice vs. competitors</span></div>
+</div>
+<div>
+<h3 class="gw-h">AI share of voice by platform</h3>
+<p class="gw-sub">Apparel-design campaign. Choose a tracked prompt.</p>
+<div class="gw-tabs" role="group" aria-label="Tracked prompt">
+<button type="button" class="gw-tab" aria-pressed="false" data-gw-prompt="30,62.5,46.7">Prompt A</button>
+<button type="button" class="gw-tab" aria-pressed="true" data-gw-prompt="80,40,80">Prompt B</button>
+</div>
+<div class="gw-bar"><span>AI Overviews</span><div class="gw-track"><div class="gw-fill" style="width:80%"></div></div><span class="gw-val">80%</span></div>
+<div class="gw-bar"><span>ChatGPT</span><div class="gw-track"><div class="gw-fill" style="width:40%"></div></div><span class="gw-val">40%</span></div>
+<div class="gw-bar"><span>Gemini</span><div class="gw-track"><div class="gw-fill" style="width:80%"></div></div><span class="gw-val">80%</span></div>
+<p class="gw-note">Share of voice = brand mentions ÷ all brand mentions in the AI answer. Both tracked prompts include the brand name.</p>
+</div>
+<div>
+<h3 class="gw-h">Visibility matrix</h3>
+<p class="gw-sub">Select a dot to see what each AI platform returned.</p>
+<div class="gw-scroll">
+<table class="gw-m">
+<thead><tr><th scope="col">Campaign</th><th scope="col">AI Overviews</th><th scope="col">ChatGPT</th><th scope="col">Gemini</th><th scope="col">Perplexity</th><th scope="col">Google</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="font-size:14px;color:#F7F5F0;font-weight:500">AI logo maker</th>
+<td><button type="button" class="gw-dot" data-t="Brand mentioned and campaign page linked at position 1.">#1</button></td>
+<td><button type="button" class="gw-dot" data-t="Brand mentioned with a product link for 2 of 3 tested prompts."></button></td>
+<td class="gw-none">–</td><td class="gw-none">–</td>
+<td><button type="button" class="gw-dot" data-t="Placement article ranks #1 for the tracked prompt.">#1</button></td></tr>
+<tr><th scope="row" style="font-size:14px;color:#F7F5F0;font-weight:500">AI flyer generator</th>
+<td><button type="button" class="gw-dot" data-t="Brand mentioned and campaign page linked in the AI Overview."></button></td>
+<td><button type="button" class="gw-dot" data-t="Brand and anchor text mentioned; product link still to win."></button></td>
+<td class="gw-none">–</td><td class="gw-none">–</td>
+<td><button type="button" class="gw-dot" data-t="Product page ranks #3 for a tracked prompt.">#3</button></td></tr>
+<tr><th scope="row" style="font-size:14px;color:#F7F5F0;font-weight:500">Business card maker</th>
+<td><button type="button" class="gw-dot" data-t="Brand and product page cited at positions 3 and 4.">#3</button></td>
+<td><button type="button" class="gw-dot" data-t="Brand and product pages linked, and included in ChatGPT's final recommendation."></button></td>
+<td class="gw-none">–</td><td class="gw-none">–</td>
+<td><button type="button" class="gw-dot" data-t="Placement article ranks #1, with the product page linked.">#1</button></td></tr>
+<tr><th scope="row" style="font-size:14px;color:#F7F5F0;font-weight:500">Hoodie designer</th>
+<td><button type="button" class="gw-dot" data-t="Brand cited with the campaign page at position 1; share of voice up to 80%.">#1</button></td>
+<td><button type="button" class="gw-dot" data-t="Brand and campaign page linked; share of voice up to 62.5%."></button></td>
+<td><button type="button" class="gw-dot" data-t="Brand mentioned and campaign page linked; share of voice up to 80%."></button></td>
+<td><button type="button" class="gw-dot" data-t="Brand mentioned and the placement article cited as a source."></button></td>
+<td><button type="button" class="gw-dot" data-t="Placement article ranks #1 for the tracked prompt.">#1</button></td></tr>
+<tr><th scope="row" style="font-size:14px;color:#F7F5F0;font-weight:500">Resume builder</th>
+<td><button type="button" class="gw-dot no" data-t="Tested, not visible yet. Prompts are being refined for the next round."></button></td>
+<td><button type="button" class="gw-dot" data-t="Brand mentioned 5 times, ahead of the leading competitor."></button></td>
+<td><button type="button" class="gw-dot no" data-t="Tested, not visible yet. Prompts are being refined for the next round."></button></td>
+<td class="gw-none">–</td>
+<td><button type="button" class="gw-dot" data-t="Product page ranks #6, on page one.">#6</button></td></tr>
+<tr><th scope="row" style="font-size:14px;color:#F7F5F0;font-weight:500">Mood board</th>
+<td><button type="button" class="gw-dot no" data-t="Tested, not visible yet."></button></td>
+<td class="gw-none">–</td>
+<td><button type="button" class="gw-dot no" data-t="Tested, not visible yet."></button></td>
+<td class="gw-none">–</td>
+<td><button type="button" class="gw-dot" data-t="Placement article ranks #1, with the product page linked.">#1</button></td></tr>
+</tbody></table></div>
+<div class="gw-detail" role="status" aria-live="polite"><b>Hoodie designer · AI Overviews:</b> Brand cited with the campaign page at position 1; share of voice up to 80%.</div>
+<p class="gw-note">Filled dot: brand visible. Open dot: tested, not visible yet. Dash: not tested. Number: best position.</p>
+</div>
+</div>
 <div style="display: flex; flex-direction: column; gap: 22px">
 <div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #5B3FD9">[01] Adobe · via Envision · 2022 – Now</div>
 <h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.05; letter-spacing: -0.03em">Enterprise GEO &amp; AEO program</h2>
@@ -73,7 +187,64 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 <section style="background: #EFECE4; padding: clamp(64px, 8vw, 112px) 5%">
 <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(40px, 5vw, 72px); align-items: start">
 <div style="display: flex; flex-direction: column; gap: 22px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #5B3FD9">[02] Southwest Mobile Storage · 2019</div>
+<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #5B3FD9">[02] Adobe Firefly · via Envision · 2026</div>
+<h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.05; letter-spacing: -0.03em">Directory listings built for AI search</h2>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 17px">The challenge</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">Earn trusted placements for Firefly's AI generator tools in the places search engines and AI assistants both read, without the spam risk of old-school directory blasts.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 17px">The approach</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">I screened directories by authority, traffic and AI-visibility score, used a backlink-gap audit to find directories that listed competitors but not Firefly, and wrote unique listings that pair the brand with each target keyword. Submissions were staggered, and open comment sections became a second source of links.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; padding-top: 8px">
+<div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px"><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 36px; line-height: 1">5</div><div style="font-size: 15px; line-height: 1.45; color: #4A4966">Listings live in the first two weeks</div></div>
+<div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px"><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 36px; line-height: 1">2×</div><div style="font-size: 15px; line-height: 1.45; color: #4A4966">Product links from a single comment reply</div></div>
+</div>
+</div>
+<div class="dw" aria-label="Interactive directory listing process">
+<div class="gw-head"><span>Directory program for AI search</span><span>4 steps · select one</span></div>
+<div class="gw-tabs" role="group" aria-label="Process step" style="margin:0">
+<button type="button" class="gw-tab" aria-pressed="true" data-dw="dw1">1 · Qualify</button>
+<button type="button" class="gw-tab" aria-pressed="false" data-dw="dw2">2 · Write</button>
+<button type="button" class="gw-tab" aria-pressed="false" data-dw="dw3">3 · Publish</button>
+<button type="button" class="gw-tab" aria-pressed="false" data-dw="dw4">4 · Extend</button>
+</div>
+<div class="dw-panel" id="dw1">
+<h3 class="gw-h" style="margin:0">Only directories worth an AI's attention</h3>
+<div class="dw-tier"><i style="width:100%"></i><span>Authority 50+: prioritize</span></div>
+<div class="dw-tier"><i style="width:70%"></i><span>30–49: worthwhile if relevant</span></div>
+<div class="dw-tier"><i style="width:40%;background:#6B6A8A"></i><span>Under 30: only if highly niche</span></div>
+<div class="dw-tier"><i style="width:18%;background:#3A3A5C"></i><span>Under 15: avoid</span></div>
+<p style="margin:0;color:#C9C8E0">Every prospect is also screened for site traffic, AI-visibility score, topical fit and spam risk. A backlink-gap audit surfaces directories that list competitors but not the brand.</p>
+</div>
+<div class="dw-panel" id="dw2" hidden>
+<h3 class="gw-h" style="margin:0">Brand + keyword, side by side</h3>
+<div class="dw-card"><b>Adobe Firefly AI Anime Generator</b>
+<p>Create anime-style characters and scenes with Adobe Firefly's free <span class="dw-mark">AI anime generator</span> using text prompts or reference images.</p>
+<span class="dw-btn">VIEW TOOL ↗</span></div>
+<p style="margin:0;color:#C9C8E0">Unique copy for every listing, with the brand name next to the target keyword so AI models connect the two. Two or three tracked AI prompts are woven in, without keyword stuffing.</p>
+</div>
+<div class="dw-panel" id="dw3" hidden>
+<h3 class="gw-h" style="margin:0">Steady, staggered publishing</h3>
+<div class="dw-stat"><div><b>5</b><span>Listings live in the first two weeks</span></div><div><b>3–5</b><span>New listings per week to start</span></div><div><b>10</b><span>Weekly target as the program scales</span></div></div>
+<p style="margin:0;color:#C9C8E0">Live listings carry the keyword in their FAQ sections, a product image, and a button linking to the product page.</p>
+</div>
+<div class="dw-panel" id="dw4" hidden>
+<h3 class="gw-h" style="margin:0">One reply, two product links</h3>
+<div class="dw-c"><div class="who">Directory visitor</div>The ability to create art for free is a nice touch. What types of styles can the AI generate?</div>
+<div class="dw-c me"><div class="who">Reply</div>Most styles: <span class="dw-link">anime</span>, <span class="dw-link">pixel art</span>, ink wash, cartoon, watercolor, oil painting and pop art.</div>
+<p style="margin:0;color:#C9C8E0">Directories with open comments allow helpful one-sentence answers that link related tools, earning extra links with no added outreach.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background: #F7F5F0; padding: clamp(64px, 8vw, 112px) 5%">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(40px, 5vw, 72px); align-items: start">
+<img src="/images/sms-campaign.jpg" alt="Southwest Mobile Storage holiday campaign: two promotional flyers for half-off container delivery beside the Google Analytics performance report" width="1600" height="1300" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 24px; background: #14142B">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #5B3FD9">[03] Southwest Mobile Storage · 2019</div>
 <h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.05; letter-spacing: -0.03em">Hyper-local paid media &amp; lead generation</h2>
 <div style="display: flex; flex-direction: column; gap: 6px">
 <h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 17px">The challenge</h3>
@@ -98,16 +269,15 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 </div>
 </div>
 </div>
-<div style="min-height: 460px; border-radius: 24px; background: #14142B; display: flex; align-items: center; justify-content: center; padding: 32px; text-align: center; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 14px; color: #A9A8C8">[PROJECT IMAGE: ad creative or landing page]</div>
 </div>
 </section>
 
-<section style="background: #F7F5F0; padding: clamp(64px, 8vw, 112px) 5%">
+<section style="background: #EFECE4; padding: clamp(64px, 8vw, 112px) 5%">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
 <h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.05; letter-spacing: -0.03em">More projects</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
 <div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5B3FD9">[03] 3Ships Legal · Digital PR</div>
+<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5B3FD9">[04] 3Ships Legal · Digital PR</div>
 <h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">Cold pitches that actually get answered</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4966">Full-cycle digital PR and link acquisition, with refined targeting and messaging to secure high-quality placements.</p>
 <div style="display: flex; gap: 24px; padding-top: 8px; margin-top: auto">
@@ -116,7 +286,7 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 </div>
 </div>
 <div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5B3FD9">[04] Meta · via TTEC · Paid social</div>
+<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5B3FD9">[05] Meta · via TTEC · Paid social</div>
 <h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">Portfolio-level advertiser coaching</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4966">Advised advertisers on targeting, creative testing, budgeting and scaling, and led A/B testing across multi-channel paid social.</p>
 <div style="display: flex; gap: 24px; padding-top: 8px; margin-top: auto">
@@ -124,7 +294,7 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 </div>
 </div>
 <div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5B3FD9">[05] Gr0 · Brow beauty bar · SEO</div>
+<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5B3FD9">[06] Gr0 · Brow beauty bar · SEO</div>
 <h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">From unranked to page one for “nano blading”</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4966">A newer brow beauty bar wasn't ranking for “nano blading” while its competitors were. I paired an on-page overhaul (meta title and description, a keyword-rich product page URL, and internal links from related pages) with digital PR, guest posts and backlinks.</p>
 <div style="display: flex; gap: 24px; padding-top: 8px; margin-top: auto">
@@ -163,5 +333,34 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 </footer>
 
 </div>
+<script>
+(function(){
+  document.querySelectorAll('.gw').forEach(function(w){
+    var tabs=w.querySelectorAll('[data-gw-prompt]'), fills=w.querySelectorAll('.gw-fill'), vals=w.querySelectorAll('.gw-val');
+    tabs.forEach(function(t){t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.setAttribute('aria-pressed',x===t?'true':'false');});
+      t.getAttribute('data-gw-prompt').split(',').forEach(function(v,i){fills[i].style.width=v+'%';vals[i].textContent=v+'%';});
+    });});
+    var detail=w.querySelector('.gw-detail'), heads=Array.prototype.map.call(w.querySelectorAll('.gw-m thead th'),function(h){return h.textContent;});
+    var dots=w.querySelectorAll('.gw-dot');
+    dots.forEach(function(d){
+      var row=d.closest('tr'), col=Array.prototype.indexOf.call(row.children,d.parentNode);
+      var label=row.querySelector('th').textContent+' · '+heads[col];
+      d.setAttribute('aria-label',label+(d.classList.contains('no')?': tested, not visible yet':': visible'));
+      if(label==='Hoodie designer · AI Overviews') d.setAttribute('aria-pressed','true'); else d.setAttribute('aria-pressed','false');
+      d.addEventListener('click',function(){
+        dots.forEach(function(x){x.setAttribute('aria-pressed',x===d?'true':'false');});
+        detail.innerHTML='';var b=document.createElement('b');b.textContent=label+':';detail.appendChild(b);detail.appendChild(document.createTextNode(' '+d.getAttribute('data-t')));
+      });
+    });
+  });
+  document.querySelectorAll('.dw').forEach(function(w){
+    var tabs=w.querySelectorAll('[data-dw]');
+    tabs.forEach(function(t){t.addEventListener('click',function(){
+      tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-pressed',on?'true':'false');document.getElementById(x.getAttribute('data-dw')).hidden=!on;});
+    });});
+  });
+})();
+</script>
 </body>
 </html>

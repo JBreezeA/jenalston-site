@@ -1,6 +1,6 @@
 <section class="faq" aria-label="Frequently asked questions">
 {% for item in page.faq %}<div class="faq-item">
 <h3>{{ item.q }}</h3>
-<p>{{ item.a }}</p>
+{{ item.a | markdownify }}
 </div>
 {% endfor %}</section>

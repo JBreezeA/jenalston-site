@@ -7,6 +7,11 @@ layout: null
   <url><loc>https://jenalston.com/about</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://jenalston.com/case-studies</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://jenalston.com/contact</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://jenalston.com/geo-aeo-services</loc></url>
+  <url><loc>https://jenalston.com/ai-visibility-audit</loc></url>
+  <url><loc>https://jenalston.com/seo-services</loc></url>
+  <url><loc>https://jenalston.com/enterprise-seo</loc></url>
+  <url><loc>https://jenalston.com/small-business-seo</loc></url>
   <url><loc>https://jenalston.com/blog/</loc><lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod></url>
 {% for post in site.posts %}  <url><loc>https://jenalston.com{{ post.url }}</loc><lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod></url>
 {% endfor %}</urlset>

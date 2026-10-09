@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Visibility Audit | Jennifer Alston, SEO &amp; AI Strategist</title>
+<meta name="description" content="Find out how ChatGPT, Gemini, Perplexity and Google AI describe your brand, where competitors win, and how to improve your visibility in AI search.">
+<link rel="canonical" href="https://jenalston.com/ai-visibility-audit">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Visibility Audit | Jennifer Alston, SEO &amp; AI Strategist">
+<meta property="og:description" content="Find out how ChatGPT, Gemini, Perplexity and Google AI describe your brand, where competitors win, and how to improve your visibility in AI search.">
+<meta property="og:url" content="https://jenalston.com/ai-visibility-audit">
+<meta property="og:image" content="https://jenalston.com/images/dashboard-case-study.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&amp;family=JetBrains+Mono:wght@500&amp;family=Syne:wght@700;800&amp;display=swap">
+<style>
+body{margin:0;background:#14142B}
+a{color:#F7F5F0}a:hover{color:#FF7A59}
+a:focus-visible,button:focus-visible{outline:3px solid #A084FF;outline-offset:3px}
+.page{width:100%;min-height:100vh;display:flex;flex-direction:column;background:#F7F5F0;font-family:'DM Sans','Helvetica Neue',sans-serif;color:#14142B}
+.sec{padding:clamp(64px,8vw,112px) 5%}
+.wrap{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+.dark{background:#14142B;color:#F7F5F0}.sand{background:#EFECE4}
+.lab{font-family:'JetBrains Mono','Courier New',monospace;font-weight:500;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:#5B3FD9}
+.dark .lab{color:#A084FF}
+h1,h2,h3{font-family:Syne,'Arial Black',sans-serif;margin:0;letter-spacing:-0.03em}
+h1{font-weight:800;font-size:clamp(40px,5.6vw,80px);line-height:1.02;max-width:1000px}
+h2{font-weight:800;font-size:clamp(30px,3.8vw,52px);line-height:1.05;max-width:900px}
+h3{font-weight:700;font-size:23px;line-height:1.2;letter-spacing:-0.01em}
+.lede{margin:0;max-width:720px;font-size:clamp(18px,1.6vw,21px);line-height:1.6;color:#C9C8E0}
+.prose{max-width:760px;display:flex;flex-direction:column;gap:16px}
+.prose p,.card p,.faq p,.steps p{margin:0;font-size:18px;line-height:1.65;color:#34334F}
+.prose a,.card a,.faq a,.steps a{color:#5B3FD9;text-underline-offset:3px}.prose a:hover,.card a:hover,.faq a:hover{color:#14142B}
+.prose ul{margin:0;padding-left:1.2em;font-size:18px;line-height:1.65;color:#34334F}.prose li{margin-bottom:6px}
+.dark p{color:#C9C8E0}
+.crumbs{font-family:'JetBrains Mono','Courier New',monospace;font-size:13px;letter-spacing:1px;color:#A9A8C8}
+.crumbs a{color:#A9A8C8;text-underline-offset:3px}.crumbs a:hover{color:#FF7A59}
+.btns{display:flex;flex-wrap:wrap;gap:16px;padding-top:8px}
+.btn{font-size:17px;font-weight:700;color:#14142B;background:#FF7A59;text-decoration:none;padding:18px 30px;border-radius:999px}
+.btn:hover{color:#14142B;background:#FF9478}
+.btn-ghost{font-size:17px;font-weight:700;color:#F7F5F0;border:2px solid #F7F5F0;text-decoration:none;padding:16px 28px;border-radius:999px}
+.echo{max-width:760px;padding:24px 28px;border:2px solid #A084FF;border-radius:18px;background:#FFFFFF}
+.echo .el{margin:0 0 6px;font-family:'JetBrains Mono','Courier New',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#5B3FD9}
+.echo .eq{margin:0 0 8px;font-family:Syne,'Arial Black',sans-serif;font-weight:700;font-size:21px;line-height:1.3;color:#14142B}
+.echo p:last-child{margin:0;font-size:18px;line-height:1.6;color:#34334F}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+.card{background:#FFFFFF;border:1px solid #DEDAD0;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:12px}
+.card .num{font-family:'JetBrains Mono','Courier New',monospace;font-size:14px;color:#5B3FD9}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px;padding:0;margin:0;list-style:none}
+.steps li{display:flex;flex-direction:column;gap:10px;padding-top:22px;border-top:2px solid #14142B}
+.steps .num{font-family:'JetBrains Mono','Courier New',monospace;font-size:14px;color:#5B3FD9}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px}
+.stat{display:flex;flex-direction:column;gap:10px}
+.stat i{display:block;width:36px;height:4px;background:#FF7A59;border-radius:2px}
+.stat b{font-family:Syne,'Arial Black',sans-serif;font-weight:800;font-size:56px;line-height:1;letter-spacing:-2px;color:#F7F5F0}
+.stat span{font-size:17px;line-height:1.5;color:#C9C8E0}
+.stat a{color:#F7F5F0;text-underline-offset:3px}
+.faq{max-width:860px;display:flex;flex-direction:column}
+.faq-item{padding:22px 0;border-top:1px solid #D6D2C6;display:flex;flex-direction:column;gap:8px}.faq-item:last-child{border-bottom:1px solid #D6D2C6}
+.faq h3{font-size:21px}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.related a{display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #DEDAD0;border-radius:18px;padding:26px;text-decoration:none;color:#14142B}
+.related a:hover{border-color:#5B3FD9;color:#14142B}
+.related b{font-family:Syne,'Arial Black',sans-serif;font-size:20px}
+.related span{font-size:16px;line-height:1.5;color:#4A4966}
+.cta{background:#FF7A59;padding:clamp(64px,8vw,112px) 5%}
+.cta .wrap{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.cta h2{color:#14142B;max-width:760px}
+.cta p{margin:8px 0 0;font-family:Fraunces,Georgia,serif;font-style:italic;font-size:clamp(20px,2vw,26px);color:#14142B}
+.cta a{font-size:18px;font-weight:700;color:#F7F5F0;background:#14142B;text-decoration:none;padding:20px 34px;border-radius:999px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "AI visibility audit", "serviceType": "AI search visibility audit", "description": "Find out how ChatGPT, Gemini, Perplexity and Google AI describe your brand, where competitors win, and how to improve your visibility in AI search.", "url": "https://jenalston.com/ai-visibility-audit", "areaServed": {"@type": "Country", "name": "United States"}, "provider": {"@type": "Person", "name": "Jennifer Alston", "jobTitle": "SEO & AI Strategist", "url": "https://jenalston.com/about", "sameAs": ["https://www.linkedin.com/in/jenniferalstonseostrategist/"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jenalston.com/"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://jenalston.com/#services"}, {"@type": "ListItem", "position": 3, "name": "AI visibility audit", "item": "https://jenalston.com/ai-visibility-audit"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which AI platforms do you test?", "acceptedAnswer": {"@type": "Answer", "text": "ChatGPT, Gemini, Perplexity, Google AI Overviews and Google AI Mode. Others, such as Claude or Microsoft Copilot, can be added when they matter to your customers."}}, {"@type": "Question", "name": "Do I have to hire you to carry out the plan?", "acceptedAnswer": {"@type": "Answer", "text": "No. The action plan is written so your own team can use it. If you'd like help, I can run the work as part of my GEO and AEO services."}}, {"@type": "Question", "name": "How is this different from an SEO audit?", "acceptedAnswer": {"@type": "Answer", "text": "An SEO audit looks at how your site ranks in search results. An AI visibility audit looks at whether AI tools mention, cite and recommend you. The two overlap, so the audit flags SEO issues too. See my SEO services for a full SEO audit."}}, {"@type": "Question", "name": "How often should I re-run the audit?", "acceptedAnswer": {"@type": "Answer", "text": "AI answers change as models and sources change. Most brands benefit from re-testing the same prompts monthly or quarterly to track the trend."}}]}</script>
+</head>
+<body>
+<div class="page">
+<header style="background: #14142B; padding: 20px 5%; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; border-bottom: 1px solid #2A2A48">
+<a href="/" aria-label="Jen Alston, home" style="display: flex; align-items: flex-start; gap: 3px; text-decoration: none; padding: 8px 0">
+<span style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 28px; line-height: 1; letter-spacing: -1px; color: #F7F5F0">jen alston</span>
+<span style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 11px; line-height: 1; color: #A084FF">[1]</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px">
+<a href="/about" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">About</a>
+<a href="/case-studies" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">Case Studies</a>
+<a href="/blog/" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">Blog</a>
+<a href="/contact" style="font-size: 16px; font-weight: 700; color: #14142B; background: #FF7A59; text-decoration: none; padding: 13px 24px; border-radius: 999px">Let's talk</a>
+</nav>
+</header>
+<main>
+<section class="sec dark">
+<div class="wrap" style="gap:26px">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/#services">Services</a> / <span aria-current="page">AI visibility audit</span></nav>
+<div class="lab">[1] AI visibility audit</div>
+<h1>AI visibility audit: see how AI search sees your brand</h1>
+<p class="lede">Find out whether ChatGPT, Gemini, Perplexity and Google's AI mention your brand, what they say about you, which competitors they recommend instead, and what to fix first.</p>
+<div class="btns"><a class="btn" href="/contact#book-a-call">Book a discovery call</a><a class="btn-ghost" href="/case-studies">See case studies</a></div>
+</div>
+</section>
+<section class="sec ">
+<div class="wrap">
+<div class="lab">[2] The basics</div>
+<h2>What is an AI visibility audit?</h2>
+<div class="echo"><p class="el">Quick answer</p><p class="eq">What is an AI visibility audit?</p><p>An AI visibility audit tests the questions your customers ask in AI tools and records whether your brand is mentioned, cited or linked, how it's described, and which competitors appear instead. It ends with a prioritized plan to improve your visibility.</p></div><div class="prose"><p>Search rankings don't show whether AI assistants recommend you. An audit fills that gap with a clear baseline you can measure against every month.</p></div>
+</div>
+</section>
+<section class="sec sand">
+<div class="wrap">
+<div class="lab">[3] The plan</div>
+<h2>How to improve your brand's visibility in AI search results</h2>
+<div class="prose"><p>Most brands improve their visibility in AI search results through three levers, and the audit tells you which one matters most for you:</p><ul><li><b>Clarity:</b> pages that answer real questions directly, with consistent brand and product details.</li><li><b>Credibility:</b> mentions and citations on the sites AI tools already trust in your category.</li><li><b>Access:</b> making sure AI crawlers can read your site and your structured data matches your content.</li></ul></div>
+</div>
+</section>
+<section class="sec ">
+<div class="wrap">
+<div class="lab">[4] What's included</div>
+<h2>What the audit includes</h2>
+<div class="cards"><div class="card"><div class="num">[01]</div><h3>Prompt testing</h3><p>Your customers' questions tested in fresh sessions across ChatGPT, Gemini, Perplexity, Google AI Overviews and AI Mode.</p></div><div class="card"><div class="num">[02]</div><h3>AI share of voice</h3><p>Your share of brand mentions against the competitors you choose, per platform. <a href="/blog/how-to-measure-ai-share-of-voice/">See the method</a>.</p></div><div class="card"><div class="num">[03]</div><h3>Citation source map</h3><p>The pages and publications each AI tool cites in your category, and where you're missing.</p></div><div class="card"><div class="num">[04]</div><h3>Brand accuracy and sentiment</h3><p>How AI tools describe your brand, products and pricing, and anything they get wrong.</p></div><div class="card"><div class="num">[05]</div><h3>Technical access check</h3><p>Whether AI search crawlers can reach your site, and whether your structured data supports your pages.</p></div><div class="card"><div class="num">[06]</div><h3>Prioritized action plan</h3><p>The changes most likely to move your visibility, in order, with a walkthrough call to go over the results.</p></div></div>
+</div>
+</section>
+<section class="sec sand">
+<div class="wrap">
+<div class="lab">[5] Tools</div>
+<h2>Tools and methods</h2>
+<div class="prose"><p>Every audit combines hands-on prompt testing with AI visibility tools, then cross-checks the results, because tools and manual tests don't always agree.</p><ul><li><a href="https://www.semrush.com/kb/1493-ai-visibility-toolkit" target="_blank" rel="noopener">Semrush AI Visibility Toolkit</a> for prompt tracking and competitor benchmarks</li><li><a href="https://ahrefs.com/brand-radar" target="_blank" rel="noopener">Ahrefs Brand Radar</a> for mentions, citations and share of voice at scale</li><li>Google Search Console's <a href="https://searchengineland.com/google-search-console-ai-performance-reports-and-search-generative-ai-control-rolling-out-globally-486269" target="_blank" rel="noopener">AI performance report</a> for how your pages perform in AI Overviews and AI Mode</li></ul></div>
+</div>
+</section>
+<section class="sec ">
+<div class="wrap">
+<div class="lab">[6] Who it's for</div>
+<h2>Who the audit is for</h2>
+<div class="prose"><ul><li><b>Business owners</b> who want to know whether AI tools recommend them. See <a href="/small-business-seo">small business SEO &amp; GEO</a>.</li><li><b>Marketing leaders</b> who need a baseline before investing in GEO. See <a href="/geo-aeo-services">GEO &amp; AEO services</a>.</li><li><b>Large brands</b> that want a benchmark across product lines. See <a href="/enterprise-seo">enterprise SEO &amp; GEO</a>.</li></ul></div>
+</div>
+</section>
+<section class="sec sand" id="faq">
+<div class="wrap">
+<div class="lab">Questions</div>
+<h2>Frequently asked questions</h2>
+<div class="faq"><div class="faq-item"><h3>Which AI platforms do you test?</h3><p>ChatGPT, Gemini, Perplexity, Google AI Overviews and Google AI Mode. Others, such as Claude or Microsoft Copilot, can be added when they matter to your customers.</p></div><div class="faq-item"><h3>Do I have to hire you to carry out the plan?</h3><p>No. The action plan is written so your own team can use it. If you'd like help, I can run the work as part of my <a href="/geo-aeo-services">GEO and AEO services</a>.</p></div><div class="faq-item"><h3>How is this different from an SEO audit?</h3><p>An SEO audit looks at how your site ranks in search results. An AI visibility audit looks at whether AI tools mention, cite and recommend you. The two overlap, so the audit flags SEO issues too. See my <a href="/seo-services">SEO services</a> for a full SEO audit.</p></div><div class="faq-item"><h3>How often should I re-run the audit?</h3><p>AI answers change as models and sources change. Most brands benefit from re-testing the same prompts monthly or quarterly to track the trend.</p></div></div>
+</div>
+</section>
+<section class="sec">
+<div class="wrap">
+<div class="lab">Keep exploring</div>
+<h2>Related services and guides</h2>
+<nav class="related" aria-label="Related pages"><a href="/geo-aeo-services"><b>GEO & AEO services</b><span>AI search optimization to get your brand mentioned and cited in AI answers.</span></a><a href="/small-business-seo"><b>Small business SEO & GEO</b><span>Plain-English SEO and AI search help for owners and startups.</span></a><a href="/seo-services"><b>SEO services</b><span>Technical, content and on-page SEO, digital PR and SEO-first websites.</span></a><a href="/blog/how-to-measure-ai-share-of-voice/"><b>Guide: How to measure AI share of voice</b><span>The method behind every AI visibility report.</span></a></nav>
+</div>
+</section>
+<section class="cta">
+<div class="wrap">
+<div><h2>Find out what AI says about you.</h2><p>Book a discovery call to scope your audit.</p></div>
+<a href="/contact#book-a-call">Book a discovery call</a>
+</div>
+</section>
+</main>
+<footer style="margin-top: auto; background: #14142B; padding: 56px 5%">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<a href="/" aria-label="Jen Alston, home" style="display: flex; align-items: flex-start; gap: 3px; text-decoration: none">
+<span style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px; line-height: 1; letter-spacing: -1px; color: #F7F5F0">jen alston</span>
+<span style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; line-height: 1; color: #A084FF">[1]</span>
+</a>
+<div style="font-family: Fraunces, Georgia, serif; font-style: italic; font-size: 20px; color: #F7F5F0">Discoverable by Design</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start">
+<a href="mailto:Jennifer@jenalston.com" style="font-size: 16px; color: #F7F5F0; padding: 8px 0">Jennifer@jenalston.com</a>
+<a href="https://www.linkedin.com/in/jenniferalstonseostrategist/" style="font-size: 16px; color: #F7F5F0; padding: 8px 0">LinkedIn</a>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 4px 22px; padding-top: 4px"><a href="/about" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">About</a><a href="/case-studies" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Case Studies</a><a href="/blog/" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Blog</a><a href="/contact" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Contact</a></nav>
+<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; letter-spacing: 1px; color: #A9A8C8; padding-top: 8px">© 2026 Jennifer Alston · jenalston.com · Working remotely in the US</div>
+</div>
+</div>
+</footer>
+</div>
+</body>
+</html>

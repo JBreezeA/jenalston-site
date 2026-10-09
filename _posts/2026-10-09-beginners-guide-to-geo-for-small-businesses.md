@@ -1,7 +1,7 @@
 ---
 title: "A Beginner's Guide to GEO for Small Businesses"
 description: "Customers are asking ChatGPT, Gemini and Google's AI for recommendations. Here's how small businesses can show up in those answers, in plain English, with a checklist you can start this week."
-date: 2026-10-09 10:00:00 -0400
+date: 2026-10-09 08:00:00 -0400
 image: /images/geo-guide-header.jpg
 image_alt: "Illustration of an AI assistant answering the question 'Who makes the best custom wedding cakes near me?' and recommending a local bakery first, with the bakery's website, customer reviews and local news listed as sources."
 faq:

@@ -14,7 +14,7 @@ faq:
 
 Rankings tell you where a page sits in Google. They don't tell you whether ChatGPT recommends you, whether Gemini names a competitor instead, or whether Google's AI Overview cites your product page or someone else's.
 
-**AI share of voice** answers that question. It's the metric I rely on most when running GEO (generative engine optimization) and AEO (answer engine optimization) programs, and you can start measuring it today with nothing more than a spreadsheet.
+**AI share of voice** answers that question. It's the metric I rely on most when running [GEO (generative engine optimization)](/blog/beginners-guide-to-geo-for-small-businesses/) and AEO (answer engine optimization) programs, and you can start measuring it today with nothing more than a spreadsheet.
 
 <div class="takeaways" markdown="1">
 

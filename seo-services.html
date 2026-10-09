@@ -85,7 +85,19 @@ h3{font-weight:700;font-size:23px;line-height:1.2;letter-spacing:-0.01em}
 <nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px">
 <a href="/about" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">About</a>
 <a href="/case-studies" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">Case Studies</a>
-<a href="/#services" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">Services</a>
+<details class="nav-dd" style="position: relative">
+<summary style="list-style: none; cursor: pointer; font-size: 16px; font-weight: 500; color: #F7F5F0; padding: 12px 0">Services <span aria-hidden="true" style="font-size: 11px; color: #FF7A59">&#9660;</span></summary>
+<div style="position: absolute; top: 100%; left: -18px; z-index: 50; min-width: 240px; max-width: calc(100vw - 32px); background: #1E1E3A; border: 1px solid #3A3960; border-radius: 14px; padding: 10px; display: flex; flex-direction: column; box-shadow: 0 16px 40px rgba(0,0,0,.35)">
+<a href="/geo-aeo-services" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">GEO &amp; AEO Services</a>
+<a href="/ai-visibility-audit" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">AI Visibility Audit</a>
+<a href="/seo-services" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">SEO Services</a>
+<a href="/enterprise-seo" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">Enterprise SEO &amp; GEO</a>
+<a href="/small-business-seo" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">Small Business SEO &amp; GEO</a>
+<a href="/#services" style="font-size: 14px; color: #A084FF; text-decoration: none; padding: 10px 12px; margin-top: 4px; border-top: 1px solid #3A3960">All services &#8594;</a>
+</div>
+</details>
+<style>.nav-dd summary::-webkit-details-marker{display:none}.nav-dd a:hover{background:#2A2950}.nav-dd[open] summary span{display:inline-block;transform:rotate(180deg)}@media (max-width:640px){.nav-dd>div{position:fixed!important;top:auto!important;left:16px!important;right:16px!important;min-width:0!important;max-width:none!important}}</style>
+<script>document.addEventListener('click',function(e){document.querySelectorAll('details.nav-dd[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('details.nav-dd[open]').forEach(function(d){d.removeAttribute('open')})});window.addEventListener('scroll',function(){if(window.innerWidth<=640)document.querySelectorAll('details.nav-dd[open]').forEach(function(d){d.removeAttribute('open')})},{passive:true});</script>
 <a href="/blog/" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">Blog</a>
 <a href="/contact" style="font-size: 16px; font-weight: 700; color: #14142B; background: #FF7A59; text-decoration: none; padding: 13px 24px; border-radius: 999px">Let's talk</a>
 </nav>
@@ -175,7 +187,7 @@ h3{font-weight:700;font-size:23px;line-height:1.2;letter-spacing:-0.01em}
 <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start">
 <a href="mailto:Jennifer@jenalston.com" style="font-size: 16px; color: #F7F5F0; padding: 8px 0">Jennifer@jenalston.com</a>
 <a href="https://www.linkedin.com/in/jenniferalstonseostrategist/" style="font-size: 16px; color: #F7F5F0; padding: 8px 0">LinkedIn</a>
-<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 4px 22px; padding-top: 4px"><a href="/about" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">About</a><a href="/case-studies" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Case Studies</a><a href="/blog/" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Blog</a><a href="/contact" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Contact</a></nav>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 4px 22px; padding-top: 4px"><a href="/about" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">About</a><a href="/case-studies" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Case Studies</a><a href="/#services" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Services</a><a href="/blog/" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Blog</a><a href="/contact" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Contact</a></nav>
 <div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; letter-spacing: 1px; color: #A9A8C8; padding-top: 8px">© 2026 Jennifer Alston · jenalston.com · Working remotely in the US</div>
 </div>
 </div>

@@ -1,6 +1,6 @@
 ---
 title: "How to Measure AI Share of Voice"
-description: "A practical method for tracking how often AI assistants mention your brand compared with competitors, with the formula, a worked example and the mistakes that skew the number."
+description: "How to track how often AI assistants mention your brand vs. competitors, with the formula, a worked example and the mistakes that skew the number."
 date: 2026-10-06 09:00:00 -0400
 last_modified_at: 2026-10-07 09:00:00 -0400
 faq:

@@ -1,9 +1,7 @@
 name: Submit changed pages to IndexNow
 
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:   # lets you run it by hand from the Actions tab (submits every page)
+# Runs on every commit, and by hand from the Actions tab (Run workflow submits every page)
+on: [push, workflow_dispatch]
 
 jobs:
   indexnow:
@@ -59,4 +57,3 @@ jobs:
                    -H 'Content-Type: application/json; charset=utf-8' -d "$body")
           echo "IndexNow response: $code"
           if [ "$code" != "200" ] && [ "$code" != "202" ]; then exit 1; fi
-

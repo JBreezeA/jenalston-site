@@ -1,5 +1,5 @@
 ---
-title: "A Beginner's Guide to GEO for Small Businesses"
+title: "GEO for Small Businesses: A Beginner's Guide"
 description: "Customers are asking ChatGPT, Gemini and Google's AI for recommendations. Here's how small businesses can show up in those answers, in plain English, with a checklist you can start this week."
 date: 2026-10-09 08:00:00 -0400
 image: /images/geo-guide-header.jpg

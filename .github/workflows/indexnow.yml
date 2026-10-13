@@ -1,1 +1,62 @@
+name: Submit changed pages to IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # lets you run it by hand from the Actions tab (submits every page)
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Wait for GitHub Pages to publish
+        run: sleep 120
+
+      - name: Work out which pages changed and submit them
+        env:
+          KEY: bejwbup62gfa5qjhddusb67w69upqaz6
+          SITE: https://jenalston.com
+        run: |
+          set -e
+          all_pages() {
+            curl -s "$SITE/sitemap.xml" | grep -o '<loc>[^<]*</loc>' | sed 's#<loc>##; s#</loc>##'
+          }
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            urls=$(all_pages)
+          else
+            changed=$(git diff --name-only HEAD~1 HEAD || true)
+            echo "Changed files:"; echo "$changed"
+            if echo "$changed" | grep -qE '^_layouts/|^_includes/|^_config\.yml$'; then
+              urls=$(all_pages)          # a shared template changed, so every page changed
+            else
+              urls=""
+              for f in $changed; do
+                case "$f" in
+                  index.html)      urls="$urls $SITE/" ;;
+                  404.html|thanks.html) ;;   # hidden pages, skip
+                  blog/index.html) urls="$urls $SITE/blog/" ;;
+                  _posts/*.md)
+                    slug=$(basename "$f" .md | sed -E 's/^[0-9]{4}-[0-9]{2}-[0-9]{2}-//')
+                    urls="$urls $SITE/blog/$slug/ $SITE/blog/" ;;
+                  *.html)          urls="$urls $SITE/$(basename "$f" .html)" ;;
+                esac
+              done
+            fi
+          fi
+
+          urls=$(echo $urls | tr ' ' '\n' | grep -v '^$' | sort -u)
+          if [ -z "$urls" ]; then echo "No page changes to submit."; exit 0; fi
+
+          echo "Submitting:"; echo "$urls"
+          list=$(echo "$urls" | sed 's/.*/"&"/' | paste -sd, -)
+          body="{\"host\":\"jenalston.com\",\"key\":\"$KEY\",\"keyLocation\":\"$SITE/$KEY.txt\",\"urlList\":[$list]}"
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST https://api.indexnow.org/indexnow \
+                   -H 'Content-Type: application/json; charset=utf-8' -d "$body")
+          echo "IndexNow response: $code"
+          if [ "$code" != "200" ] && [ "$code" != "202" ]; then exit 1; fi
 

@@ -19,13 +19,13 @@ A growing number of your customers no longer type "plumber near me" and scroll t
 
 The businesses named in those answers get the call. The rest don't get a chance.
 
-Getting named is what **GEO**, or generative engine optimization, is about. If you're a small business owner who has heard the term and wondered whether it applies to you, this guide is for you.
+Getting named is what **GEO**, or generative engine optimization, is about. If you're a small business owner, whether you run a local business or a small B2B company, and you've wondered whether GEO applies to you, this guide is for you.
 
 <div class="takeaways" markdown="1">
 
 ## Key takeaways {#key-takeaways}
 
-- **GEO makes your business easy for AI tools to recommend.** That includes ChatGPT, Gemini, Perplexity and Google's AI Overviews.
+- **GEO makes your business easy for AI tools to recommend.** That includes AI platforms like ChatGPT, Gemini, Perplexity and Google's AI Overviews.
 - **GEO builds on SEO.** The goal shifts from ranking in a list of links to being mentioned, cited or recommended inside the answer.
 - **AI tools favor businesses that are** easy to identify, clearly described, talked about by others and useful to quote.
 - **Start with a baseline:** ask five customer questions in four AI tools, then fix your listings, answer real questions on your site and earn mentions.
@@ -41,10 +41,11 @@ Getting named is what **GEO**, or generative engine optimization, is about. If y
 2. [Is GEO different from SEO?](#geo-vs-seo)
 3. [How AI tools decide who to recommend](#how-ai-tools-decide)
 4. [7 steps to get started](#seven-steps)
-5. [What GEO can't do](#what-geo-cant-do)
-6. [Your quick-start checklist](#quick-start-checklist)
-7. [Frequently asked questions](#frequently-asked-questions)
-8. [Summary](#summary)
+5. [A GEO plan for a B2B business](#geo-plan-for-b2b)
+6. [What GEO can't do](#what-geo-cant-do)
+7. [Your quick-start checklist](#quick-start-checklist)
+8. [Frequently asked questions](#frequently-asked-questions)
+9. [Summary](#summary)
 
 </nav>
 
@@ -68,7 +69,7 @@ You'll also hear **AEO** (answer engine optimization). The two overlap heavily. 
 <p>SEO aims to rank your pages high in search results. GEO aims to get your business mentioned, cited or recommended inside AI-generated answers. GEO builds on SEO, because AI tools often draw on the websites that already rank well.</p>
 </div>
 
-GEO builds on SEO rather than replacing it. AI tools often pull from search results and the websites that rank well, so the basics of SEO still matter: a fast, clear website, helpful content and a solid Google Business Profile.
+GEO builds on SEO rather than replacing it. AI systems often pull from search engine results and the websites that rank well in traditional search, so the basics of SEO still matter: a fast, clear website, helpful content and a solid Google Business Profile.
 
 What changes is the goal. SEO aims for a high ranking. GEO aims for a mention, a citation or a recommendation inside the answer itself, and AI tools gather evidence from more places than your website alone: reviews, directories, local news, forums and articles that compare businesses like yours.
 
@@ -116,7 +117,7 @@ Check your Google Business Profile, Bing Places, Apple Business Connect, Yelp, F
 
 ### 3. Answer real customer questions on your website
 
-Add a frequently asked questions section, and give each service its own page. Start each answer with a direct, one- or two-sentence reply, then add detail. Include the specifics people actually want: the areas you serve, typical price ranges, how long a job takes and what the process looks like. Specific, quotable answers are exactly what AI tools look for.
+Add a frequently asked questions section, and give each service its own page. Start each answer with a direct, one- or two-sentence reply, then add detail. Include the specifics people actually want: your service areas, typical price ranges, how long a job takes and what the process looks like. Specific, quotable answers are exactly what AI tools look for.
 
 ### 4. Add structured data to your site
 
@@ -124,7 +125,7 @@ Structured data, or schema markup, is behind-the-scenes code that labels your bu
 
 ### 5. Earn mentions in the places AI looks
 
-Ask happy customers for reviews, and reply to them. Get listed in [reputable directories](/case-studies#directory-listings) for your industry and city. Pitch local news outlets and bloggers who publish "best of" roundups in your area. Take part genuinely in community forums where your customers ask for recommendations. Every trustworthy mention is another piece of evidence that you're a real, recommended business.
+Ask happy customers for reviews, and reply to them. Get listed in [reputable directories](/case-studies#directory-listings) for your industry and city. Pitch local news outlets and bloggers who publish "best of" roundups of local businesses in your area. If you sell to other businesses, B2B marketing channels count too: industry associations, partner pages and trade publications. Take part genuinely in community forums where your customers ask for recommendations. Every trustworthy mention is another piece of evidence that you're a real, recommended business.
 
 ### 6. Put your name next to what you do
 
@@ -134,11 +135,25 @@ AI tools learn by noticing which words appear together. "Sunrise Bakery makes cu
 
 Some website setups block AI crawlers without the owner realizing it. Ask your web developer, or check your site's robots.txt file, to confirm you're not blocking AI search crawlers such as OAI-SearchBot (ChatGPT search) and PerplexityBot, unless you've made that choice on purpose.
 
-## What GEO can't do {#what-geo-cant-do}
+## A GEO plan for a B2B business {#geo-plan-for-b2b}
+
+<div class="echo">
+<p class="echo-label">Quick answer</p>
+<p class="echo-q">What does a GEO plan for a B2B business look like?</p>
+<p>A GEO plan for a B2B business follows the same steps as any small business, but it focuses on the questions buyers ask when comparing vendors, the proof they look for, and the industry sources AI tools trust, such as trade publications and review sites.</p>
+</div>
+
+The seven steps above work for B2B companies too. What changes is who's asking and where the AI looks for answers:
+
+- **Test buyer questions, not "near me" searches.** B2B buyers ask things like "best accounting firm for construction companies" or "which payroll software works for a 50-person team." Use those comparison and shortlist questions for your baseline.
+- **Publish proof AI can quote.** Case studies with real numbers, clear service or product pages, and honest comparison pages give AI tools specifics to cite.
+- **Show up in the sources your industry trusts.** Trade publications, industry associations, review sites such as G2 or Clutch, and partner pages carry more weight than local directories.
+- **Keep your company description consistent.** Use the same one- or two-sentence description on your website, LinkedIn and every listing, so AI tools describe you the same way.
+- **Measure against named competitors.** Track how often you appear compared with the three to five companies you lose deals to. My guide to [measuring AI share of voice](/blog/how-to-measure-ai-share-of-voice/) walks through the method.
 
 GEO can't guarantee that a specific AI tool will recommend you for a specific question. Answers vary between tools, between users and from one day to the next. Be wary of anyone who promises a guaranteed top spot in ChatGPT.
 
-What GEO can do is raise the odds that you're mentioned and let you measure whether your visibility is improving over time.
+What good GEO strategies can do is raise the odds that you're mentioned and let you measure whether your visibility is improving over time.
 
 ## Your quick-start checklist {#quick-start-checklist}
 

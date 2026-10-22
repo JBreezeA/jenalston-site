@@ -63,4 +63,4 @@ This repository is the source for my portfolio site: a fast, SEO-first static si
 
 ☕ Built with a lot of coffee. 🐈 Quality-checked by cats.
 
-© 2026 Jennifer Alston · [jenalston.com](https://jenalston.com) · [LinkedIn](https://www.linkedin.com/in/jenniferalstonseostrategist/)
+© 2026 Jennifer Alston · [jenalston.com](https://jenalston.com) · [LinkedIn](https://www.linkedin.com/in/jenniferalstonseo/)

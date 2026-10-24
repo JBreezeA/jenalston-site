@@ -1,6 +1,8 @@
 {%- assign seo_title = page.social_title | default: page.title -%}
 {%- assign seo_desc = page.social_description | default: page.description -%}
 {%- assign seo_image = page.social_image | default: "/images/jenalston-social.jpg" -%}
+{%- assign seo_image_url = site.url | append: seo_image -%}
+{%- if seo_image == "/images/jenalston-social.jpg" %}{% assign seo_image_url = seo_image_url | append: "?v=2" %}{% endif -%}
 <title>{{ page.title | escape }}</title>
 <meta name="description" content="{{ page.description | escape }}">
 <link rel="canonical" href="{{ site.url }}{{ page.canonical }}">
@@ -10,7 +12,7 @@
 <meta property="og:title" content="{{ seo_title | escape }}">
 <meta property="og:description" content="{{ seo_desc | escape }}">
 <meta property="og:url" content="{{ site.url }}{{ page.canonical }}">
-<meta property="og:image" content="{{ site.url }}{{ seo_image }}">
+<meta property="og:image" content="{{ seo_image_url }}">
 {%- if seo_image == "/images/jenalston-social.jpg" %}
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1260">
@@ -19,4 +21,4 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ seo_title | escape }}">
 <meta name="twitter:description" content="{{ seo_desc | escape }}">
-<meta name="twitter:image" content="{{ site.url }}{{ seo_image }}">
+<meta name="twitter:image" content="{{ seo_image_url }}">

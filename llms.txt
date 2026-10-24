@@ -25,6 +25,10 @@ Key facts:
 - [Enterprise SEO & GEO](https://jenalston.com/enterprise-seo): SEO and AI search programs for large organizations, with frameworks, dashboards and vendor coordination.
 - [Small Business SEO & GEO](https://jenalston.com/small-business-seo): Plain-English SEO and AI search help for small businesses and startups.
 
+## Free tools
+
+- [AI Share of Voice Calculator](https://jenalston.com/ai-share-of-voice-calculator): Paste answers from ChatGPT, Gemini, Perplexity and Google AI Overviews to count brand mentions and website citations, and calculate mention share of voice and citation share of voice by platform, including citations of specific pages. Runs in the browser; no sign-up.
+
 ## Guides
 
 - [How to Measure AI Share of Voice](https://jenalston.com/blog/how-to-measure-ai-share-of-voice/): A step-by-step method and formula for tracking how often AI assistants mention a brand compared with competitors.

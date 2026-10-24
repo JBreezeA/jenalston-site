@@ -63,8 +63,8 @@
 </div>
 </div>
 
-<form class="u174" id="contact-form" name="contact" method="POST" action="https://formspree.io/f/xrpeeeeq">
-<input type="hidden" name="_subject" value="New project inquiry from jenalston.com"><p hidden><label>Leave this empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+<form class="u174" id="contact-form" name="contact" method="POST" action="https://api.web3forms.com/submit">
+<input type="hidden" name="access_key" value="b2463cb8-1859-47ed-b1a9-493206be0a6d"><input type="hidden" name="subject" value="New project inquiry from jenalston.com"><input type="hidden" name="from_name" value="jenalston.com Contact Form"><p hidden><label>Leave this empty: <input name="botcheck" tabindex="-1" autocomplete="off"></label></p>
 <h2 class="u175">Start a project</h2>
 <div class="u127">
 <div class="u56">
@@ -183,7 +183,10 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   var form = this, status = document.getElementById('form-status'), btn = form.querySelector('button[type=submit]');
   btn.disabled = true; btn.textContent = 'Sending…'; status.textContent = '';
   try {
-    var res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+    var data = new FormData(form), who = (data.get('name') || '').trim() || 'Someone';
+    data.set('from_name', who + ' via jenalston.com');
+    data.set('subject', 'New project inquiry from ' + who);
+    var res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
     if (res.ok) { window.location.href = '/thanks'; return; }
     throw new Error();
   } catch (err) {

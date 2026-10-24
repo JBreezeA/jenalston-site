@@ -33,10 +33,10 @@
 .dw-tier{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center}
 .dw-tier i{display:block;height:12px;border-radius:6px;background:#A084FF}
 .dw-tier span{font-size:13.5px;color:#C9C8E0}
-.dw-card{background:#F7F5F0;color:#14142B;border-radius:16px;padding:18px}
+.dw-card{background:#FFFFFF;color:#14142B;border-radius:16px;padding:18px}
 .dw-card b{font-family:Syne,'Arial Black',sans-serif;font-size:19px}
 .dw-card p{margin:6px 0 0;font-size:14px;line-height:1.5;color:#34334F}
-.dw-mark{background:#FFD9CC;padding:0 3px;border-radius:3px}
+.dw-mark{background:#C9F1EA;padding:0 3px;border-radius:3px}
 .dw-btn{display:inline-block;margin-top:10px;padding:8px 14px;border-radius:999px;background:#14142B;color:#F7F5F0;font-size:12px;font-weight:700;letter-spacing:1px}
 .dw-stat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .dw-stat div{border:1px solid #3A3A5C;border-radius:14px;padding:14px}

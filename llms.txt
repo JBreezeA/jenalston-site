@@ -12,7 +12,8 @@ Key facts:
 ## Main pages
 
 - [Home](https://jenalston.com/): Overview of Jennifer Alston's SEO, GEO and AEO services and recent results.
-- [About](https://jenalston.com/about): Background, experience and approach.
+- [About](https://jenalston.com/about): Background, featured wins, how Jennifer works, client experience, experience and credentials.
+- [Expertise](https://jenalston.com/expertise): Overview of all services, from SEO audits and AI search optimization to design, with links to proof.
 - [Case Studies](https://jenalston.com/case-studies): Results from enterprise GEO, AI-focused directory listings, local SEO, digital PR, paid media, and UX and web design projects.
 - [Contact](https://jenalston.com/contact): Start a project or book a discovery call.
 

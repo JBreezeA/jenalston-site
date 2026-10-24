@@ -8,7 +8,7 @@ This repository is the source for my portfolio site: a fast, SEO-first static si
 
 [![Visit the site](https://img.shields.io/badge/Visit%20jenalston.com-14142B?style=for-the-badge)](https://jenalston.com)
 [![Read the blog](https://img.shields.io/badge/Read%20the%20blog-A084FF?style=for-the-badge)](https://jenalston.com/blog/)
-[![Let's talk](https://img.shields.io/badge/Let's%20talk-FF7A59?style=for-the-badge)](https://jenalston.com/contact)
+[![Let's talk](https://img.shields.io/badge/Let's%20talk-7FDCCF?style=for-the-badge)](https://jenalston.com/contact)
 
 ---
 

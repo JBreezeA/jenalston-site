@@ -22,71 +22,68 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&amp;family=JetBrains+Mono:wght@500&amp;family=Syne:wght@700;800&amp;display=swap">
-<style>
-body{margin:0;background:#14142B}
-a{color:#F7F5F0}a:hover{color:#FF7A59}
-</style>
-<style>a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #A084FF;outline-offset:3px}</style>
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
 </head>
 <body>
-<div style="width: 100%; min-height: 100vh; display: flex; flex-direction: column; background: #F7F5F0; font-family: 'DM Sans', 'Helvetica Neue', sans-serif; color: #14142B">
+<div class="u46">
 
-<header style="background: #14142B; padding: 20px 5%; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; border-bottom: 1px solid #2A2A48">
-<a href="/" aria-label="Jen Alston, home" style="display: flex; align-items: flex-start; gap: 3px; text-decoration: none; padding: 8px 0">
-<span style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 28px; line-height: 1; letter-spacing: -1px; color: #F7F5F0">jen alston</span>
-<span style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 11px; line-height: 1; color: #A084FF">[1]</span>
+<header class="u8">
+<a class="u9" href="/" aria-label="Jen Alston, home">
+<span class="u10">jen alston</span>
+<span class="u11">[1]</span>
 </a>
-<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px">
-<a href="/about" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">About</a>
-<a href="/case-studies" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">Case Studies</a>
-<details class="nav-dd" style="position: relative"> <summary style="list-style: none; cursor: pointer; font-size: 16px; font-weight: 500; color: #F7F5F0; padding: 12px 0">Expertise <span aria-hidden="true" style="font-size: 11px; color: #FF7A59">&#9660;</span></summary> <div style="position: absolute; top: 100%; left: -18px; z-index: 50; min-width: 240px; max-width: calc(100vw - 32px); background: #1E1E3A; border: 1px solid #3A3960; border-radius: 14px; padding: 10px; display: flex; flex-direction: column; box-shadow: 0 16px 40px rgba(0,0,0,.35)"> <a href="/geo-aeo-services" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px"  >GEO &amp; AEO</a> <a href="/ai-visibility-audit" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">AI Visibility Audit</a> <a href="/seo-services" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px" >SEO</a> <a href="/enterprise-seo" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">Enterprise SEO &amp; GEO</a> <a href="/small-business-seo" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">Small Business SEO &amp; GEO</a> <a href="/#services" style="font-size: 14px; color: #A084FF; text-decoration: none; padding: 10px 12px; margin-top: 4px; border-top: 1px solid #3A3960">All services &#8594;</a> </div> </details> <style>.nav-dd summary::-webkit-details-marker{display:none}.nav-dd a:hover{background:#2A2950}.nav-dd[open] summary span{display:inline-block;transform:rotate(180deg)}@media (max-width:640px){.nav-dd>div{position:fixed!important;top:auto!important;left:16px!important;right:16px!important;min-width:0!important;max-width:none!important}}</style> <script>document.addEventListener('click',function(e){document.querySelectorAll('details.nav-dd[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('details.nav-dd[open]').forEach(function(d){d.removeAttribute('open')})});window.addEventListener('scroll',function(){if(window.innerWidth<=640)document.querySelectorAll('details.nav-dd[open]').forEach(function(d){d.removeAttribute('open')})},{passive:true});</script> <a href="/blog/" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">Blog</a>
-<a href="/contact" aria-current="page" style="font-size: 16px; font-weight: 700; color: #14142B; background: #FF7A59; text-decoration: none; padding: 13px 24px; border-radius: 999px">Let's talk</a>
+<nav class="u12" aria-label="Main">
+<a class="u3" href="/about">About</a>
+<a class="u3" href="/case-studies">Case Studies</a>
+<details class="nav-dd u13"> <summary class="u14">Expertise <span class="u15" aria-hidden="true">&#9660;</span></summary> <div class="u16"> <a class="u1" href="/geo-aeo-services"  >GEO &amp; AEO</a> <a class="u1" href="/ai-visibility-audit">AI Visibility Audit</a> <a class="u1" href="/seo-services" >SEO</a> <a class="u1" href="/enterprise-seo">Enterprise SEO &amp; GEO</a> <a class="u1" href="/small-business-seo">Small Business SEO &amp; GEO</a> <a class="u17" href="/expertise">All expertise &#8594;</a> </div> </details>  <a class="u3" href="/blog/">Blog</a>
+<a class="u18" href="/contact" aria-current="page">Let's talk</a>
 </nav>
 </header>
 
-<section style="background: #14142B; padding: clamp(64px, 8vw, 112px) 5%">
-<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(40px, 6vw, 88px); align-items: start">
-<div style="display: flex; flex-direction: column; gap: 24px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #A084FF">[1] Contact</div>
-<h1 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(42px, 5.4vw, 80px); line-height: 1; letter-spacing: -0.03em; color: #F7F5F0">Let's make you <span style="font-family: Fraunces, Georgia, serif; font-style: italic; font-weight: 600; letter-spacing: -0.01em; color: #FF7A59">discoverable.</span></h1>
-<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #C9C8E0">I'm taking on freelance, contract and fractional projects. Tell me a little about your goals and I'll reply within 1–2 business days. Prefer to talk? <a href="#book-a-call" style="color: #F7F5F0; text-decoration: underline; text-underline-offset: 3px">Book a discovery call</a>.</p>
-<div style="display: flex; flex-direction: column; gap: 18px; padding-top: 24px; border-top: 1px solid #2A2A48">
-<div style="display: flex; flex-direction: column; gap: 4px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #A9A8C8">Email</div>
-<a href="mailto:Jennifer@jenalston.com" style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 22px; color: #F7F5F0; padding: 6px 0">Jennifer@jenalston.com</a>
+<section class="u168">
+<div class="u169">
+<div class="u114">
+<div class="u47">[1] Contact</div>
+<h1 class="u170">Let's make you <span class="u67">discoverable.</span></h1>
+<p class="u171">I'm taking on freelance, contract and fractional projects. Tell me a little about your goals and I'll reply within 1–2 business days. Prefer to talk? <a class="u81" href="#book-a-call">Book a discovery call</a>.</p>
+<div class="u172">
+<div class="u101">
+<div class="u102">Email</div>
+<a class="u126" href="mailto:Jennifer@jenalston.com">Jennifer@jenalston.com</a>
 </div>
-<div style="display: flex; flex-direction: column; gap: 4px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #A9A8C8">LinkedIn</div>
-<a href="https://www.linkedin.com/in/jenniferalstonseo/" style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 22px; color: #F7F5F0; padding: 6px 0">Connect on LinkedIn →</a>
+<div class="u101">
+<div class="u102">LinkedIn</div>
+<a class="u126" href="https://www.linkedin.com/in/jenniferalstonseo/">Connect on LinkedIn →</a>
 </div>
-<div style="display: flex; flex-direction: column; gap: 4px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #A9A8C8">Location</div>
-<div style="font-size: 18px; color: #F7F5F0">Working remotely in the US</div>
+<div class="u101">
+<div class="u102">Location</div>
+<div class="u173">Working remotely in the US</div>
 </div>
 </div>
 </div>
 
-<form id="contact-form" name="contact" method="POST" action="https://formspree.io/f/xrpeeeeq" style="background: #F7F5F0; border-radius: 28px; padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px">
+<form class="u174" id="contact-form" name="contact" method="POST" action="https://formspree.io/f/xrpeeeeq">
 <input type="hidden" name="_subject" value="New project inquiry from jenalston.com"><p hidden><label>Leave this empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
-<h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em">Start a project</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
-<div style="display: flex; flex-direction: column; gap: 8px">
-<label for="c-name" style="font-size: 15px; font-weight: 700">Name</label>
-<input id="c-name" name="name" required type="text" autocomplete="name" style="height: 52px; box-sizing: border-box; width: 100%; border: 1px solid #B9B5A8; border-radius: 12px; padding: 0 16px; font-family: inherit; font-size: 16px; background: #FFFFFF; color: #14142B">
+<h2 class="u175">Start a project</h2>
+<div class="u127">
+<div class="u56">
+<label class="u57" for="c-name">Name</label>
+<input class="u103" id="c-name" name="name" required type="text" autocomplete="name">
 </div>
-<div style="display: flex; flex-direction: column; gap: 8px">
-<label for="c-email" style="font-size: 15px; font-weight: 700">Email</label>
-<input id="c-email" name="email" required type="email" autocomplete="email" style="height: 52px; box-sizing: border-box; width: 100%; border: 1px solid #B9B5A8; border-radius: 12px; padding: 0 16px; font-family: inherit; font-size: 16px; background: #FFFFFF; color: #14142B">
+<div class="u56">
+<label class="u57" for="c-email">Email</label>
+<input class="u103" id="c-email" name="email" required type="email" autocomplete="email">
 </div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 8px">
-<label for="c-site" style="font-size: 15px; font-weight: 700">Company or website</label>
-<input id="c-site" name="company" type="text" style="height: 52px; box-sizing: border-box; width: 100%; border: 1px solid #B9B5A8; border-radius: 12px; padding: 0 16px; font-family: inherit; font-size: 16px; background: #FFFFFF; color: #14142B">
+<div class="u56">
+<label class="u57" for="c-site">Company or website</label>
+<input class="u103" id="c-site" name="company" type="text">
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
-<div style="display: flex; flex-direction: column; gap: 8px">
-<label for="c-help" style="font-size: 15px; font-weight: 700">What do you need?</label>
-<select id="c-help" name="service" style="height: 52px; box-sizing: border-box; width: 100%; border: 1px solid #B9B5A8; border-radius: 12px; padding: 0 12px; font-family: inherit; font-size: 16px; background: #FFFFFF; color: #14142B">
+<div class="u127">
+<div class="u56">
+<label class="u57" for="c-help">What do you need?</label>
+<select class="u128" id="c-help" name="service">
 <option>GEO / AEO strategy</option>
 <option>AI visibility audit</option>
 <option>SEO (technical or content)</option>
@@ -95,9 +92,9 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 <option>Something else</option>
 </select>
 </div>
-<div style="display: flex; flex-direction: column; gap: 8px">
-<label for="c-type" style="font-size: 15px; font-weight: 700">Engagement type</label>
-<select id="c-type" name="engagement" style="height: 52px; box-sizing: border-box; width: 100%; border: 1px solid #B9B5A8; border-radius: 12px; padding: 0 12px; font-family: inherit; font-size: 16px; background: #FFFFFF; color: #14142B">
+<div class="u56">
+<label class="u57" for="c-type">Engagement type</label>
+<select class="u128" id="c-type" name="engagement">
 <option>One-time project</option>
 <option>Monthly retainer</option>
 <option>Contract / fractional</option>
@@ -105,76 +102,76 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 </select>
 </div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 8px">
-<label for="c-msg" style="font-size: 15px; font-weight: 700">Tell me about your goals</label>
-<textarea id="c-msg" name="message" required rows="5" style="box-sizing: border-box; width: 100%; border: 1px solid #B9B5A8; border-radius: 12px; padding: 14px 16px; font-family: inherit; font-size: 16px; line-height: 1.5; background: #FFFFFF; color: #14142B; resize: vertical"></textarea>
+<div class="u56">
+<label class="u57" for="c-msg">Tell me about your goals</label>
+<textarea class="u176" id="c-msg" name="message" required rows="5"></textarea>
 </div>
-<button type="submit" style="align-self: flex-start; min-height: 56px; font-family: inherit; font-size: 17px; font-weight: 700; color: #14142B; background: #FF7A59; border: none; padding: 0 32px; border-radius: 999px; cursor: pointer">Send message</button>
-<p id="form-status" role="status" style="margin: 0; font-size: 16px; color: #14142B"></p>
+<button class="u177" type="submit">Send message</button>
+<p class="u178" id="form-status" role="status"></p>
 </form>
 </div>
 </section>
-<section id="book-a-call" style="background: #EFECE4; padding: clamp(64px, 8vw, 112px) 5%">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
-<div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #5B3FD9">[2] Book a call</div>
-<h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(32px, 3.6vw, 50px); line-height: 1.05; letter-spacing: -0.03em">Prefer to talk? Book a discovery call.</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #4A4966">Pick a time that works for you. We'll talk through your goals, where you stand in search and AI answers today, and whether we're a good fit.</p>
+<section class="u93" id="book-a-call">
+<div class="u88">
+<div class="u125">
+<div class="u29">[2] Book a call</div>
+<h2 class="u129">Prefer to talk? Book a discovery call.</h2>
+<p class="u179">Pick a time that works for you. We'll talk through your goals, where you stand in search and AI answers today, and whether we're a good fit.</p>
 </div>
-<div class="calendly-inline-widget" data-url="https://calendly.com/jennifer-alston/discovery-call?hide_gdpr_banner=1&amp;primary_color=ff7a59&amp;text_color=14142b&amp;background_color=ffffff" style="min-width: 320px; height: 760px; border-radius: 20px; overflow: hidden; background: #FFFFFF; border: 1px solid #DEDAD0"></div>
+<div class="calendly-inline-widget u180" data-url="https://calendly.com/jennifer-alston/discovery-call?hide_gdpr_banner=1&amp;primary_color=127a70&amp;text_color=14142b&amp;background_color=ffffff"></div>
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<p style="margin: 0; font-size: 15px; color: #4A4966">Calendar not loading? <a href="https://calendly.com/jennifer-alston/discovery-call" target="_blank" rel="noopener" style="color: #5B3FD9">Book on Calendly instead</a>.</p>
+<p class="u181">Calendar not loading? <a class="u182" href="https://calendly.com/jennifer-alston/discovery-call" target="_blank" rel="noopener">Book on Calendly instead</a>.</p>
 </div>
 </section>
-<section style="background: #F7F5F0; padding: clamp(64px, 8vw, 112px) 5%">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-direction: column; gap: 16px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #5B3FD9">[3] Good questions</div>
-<h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(32px, 3.6vw, 50px); line-height: 1.05; letter-spacing: -0.03em">Before we talk</h2>
+<section class="u68">
+<div class="u63">
+<div class="u78">
+<div class="u29">[3] Good questions</div>
+<h2 class="u129">Before we talk</h2>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px">
-<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 2px solid #14142B">
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 21px">What is GEO, and do I need it?</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">Generative Engine Optimization helps your brand appear in AI-written answers, not just search results. If customers ask ChatGPT or Gemini about your category, it matters. Start with my <a href="/blog/beginners-guide-to-geo-for-small-businesses/" style="color: #5B3FD9; text-decoration: underline; text-underline-offset: 3px">beginner's guide to GEO</a>.</p>
+<div class="u130">
+<div class="u33">
+<h3 class="u34">What is GEO, and do I need it?</h3>
+<p class="u4">Generative Engine Optimization helps your brand appear in AI-written answers, not just search results. If customers ask ChatGPT or Gemini about your category, it matters. Start with my <a class="u6" href="/blog/beginners-guide-to-geo-for-small-businesses/">beginner's guide to GEO</a>.</p>
 </div>
-<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 2px solid #14142B">
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 21px">How do you measure AI visibility?</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">Structured prompt testing, tracked over time: mention rate, citation rate, share of voice, link inclusion and prompt visibility. <a href="/blog/how-to-measure-ai-share-of-voice/" style="color: #5B3FD9; text-decoration: underline; text-underline-offset: 3px">Here's my full method</a>.</p>
+<div class="u33">
+<h3 class="u34">How do you measure AI visibility?</h3>
+<p class="u4">Structured prompt testing, tracked over time: mention rate, citation rate, share of voice, link inclusion and prompt visibility. <a class="u6" href="/blog/how-to-measure-ai-share-of-voice/">Here's my full method</a>.</p>
 </div>
-<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 2px solid #14142B">
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 21px">What does working together look like?</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">Usually an audit first, then a roadmap. From there I can run the program, or guide your team and vendors through it. <a href="/case-studies" style="color: #5B3FD9; text-decoration: underline; text-underline-offset: 3px">See past results</a>.</p>
+<div class="u33">
+<h3 class="u34">What does working together look like?</h3>
+<p class="u4">Usually an audit first, then a roadmap. From there I can run the program, or guide your team and vendors through it. <a class="u6" href="/case-studies">See past results</a>.</p>
 </div>
-<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 2px solid #14142B">
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 21px">What happens after I reach out?</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">I reply within 1–2 business days. If it looks like a fit, we set up a short discovery call on Google Meet to talk through your goals, your current visibility in search and AI answers, and where to start.</p>
+<div class="u33">
+<h3 class="u34">What happens after I reach out?</h3>
+<p class="u4">I reply within 1–2 business days. If it looks like a fit, we set up a short discovery call on Google Meet to talk through your goals, your current visibility in search and AI answers, and where to start.</p>
 </div>
-<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 2px solid #14142B">
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 21px">Do you work with small businesses and startups?</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">Yes. I work with enterprise teams, agencies, small businesses and startups. Small businesses usually start with local SEO and AI visibility basics. <a href="/small-business-seo" style="color: #5B3FD9; text-decoration: underline; text-underline-offset: 3px">See small business SEO &amp; GEO</a>.</p>
+<div class="u33">
+<h3 class="u34">Do you work with small businesses and startups?</h3>
+<p class="u4">Yes. I work with enterprise teams, agencies, small businesses and startups. Small businesses usually start with local SEO and AI visibility basics. <a class="u6" href="/small-business-seo">See small business SEO &amp; GEO</a>.</p>
 </div>
-<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 2px solid #14142B">
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 21px">Can you work alongside my team or agency?</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">Yes. I can lead the work myself, or coordinate your writers, developers and vendors. I also support agencies that need a GEO specialist for client work. <a href="/seo-services" style="color: #5B3FD9; text-decoration: underline; text-underline-offset: 3px">See SEO services</a>.</p>
+<div class="u33">
+<h3 class="u34">Can you work alongside my team or agency?</h3>
+<p class="u4">Yes. I can lead the work myself, or coordinate your writers, developers and vendors. I also support agencies that need a GEO specialist for client work. <a class="u6" href="/seo-services">See SEO services</a>.</p>
 </div>  
 </div>
 </div>
 </section>
 
-<footer style="margin-top: auto; background: #14142B; padding: 56px 5%">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px">
-<div style="display: flex; flex-direction: column; gap: 10px">
-<a href="/" aria-label="Jen Alston, home" style="display: flex; align-items: flex-start; gap: 3px; text-decoration: none">
-<span style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px; line-height: 1; letter-spacing: -1px; color: #F7F5F0">jen alston</span>
-<span style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; line-height: 1; color: #A084FF">[1]</span>
+<footer class="u19">
+<div class="u20">
+<div class="u21">
+<a class="u26" href="/" aria-label="Jen Alston, home">
+<span class="u27">jen alston</span>
+<span class="u28">[1]</span>
 </a>
-<div style="font-family: Fraunces, Georgia, serif; font-style: italic; font-size: 20px; color: #F7F5F0">Discoverable by Design</div>
+<div class="u22">Discoverable by Design</div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start">
-<a href="mailto:Jennifer@jenalston.com" style="font-size: 16px; color: #F7F5F0; padding: 8px 0">Jennifer@jenalston.com</a>
-<a href="https://www.linkedin.com/in/jenniferalstonseo/" style="font-size: 16px; color: #F7F5F0; padding: 8px 0">LinkedIn</a>
-<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 4px 22px; padding-top: 4px"><a href="/about" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">About</a><a href="/case-studies" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Case Studies</a><a href="/#services" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Expertise</a><a href="/blog/" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Blog</a><a href="/contact" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Contact</a></nav>
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; letter-spacing: 1px; color: #A9A8C8; padding-top: 8px">© 2026 Jennifer Alston · jenalston.com · Working remotely in the US</div>
+<div class="u23">
+<a class="u5" href="mailto:Jennifer@jenalston.com">Jennifer@jenalston.com</a>
+<a class="u5" href="https://www.linkedin.com/in/jenniferalstonseo/">LinkedIn</a>
+<nav class="u24" aria-label="Footer"><a class="u2" href="/about">About</a><a class="u2" href="/case-studies">Case Studies</a><a class="u2" href="/expertise">Expertise</a><a class="u2" href="/blog/">Blog</a><a class="u2" href="/contact">Contact</a></nav>
+<div class="u25">© 2026 Jennifer Alston · jenalston.com · Working remotely in the US</div>
 </div>
 </div>
 </footer>

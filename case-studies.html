@@ -22,89 +22,37 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&amp;family=JetBrains+Mono:wght@500&amp;family=Syne:wght@700;800&amp;display=swap">
-<style>
-body{margin:0;background:#14142B}
-a{color:#F7F5F0}a:hover{color:#FF7A59}
-</style>
-<style>a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #A084FF;outline-offset:3px}</style>
-<style>
-.gw,.dw{background:#14142B;color:#F7F5F0;border-radius:24px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:22px;font-family:'DM Sans','Helvetica Neue',sans-serif}
-.gw-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;font-family:'JetBrains Mono','Courier New',monospace;font-size:12px;letter-spacing:1px;color:#A084FF}
-.gw-h{margin:0 0 10px;font-family:Syne,'Arial Black',sans-serif;font-weight:700;font-size:18px;color:#F7F5F0}
-.gw-sub{margin:-6px 0 12px;font-size:13px;line-height:1.5;color:#A9A8C8}
-.gw-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.gw-kpi{border:1px solid #3A3A5C;border-radius:14px;padding:14px}
-.gw-kpi b{display:block;font-family:Syne,'Arial Black',sans-serif;font-weight:800;font-size:clamp(24px,2.6vw,30px);line-height:1}
-.gw-kpi span{display:block;margin-top:6px;font-size:12.5px;line-height:1.4;color:#C9C8E0}
-.gw-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.gw-tab{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #3A3A5C;background:transparent;color:#F7F5F0;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
-.gw-tab[aria-pressed="true"]{background:#FF7A59;border-color:#FF7A59;color:#14142B}
-.gw-bar{display:grid;grid-template-columns:minmax(92px,120px) 1fr 52px;align-items:center;gap:10px;margin-bottom:10px;font-size:14px}
-.gw-track{height:14px;border-radius:7px;background:#2A2A48;overflow:hidden}
-.gw-fill{height:100%;border-radius:7px;background:#A084FF;transition:width .5s ease}
-.gw-val{font-weight:700;text-align:right}
-.gw-scroll{overflow-x:auto}
-.gw-m{width:100%;min-width:470px;border-collapse:collapse;font-size:14px}
-.gw-m th{padding:0 2px 8px;font-size:11.5px;font-weight:700;color:#A9A8C8;text-align:center}
-.gw-m th:first-child,.gw-m td:first-child{text-align:left}
-.gw-m td{padding:2px;border-top:1px solid #2A2A48;text-align:center;white-space:nowrap}
-.gw-none{color:#6B6A8A}
-.gw-dot{display:inline-flex;align-items:center;justify-content:center;gap:3px;min-width:40px;height:40px;padding:0 4px;border:none;border-radius:20px;background:transparent;color:#A084FF;font:inherit;font-size:11px;font-weight:700;cursor:pointer}
-.gw-dot::before{content:"";width:13px;height:13px;border-radius:50%;background:#A084FF}
-.gw-dot.no::before{background:transparent;border:2px solid #6B6A8A}
-.gw-dot:hover,.gw-dot[aria-pressed="true"]{background:#2A2A48}
-.gw-dot[aria-pressed="true"]{box-shadow:inset 0 0 0 2px #FF7A59}
-.gw-detail{margin-top:12px;min-height:72px;padding:12px 14px;border-left:3px solid #FF7A59;border-radius:0 12px 12px 0;background:#1C1C3A;font-size:14.5px;line-height:1.5}
-.gw-detail b{color:#FF7A59}
-.gw-note{font-size:12px;color:#A9A8C8;margin-top:8px}
-.dw-panel{display:flex;flex-direction:column;gap:12px;font-size:14.5px;line-height:1.55}
-.dw-panel[hidden]{display:none}
-.dw-tier{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center}
-.dw-tier i{display:block;height:12px;border-radius:6px;background:#A084FF}
-.dw-tier span{font-size:13.5px;color:#C9C8E0}
-.dw-card{background:#F7F5F0;color:#14142B;border-radius:16px;padding:18px}
-.dw-card b{font-family:Syne,'Arial Black',sans-serif;font-size:19px}
-.dw-card p{margin:6px 0 0;font-size:14px;line-height:1.5;color:#34334F}
-.dw-mark{background:#FFD9CC;padding:0 3px;border-radius:3px}
-.dw-btn{display:inline-block;margin-top:10px;padding:8px 14px;border-radius:999px;background:#14142B;color:#F7F5F0;font-size:12px;font-weight:700;letter-spacing:1px}
-.dw-stat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.dw-stat div{border:1px solid #3A3A5C;border-radius:14px;padding:14px}
-.dw-stat b{display:block;font-family:Syne,'Arial Black',sans-serif;font-size:26px}
-.dw-stat span{font-size:12.5px;color:#C9C8E0;line-height:1.4}
-.dw-c{border:1px solid #3A3A5C;border-radius:14px;padding:14px}
-.dw-c .who{font-size:12px;font-weight:700;color:#A9A8C8;margin-bottom:4px}
-.dw-c.me{border-color:#FF7A59;margin-left:24px}
-.dw-link{color:#A084FF;text-decoration:underline}
-@media (prefers-reduced-motion:reduce){.gw-fill{transition:none}}
-@media (max-width:480px){.gw-kpis,.dw-stat{grid-template-columns:1fr}}
-</style>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/case-studies.css">
+<script src="/assets/site.js" defer></script>
+<script src="/assets/case-studies.js" defer></script>
 </head>
 <body>
-<div style="width: 100%; min-height: 100vh; display: flex; flex-direction: column; background: #F7F5F0; font-family: 'DM Sans', 'Helvetica Neue', sans-serif; color: #14142B">
+<div class="u46">
 
-<header style="background: #14142B; padding: 20px 5%; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; border-bottom: 1px solid #2A2A48">
-<a href="/" aria-label="Jen Alston, home" style="display: flex; align-items: flex-start; gap: 3px; text-decoration: none; padding: 8px 0">
-<span style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 28px; line-height: 1; letter-spacing: -1px; color: #F7F5F0">jen alston</span>
-<span style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 11px; line-height: 1; color: #A084FF">[1]</span>
+<header class="u8">
+<a class="u9" href="/" aria-label="Jen Alston, home">
+<span class="u10">jen alston</span>
+<span class="u11">[1]</span>
 </a>
-<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px">
-<a href="/about" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">About</a>
-<a href="/case-studies" aria-current="page" style="font-size: 16px; font-weight: 700; color: #F7F5F0; text-decoration: none; padding: 12px 0 10px; border-bottom: 2px solid #FF7A59">Case Studies</a>
-<details class="nav-dd" style="position: relative"> <summary style="list-style: none; cursor: pointer; font-size: 16px; font-weight: 500; color: #F7F5F0; padding: 12px 0">Expertise <span aria-hidden="true" style="font-size: 11px; color: #FF7A59">&#9660;</span></summary> <div style="position: absolute; top: 100%; left: -18px; z-index: 50; min-width: 240px; max-width: calc(100vw - 32px); background: #1E1E3A; border: 1px solid #3A3960; border-radius: 14px; padding: 10px; display: flex; flex-direction: column; box-shadow: 0 16px 40px rgba(0,0,0,.35)"> <a href="/geo-aeo-services" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px"  >GEO &amp; AEO</a> <a href="/ai-visibility-audit" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">AI Visibility Audit</a> <a href="/seo-services" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px" >SEO</a> <a href="/enterprise-seo" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">Enterprise SEO &amp; GEO</a> <a href="/small-business-seo" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">Small Business SEO &amp; GEO</a> <a href="/#services" style="font-size: 14px; color: #A084FF; text-decoration: none; padding: 10px 12px; margin-top: 4px; border-top: 1px solid #3A3960">All services &#8594;</a> </div> </details> <style>.nav-dd summary::-webkit-details-marker{display:none}.nav-dd a:hover{background:#2A2950}.nav-dd[open] summary span{display:inline-block;transform:rotate(180deg)}@media (max-width:640px){.nav-dd>div{position:fixed!important;top:auto!important;left:16px!important;right:16px!important;min-width:0!important;max-width:none!important}}</style> <script>document.addEventListener('click',function(e){document.querySelectorAll('details.nav-dd[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('details.nav-dd[open]').forEach(function(d){d.removeAttribute('open')})});window.addEventListener('scroll',function(){if(window.innerWidth<=640)document.querySelectorAll('details.nav-dd[open]').forEach(function(d){d.removeAttribute('open')})},{passive:true});</script> <a href="/blog/" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">Blog</a>
-<a href="/contact" style="font-size: 16px; font-weight: 700; color: #14142B; background: #FF7A59; text-decoration: none; padding: 13px 24px; border-radius: 999px">Let's talk</a>
+<nav class="u12" aria-label="Main">
+<a class="u3" href="/about">About</a>
+<a class="u65" href="/case-studies" aria-current="page">Case Studies</a>
+<details class="nav-dd u13"> <summary class="u14">Expertise <span class="u15" aria-hidden="true">&#9660;</span></summary> <div class="u16"> <a class="u1" href="/geo-aeo-services"  >GEO &amp; AEO</a> <a class="u1" href="/ai-visibility-audit">AI Visibility Audit</a> <a class="u1" href="/seo-services" >SEO</a> <a class="u1" href="/enterprise-seo">Enterprise SEO &amp; GEO</a> <a class="u1" href="/small-business-seo">Small Business SEO &amp; GEO</a> <a class="u17" href="/expertise">All expertise &#8594;</a> </div> </details>  <a class="u3" href="/blog/">Blog</a>
+<a class="u18" href="/contact">Let's talk</a>
 </nav>
 </header>
 
-<section style="background: #14142B; padding: clamp(72px, 9vw, 128px) 5% clamp(56px, 7vw, 96px)">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #A084FF">[1] Case studies</div>
-<h1 style="margin: 0; max-width: 980px; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(44px, 6vw, 88px); line-height: 1; letter-spacing: -0.03em; color: #F7F5F0">Work that gets <span style="font-family: Fraunces, Georgia, serif; font-style: italic; font-weight: 600; letter-spacing: -0.01em; color: #FF7A59">found.</span></h1>
-<p style="margin: 0; max-width: 680px; font-size: clamp(18px, 1.6vw, 21px); line-height: 1.6; color: #C9C8E0">Selected programs across <a href="/blog/beginners-guide-to-geo-for-small-businesses/" style="color: #F7F5F0; text-decoration: underline; text-underline-offset: 3px">AI search</a>, SEO, paid media and digital PR, from enterprise brands to local businesses.</p>
+<section class="u119">
+<div class="u88">
+<div class="u47">[1] Case studies</div>
+<h1 class="u158">Work that gets <span class="u67">found.</span></h1>
+<p class="u120">Selected programs across <a class="u81" href="/blog/beginners-guide-to-geo-for-small-businesses/">AI search</a>, SEO, paid media and digital PR, from enterprise brands to local businesses.</p>
 </div>
 </section>
 
-<section id="enterprise-geo" style="background: #F7F5F0; padding: clamp(64px, 8vw, 112px) 5%">
-<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(40px, 5vw, 72px); align-items: start">
+<section class="u68" id="enterprise-geo">
+<div class="u89">
 <div class="gw" aria-label="Interactive AI visibility tracker">
 <div class="gw-head"><span>AI visibility tracker</span><span>2025–2026 · client data anonymized</span></div>
 <div class="gw-kpis">
@@ -119,10 +67,10 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 <button type="button" class="gw-tab" aria-pressed="false" data-gw-prompt="30,62.5,46.7">Prompt A</button>
 <button type="button" class="gw-tab" aria-pressed="true" data-gw-prompt="80,40,80">Prompt B</button>
 </div>
-<div class="gw-bar"><span>AI Overviews</span><div class="gw-track"><div class="gw-fill" style="width:80%"></div></div><span class="gw-val">80%</span></div>
-<div class="gw-bar"><span>ChatGPT</span><div class="gw-track"><div class="gw-fill" style="width:40%"></div></div><span class="gw-val">40%</span></div>
-<div class="gw-bar"><span>Gemini</span><div class="gw-track"><div class="gw-fill" style="width:80%"></div></div><span class="gw-val">80%</span></div>
-<p class="gw-note"><a href="/blog/how-to-measure-ai-share-of-voice/" style="color: #A084FF; text-decoration: underline; text-underline-offset: 3px">Share of voice</a> = brand mentions ÷ all brand mentions in the AI answer. Both tracked prompts include the brand name.</p>
+<div class="gw-bar"><span>AI Overviews</span><div class="gw-track"><div class="gw-fill u121"></div></div><span class="gw-val">80%</span></div>
+<div class="gw-bar"><span>ChatGPT</span><div class="gw-track"><div class="gw-fill u159"></div></div><span class="gw-val">40%</span></div>
+<div class="gw-bar"><span>Gemini</span><div class="gw-track"><div class="gw-fill u121"></div></div><span class="gw-val">80%</span></div>
+<p class="gw-note"><a class="u160" href="/blog/how-to-measure-ai-share-of-voice/">Share of voice</a> = brand mentions ÷ all brand mentions in the AI answer. Both tracked prompts include the brand name.</p>
 </div>
 <div>
 <h3 class="gw-h">Visibility matrix</h3>
@@ -131,34 +79,34 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 <table class="gw-m">
 <thead><tr><th scope="col">Campaign</th><th scope="col">AI Overviews</th><th scope="col">ChatGPT</th><th scope="col">Gemini</th><th scope="col">Perplexity</th><th scope="col">Google</th></tr></thead>
 <tbody>
-<tr><th scope="row" style="font-size:14px;color:#F7F5F0;font-weight:500">AI logo maker</th>
+<tr><th class="u48" scope="row">AI logo maker</th>
 <td><button type="button" class="gw-dot" data-t="Brand mentioned and campaign page linked at position 1.">#1</button></td>
 <td><button type="button" class="gw-dot" data-t="Brand mentioned with a product link for 2 of 3 tested prompts."></button></td>
 <td class="gw-none">–</td><td class="gw-none">–</td>
 <td><button type="button" class="gw-dot" data-t="Placement article ranks #1 for the tracked prompt.">#1</button></td></tr>
-<tr><th scope="row" style="font-size:14px;color:#F7F5F0;font-weight:500">AI flyer generator</th>
+<tr><th class="u48" scope="row">AI flyer generator</th>
 <td><button type="button" class="gw-dot" data-t="Brand mentioned and campaign page linked in the AI Overview."></button></td>
 <td><button type="button" class="gw-dot" data-t="Brand and anchor text mentioned; product link still to win."></button></td>
 <td class="gw-none">–</td><td class="gw-none">–</td>
 <td><button type="button" class="gw-dot" data-t="Product page ranks #3 for a tracked prompt.">#3</button></td></tr>
-<tr><th scope="row" style="font-size:14px;color:#F7F5F0;font-weight:500">Business card maker</th>
+<tr><th class="u48" scope="row">Business card maker</th>
 <td><button type="button" class="gw-dot" data-t="Brand and product page cited at positions 3 and 4.">#3</button></td>
 <td><button type="button" class="gw-dot" data-t="Brand and product pages linked, and included in ChatGPT's final recommendation."></button></td>
 <td class="gw-none">–</td><td class="gw-none">–</td>
 <td><button type="button" class="gw-dot" data-t="Placement article ranks #1, with the product page linked.">#1</button></td></tr>
-<tr><th scope="row" style="font-size:14px;color:#F7F5F0;font-weight:500">Hoodie designer</th>
+<tr><th class="u48" scope="row">Hoodie designer</th>
 <td><button type="button" class="gw-dot" data-t="Brand cited with the campaign page at position 1; share of voice up to 80%.">#1</button></td>
 <td><button type="button" class="gw-dot" data-t="Brand and campaign page linked; share of voice up to 62.5%."></button></td>
 <td><button type="button" class="gw-dot" data-t="Brand mentioned and campaign page linked; share of voice up to 80%."></button></td>
 <td><button type="button" class="gw-dot" data-t="Brand mentioned and the placement article cited as a source."></button></td>
 <td><button type="button" class="gw-dot" data-t="Placement article ranks #1 for the tracked prompt.">#1</button></td></tr>
-<tr><th scope="row" style="font-size:14px;color:#F7F5F0;font-weight:500">Resume builder</th>
+<tr><th class="u48" scope="row">Resume builder</th>
 <td><button type="button" class="gw-dot no" data-t="Tested, not visible yet. Prompts are being refined for the next round."></button></td>
 <td><button type="button" class="gw-dot" data-t="Brand mentioned 5 times, ahead of the leading competitor."></button></td>
 <td><button type="button" class="gw-dot no" data-t="Tested, not visible yet. Prompts are being refined for the next round."></button></td>
 <td class="gw-none">–</td>
 <td><button type="button" class="gw-dot" data-t="Product page ranks #6, on page one.">#6</button></td></tr>
-<tr><th scope="row" style="font-size:14px;color:#F7F5F0;font-weight:500">Mood board</th>
+<tr><th class="u48" scope="row">Mood board</th>
 <td><button type="button" class="gw-dot no" data-t="Tested, not visible yet."></button></td>
 <td class="gw-none">–</td>
 <td><button type="button" class="gw-dot no" data-t="Tested, not visible yet."></button></td>
@@ -169,202 +117,202 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 <p class="gw-note">Filled dot: brand visible. Open dot: tested, not visible yet. Dash: not tested. Number: best position.</p>
 </div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 22px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #5B3FD9">[01] Adobe · via Envision · 2022 – Now</div>
-<h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.05; letter-spacing: -0.03em">Enterprise GEO &amp; AEO program</h2>
-<div style="display: flex; flex-direction: column; gap: 6px">
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 17px">The challenge</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">Get a flagship enterprise brand mentioned, cited and linked inside answers from ChatGPT, Gemini, Claude, Perplexity and Google AI Overviews, and prove it with data.</p>
+<div class="u90">
+<div class="u91">[01] Adobe · via Envision · 2022 – Now</div>
+<h2 class="u92">Enterprise GEO &amp; AEO program</h2>
+<div class="u49">
+<h3 class="u50">The challenge</h3>
+<p class="u4">Get a flagship enterprise brand mentioned, cited and linked inside answers from ChatGPT, Gemini, Claude, Perplexity and Google AI Overviews, and prove it with data.</p>
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px">
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 17px">The approach</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">Designed prompt-testing frameworks scoring intent, semantic depth, entity usage and formatting; built scalable prompt libraries; directed off-page SEO and digital PR; and managed 5+ vendors and 4+ freelance writers.</p>
+<div class="u49">
+<h3 class="u50">The approach</h3>
+<p class="u4">Designed prompt-testing frameworks scoring intent, semantic depth, entity usage and formatting; built scalable prompt libraries; directed off-page SEO and digital PR; and managed 5+ vendors and 4+ freelance writers.</p>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; padding-top: 8px">
-<div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
-<div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 30px; line-height: 1">Days</div>
-<div style="font-size: 15px; line-height: 1.45; color: #4A4966">To AI Overview and ChatGPT inclusion for priority campaigns</div>
+<div class="u161">
+<div class="u40">
+<div class="u122">Days</div>
+<div class="u41">To AI Overview and ChatGPT inclusion for priority campaigns</div>
 </div>
-<div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
-<div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 30px; line-height: 1">5 metrics</div>
-<div style="font-size: 15px; line-height: 1.45; color: #4A4966">Mention rate, link inclusion, share of voice, citation rate, prompt visibility</div>
+<div class="u40">
+<div class="u122">5 metrics</div>
+<div class="u41">Mention rate, link inclusion, share of voice, citation rate, prompt visibility</div>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<section id="directory-listings" style="background: #EFECE4; padding: clamp(64px, 8vw, 112px) 5%">
-<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(40px, 5vw, 72px); align-items: start">
-<div style="display: flex; flex-direction: column; gap: 22px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #5B3FD9">[02] Adobe Firefly · via Envision · 2026</div>
-<h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.05; letter-spacing: -0.03em">Directory listings built for AI search</h2>
-<div style="display: flex; flex-direction: column; gap: 6px">
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 17px">The challenge</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">Earn trusted placements for Firefly's AI generator tools in the places search engines and AI assistants both read, without the spam risk of old-school directory blasts.</p>
+<section class="u93" id="directory-listings">
+<div class="u89">
+<div class="u90">
+<div class="u91">[02] Adobe Firefly · via Envision · 2026</div>
+<h2 class="u92">Directory listings built for AI search</h2>
+<div class="u49">
+<h3 class="u50">The challenge</h3>
+<p class="u4">Earn trusted placements for Firefly's AI generator tools in the places search engines and AI assistants both read, without the spam risk of old-school directory blasts.</p>
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px">
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 17px">The approach</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">I screened directories by authority, traffic and AI-visibility score, used a backlink-gap audit to find directories that listed competitors but not Firefly, and wrote unique listings that pair the brand with each target keyword. Submissions were staggered, and open comment sections became a second source of links.</p>
+<div class="u49">
+<h3 class="u50">The approach</h3>
+<p class="u4">I screened directories by authority, traffic and AI-visibility score, used a backlink-gap audit to find directories that listed competitors but not Firefly, and wrote unique listings that pair the brand with each target keyword. Submissions were staggered, and open comment sections became a second source of links.</p>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; padding-top: 8px">
-<div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px"><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 36px; line-height: 1">20</div><div style="font-size: 15px; line-height: 1.45; color: #4A4966">Directory listings live in under a month</div></div>
-<div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px"><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 36px; line-height: 1">2×</div><div style="font-size: 15px; line-height: 1.45; color: #4A4966">Product links from a single comment reply</div></div> <div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px"><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 36px; line-height: 1">#4 &amp; #8</div><div style="font-size: 15px; line-height: 1.45; color: #4A4966">Page-one Google rankings within two weeks of launch</div></div>
+<div class="u123">
+<div class="u40"><div class="u51">20</div><div class="u41">Directory listings live in under a month</div></div>
+<div class="u40"><div class="u51">2×</div><div class="u41">Product links from a single comment reply</div></div> <div class="u40"><div class="u51">#4 &amp; #8</div><div class="u41">Page-one Google rankings within two weeks of launch</div></div>
 </div>
 </div>
 <div class="dw" aria-label="Interactive directory listing process">
 <div class="gw-head"><span>Directory program for AI search</span><span>4 steps · select one</span></div>
-<div class="gw-tabs" role="group" aria-label="Process step" style="margin:0">
+<div class="gw-tabs u52" role="group" aria-label="Process step">
 <button type="button" class="gw-tab" aria-pressed="true" data-dw="dw1">1 · Qualify</button>
 <button type="button" class="gw-tab" aria-pressed="false" data-dw="dw2">2 · Write</button>
 <button type="button" class="gw-tab" aria-pressed="false" data-dw="dw3">3 · Publish</button>
 <button type="button" class="gw-tab" aria-pressed="false" data-dw="dw4">4 · Extend</button>
 </div>
 <div class="dw-panel" id="dw1">
-<h3 class="gw-h" style="margin:0">Only directories worth an AI's attention</h3>
-<div class="dw-tier"><i style="width:100%"></i><span>Authority 50+: prioritize</span></div>
-<div class="dw-tier"><i style="width:70%"></i><span>30–49: worthwhile if relevant</span></div>
-<div class="dw-tier"><i style="width:40%;background:#6B6A8A"></i><span>Under 30: only if highly niche</span></div>
-<div class="dw-tier"><i style="width:18%;background:#3A3A5C"></i><span>Under 15: avoid</span></div>
-<p style="margin:0;color:#C9C8E0">Every prospect is also screened for site traffic, AI-visibility score, topical fit and spam risk. A backlink-gap audit surfaces directories that list competitors but not the brand.</p>
+<h3 class="gw-h u52">Only directories worth an AI's attention</h3>
+<div class="dw-tier"><i class="u162"></i><span>Authority 50+: prioritize</span></div>
+<div class="dw-tier"><i class="u163"></i><span>30–49: worthwhile if relevant</span></div>
+<div class="dw-tier"><i class="u164"></i><span>Under 30: only if highly niche</span></div>
+<div class="dw-tier"><i class="u165"></i><span>Under 15: avoid</span></div>
+<p class="u69">Every prospect is also screened for site traffic, AI-visibility score, topical fit and spam risk. A backlink-gap audit surfaces directories that list competitors but not the brand.</p>
 </div>
 <div class="dw-panel" id="dw2" hidden>
-<h3 class="gw-h" style="margin:0">Brand + keyword, side by side</h3>
+<h3 class="gw-h u52">Brand + keyword, side by side</h3>
 <div class="dw-card"><b>Adobe Firefly AI Anime Generator</b>
 <p>Create anime-style characters and scenes with Adobe Firefly's free <span class="dw-mark">AI anime generator</span> using text prompts or reference images.</p>
 <span class="dw-btn">VIEW TOOL ↗</span></div>
-<p style="margin:0;color:#C9C8E0">Unique copy for every listing, with the brand name next to the target keyword so AI models connect the two. Two or three tracked AI prompts are woven in, without keyword stuffing.</p>
+<p class="u69">Unique copy for every listing, with the brand name next to the target keyword so AI models connect the two. Two or three tracked AI prompts are woven in, without keyword stuffing.</p>
 </div>
 <div class="dw-panel" id="dw3" hidden>
-<h3 class="gw-h" style="margin:0">Steady, staggered publishing</h3>
+<h3 class="gw-h u52">Steady, staggered publishing</h3>
 <div class="dw-stat"><div><b>20</b><span>Directory listings live in under a month</span></div><div><b>3–5</b><span>New listings per week to start</span></div><div><b>10</b><span>Weekly target as the program scales</span></div></div>
-<p style="margin:0;color:#C9C8E0">Live listings carry the keyword in their FAQ sections, a product image, and a button linking to the product page.</p>
+<p class="u69">Live listings carry the keyword in their FAQ sections, a product image, and a button linking to the product page.</p>
 </div>
 <div class="dw-panel" id="dw4" hidden>
-<h3 class="gw-h" style="margin:0">One reply, two product links</h3>
+<h3 class="gw-h u52">One reply, two product links</h3>
 <div class="dw-c"><div class="who">Directory visitor</div>The ability to create art for free is a nice touch. What types of styles can the AI generate?</div>
 <div class="dw-c me"><div class="who">Reply</div>Most styles: <span class="dw-link">anime</span>, <span class="dw-link">pixel art</span>, ink wash, cartoon, watercolor, oil painting and pop art.</div>
-<p style="margin:0;color:#C9C8E0">Directories with open comments allow helpful one-sentence answers that link related tools, earning extra links with no added outreach.</p>
+<p class="u69">Directories with open comments allow helpful one-sentence answers that link related tools, earning extra links with no added outreach.</p>
 </div>
 </div>
 </div>
 </section>
 
-<section id="southwest-mobile-storage" style="background: #F7F5F0; padding: clamp(64px, 8vw, 112px) 5%">
-<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(40px, 5vw, 72px); align-items: start">
-<img src="/images/sms-campaign.jpg" alt="Southwest Mobile Storage holiday campaign: two promotional flyers for half-off container delivery beside the Google Analytics performance report" width="1600" height="1300" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 24px; background: #14142B">
-<div style="display: flex; flex-direction: column; gap: 22px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #5B3FD9">[03] Southwest Mobile Storage · 2019</div>
-<h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.05; letter-spacing: -0.03em">Hyper-local paid media &amp; lead generation</h2>
-<div style="display: flex; flex-direction: column; gap: 6px">
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 17px">The challenge</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">Drive more qualified leads for a regional business without inflating acquisition costs.</p>
+<section class="u68" id="southwest-mobile-storage">
+<div class="u89">
+<img class="u124" src="/images/sms-campaign.jpg" alt="Southwest Mobile Storage holiday campaign: two promotional flyers for half-off container delivery beside the Google Analytics performance report" width="1600" height="1300" loading="lazy">
+<div class="u90">
+<div class="u91">[03] Southwest Mobile Storage · 2019</div>
+<h2 class="u92">Hyper-local paid media &amp; lead generation</h2>
+<div class="u49">
+<h3 class="u50">The challenge</h3>
+<p class="u4">Drive more qualified leads for a regional business without inflating acquisition costs.</p>
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px">
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 17px">The approach</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4966">Led multimedia content creation and A/B testing, and ran hyper-local, multi-channel paid campaigns tuned for relevance and quality.</p>
+<div class="u49">
+<h3 class="u50">The approach</h3>
+<p class="u4">Led multimedia content creation and A/B testing, and ran hyper-local, multi-channel paid campaigns tuned for relevance and quality.</p>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; padding-top: 8px">
-<div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
-<div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 36px; line-height: 1">+60%</div>
-<div style="font-size: 15px; line-height: 1.45; color: #4A4966">Lead volume in two weeks</div>
+<div class="u123">
+<div class="u40">
+<div class="u51">+60%</div>
+<div class="u41">Lead volume in two weeks</div>
 </div>
-<div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
-<div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 36px; line-height: 1">−40%</div>
-<div style="font-size: 15px; line-height: 1.45; color: #4A4966">Cost per lead and per click</div>
+<div class="u40">
+<div class="u51">−40%</div>
+<div class="u41">Cost per lead and per click</div>
 </div>
-<div style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
-<div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 36px; line-height: 1">10/10</div>
-<div style="font-size: 15px; line-height: 1.45; color: #4A4966">Google Ads Quality Score</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<section style="background: #EFECE4; padding: clamp(64px, 8vw, 112px) 5%">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
-<h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.05; letter-spacing: -0.03em">More projects</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
-<div id="digital-pr" style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5B3FD9">[04] 3Ships Legal · Digital PR</div>
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">Cold pitches that actually get answered</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4966">Full-cycle digital PR and link acquisition, with refined targeting and messaging to secure high-quality placements.</p>
-<div style="display: flex; gap: 24px; padding-top: 8px; margin-top: auto">
-<div><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px">100%</div><div style="font-size: 14px; color: #4A4966">Open rate</div></div>
-<div><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px">90%</div><div style="font-size: 14px; color: #4A4966">Response rate</div></div>
-</div>
-</div>
-<div id="paid-social" style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5B3FD9">[05] Meta · via TTEC · Paid social</div>
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">Portfolio-level advertiser coaching</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4966">Advised advertisers on targeting, creative testing, budgeting and scaling, and led A/B testing across multi-channel paid social.</p>
-<div style="display: flex; gap: 24px; padding-top: 8px; margin-top: auto">
-<div><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px">100+</div><div style="font-size: 14px; color: #4A4966">Accounts advised monthly</div></div>
-</div>
-</div>
-<div id="local-seo" style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5B3FD9">[06] Gr0 · Beauty &amp; Cosmetic Services · SEO</div>
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">From unranked to page one for “nano blading”</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4966">A newer brow beauty bar wasn't ranking for “nano blading” while its competitors were. I paired an on-page overhaul (meta title and description, a keyword-rich product page URL, and internal links from related pages) with digital PR, guest posts and backlinks.</p>
-<div style="display: flex; gap: 24px; padding-top: 8px; margin-top: auto">
-<div><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px">#2</div><div style="font-size: 14px; color: #4A4966">Page-one ranking for “nano blading”</div></div>
+<div class="u40">
+<div class="u51">10/10</div>
+<div class="u41">Google Ads Quality Score</div>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<section id="design-web" style="background: #F7F5F0; padding: clamp(64px, 8vw, 112px) 5%">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
-<h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.05; letter-spacing: -0.03em">Design, UX &amp; web</h2>
-<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4966; font-size: 18px">Research, wireframes, prototypes and presentations from my Google UX Design Certificate projects. Each case study walks through the problem, the research and how usability testing changed the design.</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
-<div id="harkins-app" style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
-<img src="/images/harkins-snack-app.jpg" alt="Five mobile screens from the Harkins Snack App concept: home, navigation menu, profile, payment options and accessibility options." width="1600" height="900" loading="lazy" style="display: block; width: 100%; height: auto; border-bottom: 1px solid #DEDAD0">
-<div style="padding: 28px 32px 32px; display: flex; flex-direction: column; gap: 14px; flex: 1">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5B3FD9">[07] Harkins (concept) · Mobile UX</div>
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">Skip the concession line, not the movie</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4966">A concept app that lets moviegoers order snacks ahead, even mid-movie, for fast pick-up. As lead UX designer and researcher, I took it from interviews, personas and competitive audits through wireframes, prototypes and a full design system, with accessibility built in from the start: voice navigation, a screen reader, large icons and WCAG-checked contrast.</p>
-<div style="display: flex; gap: 24px; padding-top: 8px; margin-top: auto">
-<div><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px">2</div><div style="font-size: 14px; color: #4A4966">Rounds of usability testing</div></div>
-<div><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px">3 → 5</div><div style="font-size: 14px; color: #4A4966">Saved-order slots, changed after user feedback</div></div>
-</div>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; padding-top: 6px">
-<a href="https://docs.google.com/presentation/d/1wom0oCVgBl1J_5bSlFh2zEy37eLDHMkQRpDo-2xak5M/edit?usp=sharing" target="_blank" rel="noopener" style="font-size: 16px; font-weight: 700; color: #5B3FD9; text-decoration: underline; text-underline-offset: 3px">View the case study ↗</a>
+<section class="u93">
+<div class="u63">
+<h2 class="u94">More projects</h2>
+<div class="u62">
+<div class="u95" id="digital-pr">
+<div class="u53">[04] 3Ships Legal · Digital PR</div>
+<h3 class="u45">Cold pitches that actually get answered</h3>
+<p class="u54">Full-cycle digital PR and link acquisition, with refined targeting and messaging to secure high-quality placements.</p>
+<div class="u55">
+<div><div class="u30">100%</div><div class="u31">Open rate</div></div>
+<div><div class="u30">90%</div><div class="u31">Response rate</div></div>
 </div>
 </div>
+<div class="u95" id="paid-social">
+<div class="u53">[05] Meta · via TTEC · Paid social</div>
+<h3 class="u45">Portfolio-level advertiser coaching</h3>
+<p class="u54">Advised advertisers on targeting, creative testing, budgeting and scaling, and led A/B testing across multi-channel paid social.</p>
+<div class="u55">
+<div><div class="u30">100+</div><div class="u31">Accounts advised monthly</div></div>
 </div>
-<div id="harkins-website" style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
-<img src="/images/harkins-snacks-website.jpg" alt="Desktop home page and accessibility page mockups for the Harkins Movie Snacks website concept, shown in browser windows." width="1600" height="900" loading="lazy" style="display: block; width: 100%; height: auto; border-bottom: 1px solid #DEDAD0">
-<div style="padding: 28px 32px 32px; display: flex; flex-direction: column; gap: 14px; flex: 1">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5B3FD9">[08] Harkins (concept) · Responsive web</div>
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">Express snack pick-up, with accessibility up front</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4966">The website companion to the snack app, built for moviegoers who'd rather order ahead than miss the opening scene. As the UX designer leading the site, I went from a site map and paper wireframes to a high-fidelity responsive prototype. Usability testing reshaped the navigation: confusing arrows became a floating nav menu, accessibility controls moved into the top bar, and payment became quick pop-up steps.</p>
-<div style="display: flex; gap: 24px; padding-top: 8px; margin-top: auto">
-<div><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px">5</div><div style="font-size: 14px; color: #4A4966">Usability study participants</div></div>
-<div><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px">7</div><div style="font-size: 14px; color: #4A4966">Design changes from testing</div></div>
 </div>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; padding-top: 6px">
-<a href="https://docs.google.com/presentation/d/1Gzh6GpschW6ETSAOZXgrE2oZUAL2lwXH1SQMqIwliy0/edit?usp=sharing" target="_blank" rel="noopener" style="font-size: 16px; font-weight: 700; color: #5B3FD9; text-decoration: underline; text-underline-offset: 3px">View the case study ↗</a>
+<div class="u95" id="local-seo">
+<div class="u53">[06] Gr0 · Beauty &amp; Cosmetic Services · SEO</div>
+<h3 class="u45">From unranked to page one for “nano blading”</h3>
+<p class="u54">A newer brow beauty bar wasn't ranking for “nano blading” while its competitors were. I paired an on-page overhaul (meta title and description, a keyword-rich product page URL, and internal links from related pages) with digital PR, guest posts and backlinks.</p>
+<div class="u55">
+<div><div class="u30">#2</div><div class="u31">Page-one ranking for “nano blading”</div></div>
 </div>
 </div>
 </div>
-<div id="concerns-4-safety" style="background: #FFFFFF; border: 1px solid #DEDAD0; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
-<img src="/images/concerns-4-safety.jpg" alt="ConCerns 4 Safety home page mockups on desktop, tablet and mobile, showing the responsive design." width="1600" height="900" loading="lazy" style="display: block; width: 100%; height: auto; border-bottom: 1px solid #DEDAD0">
-<div style="padding: 28px 32px 32px; display: flex; flex-direction: column; gap: 14px; flex: 1">
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5B3FD9">[09] ConCerns 4 Safety · Responsive web &amp; app</div>
-<h3 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">A safe, anonymous way for students to speak up</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4966">A responsive site and app that lets K–12 students anonymously report concerns about a peer's safety, straight to school and district staff, with peer-to-peer chat and resources built in. As lead UX designer and researcher, I designed the full flow, from location and school to the concern form and confirmation, keeping navigation simple and calm for teens. Testing moved logout, navigation and the urgent-help message to where students could find them quickly.</p>
-<div style="display: flex; gap: 24px; padding-top: 8px; margin-top: auto">
-<div><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px">5 of 5</div><div style="font-size: 14px; color: #4A4966">Participants would use it to report a concern</div></div>
-<div><div style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px">4 of 5</div><div style="font-size: 14px; color: #4A4966">Reached confirmation with no issues</div></div>
 </div>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; padding-top: 6px">
-<a href="https://docs.google.com/presentation/d/16iQtXqaYF2TVY3KGfTYbCbkq0pm77wjh8iLoz3Eka2c/edit?usp=sharing" target="_blank" rel="noopener" style="font-size: 16px; font-weight: 700; color: #5B3FD9; text-decoration: underline; text-underline-offset: 3px">View the case study ↗</a>
-<a href="/work/concerns-4-safety-affinity-diagram.pdf" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #5B3FD9; text-decoration: underline; text-underline-offset: 3px">Affinity diagram (PDF) ↗</a>
+</section>
+
+<section class="u68" id="design-web">
+<div class="u63">
+<div class="u125">
+<h2 class="u94">Design, UX &amp; web</h2>
+<p class="u166">Research, wireframes, prototypes and presentations from my Google UX Design Certificate projects. Each case study walks through the problem, the research and how usability testing changed the design.</p>
+</div>
+<div class="u62">
+<div class="u96" id="harkins-app">
+<img class="u97" src="/images/harkins-snack-app.jpg" alt="Five mobile screens from the Harkins Snack App concept: home, navigation menu, profile, payment options and accessibility options." width="1600" height="900" loading="lazy">
+<div class="u98">
+<div class="u53">[07] Harkins (concept) · Mobile UX</div>
+<h3 class="u45">Skip the concession line, not the movie</h3>
+<p class="u54">A concept app that lets moviegoers order snacks ahead, even mid-movie, for fast pick-up. As lead UX designer and researcher, I took it from interviews, personas and competitive audits through wireframes, prototypes and a full design system, with accessibility built in from the start: voice navigation, a screen reader, large icons and WCAG-checked contrast.</p>
+<div class="u55">
+<div><div class="u30">2</div><div class="u31">Rounds of usability testing</div></div>
+<div><div class="u30">3 → 5</div><div class="u31">Saved-order slots, changed after user feedback</div></div>
+</div>
+<div class="u99">
+<a class="u100" href="https://docs.google.com/presentation/d/1wom0oCVgBl1J_5bSlFh2zEy37eLDHMkQRpDo-2xak5M/edit?usp=sharing" target="_blank" rel="noopener">View the case study ↗</a>
+</div>
+</div>
+</div>
+<div class="u96" id="harkins-website">
+<img class="u97" src="/images/harkins-snacks-website.jpg" alt="Desktop home page and accessibility page mockups for the Harkins Movie Snacks website concept, shown in browser windows." width="1600" height="900" loading="lazy">
+<div class="u98">
+<div class="u53">[08] Harkins (concept) · Responsive web</div>
+<h3 class="u45">Express snack pick-up, with accessibility up front</h3>
+<p class="u54">The website companion to the snack app, built for moviegoers who'd rather order ahead than miss the opening scene. As the UX designer leading the site, I went from a site map and paper wireframes to a high-fidelity responsive prototype. Usability testing reshaped the navigation: confusing arrows became a floating nav menu, accessibility controls moved into the top bar, and payment became quick pop-up steps.</p>
+<div class="u55">
+<div><div class="u30">5</div><div class="u31">Usability study participants</div></div>
+<div><div class="u30">7</div><div class="u31">Design changes from testing</div></div>
+</div>
+<div class="u99">
+<a class="u100" href="https://docs.google.com/presentation/d/1Gzh6GpschW6ETSAOZXgrE2oZUAL2lwXH1SQMqIwliy0/edit?usp=sharing" target="_blank" rel="noopener">View the case study ↗</a>
+</div>
+</div>
+</div>
+<div class="u96" id="concerns-4-safety">
+<img class="u97" src="/images/concerns-4-safety.jpg" alt="ConCerns 4 Safety home page mockups on desktop, tablet and mobile, showing the responsive design." width="1600" height="900" loading="lazy">
+<div class="u98">
+<div class="u53">[09] ConCerns 4 Safety · Responsive web &amp; app</div>
+<h3 class="u45">A safe, anonymous way for students to speak up</h3>
+<p class="u54">A responsive site and app that lets K–12 students anonymously report concerns about a peer's safety, straight to school and district staff, with peer-to-peer chat and resources built in. As lead UX designer and researcher, I designed the full flow, from location and school to the concern form and confirmation, keeping navigation simple and calm for teens. Testing moved logout, navigation and the urgent-help message to where students could find them quickly.</p>
+<div class="u55">
+<div><div class="u30">5 of 5</div><div class="u31">Participants would use it to report a concern</div></div>
+<div><div class="u30">4 of 5</div><div class="u31">Reached confirmation with no issues</div></div>
+</div>
+<div class="u99">
+<a class="u100" href="https://docs.google.com/presentation/d/16iQtXqaYF2TVY3KGfTYbCbkq0pm77wjh8iLoz3Eka2c/edit?usp=sharing" target="_blank" rel="noopener">View the case study ↗</a>
+<a class="u167" href="/work/concerns-4-safety-affinity-diagram.pdf" target="_blank" rel="noopener">Affinity diagram (PDF) ↗</a>
 </div>
 </div>
 </div>
@@ -372,64 +320,36 @@ a{color:#F7F5F0}a:hover{color:#FF7A59}
 </div>
 </section>
   
-<section style="background: #FF7A59; padding: clamp(64px, 8vw, 112px) 5%">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px">
-<div style="display: flex; flex-direction: column; gap: 12px">
-<h2 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(36px, 4.6vw, 64px); line-height: 1; letter-spacing: -0.03em; color: #14142B">Your brand could be next.</h2>
-<p style="margin: 0; font-family: Fraunces, Georgia, serif; font-style: italic; font-size: clamp(20px, 2vw, 26px); color: #14142B">Tell me where you want to show up.</p>
+<section class="u83">
+<div class="u84">
+<div class="u44">
+<h2 class="u85">Your brand could be next.</h2>
+<p class="u86">Tell me where you want to show up.</p>
 </div>
-<div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><a href="/contact" style="font-size: 18px; font-weight: 700; color: #F7F5F0; background: #14142B; text-decoration: none; padding: 20px 34px; border-radius: 999px">Start a project</a>
-<a href="/blog/" style="font-size: 17px; font-weight: 700; color: #14142B; text-decoration: underline; text-underline-offset: 4px; padding: 10px 0">See how I approach AI visibility</a></div>
+<div class="u117"><a class="u87" href="/contact">Start a project</a>
+<a class="u118" href="/blog/">See how I approach AI visibility</a></div>
 </div>
 </section>
 
-<footer style="margin-top: auto; background: #14142B; padding: 56px 5%">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px">
-<div style="display: flex; flex-direction: column; gap: 10px">
-<a href="/" aria-label="Jen Alston, home" style="display: flex; align-items: flex-start; gap: 3px; text-decoration: none">
-<span style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 32px; line-height: 1; letter-spacing: -1px; color: #F7F5F0">jen alston</span>
-<span style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; line-height: 1; color: #A084FF">[1]</span>
+<footer class="u19">
+<div class="u20">
+<div class="u21">
+<a class="u26" href="/" aria-label="Jen Alston, home">
+<span class="u27">jen alston</span>
+<span class="u28">[1]</span>
 </a>
-<div style="font-family: Fraunces, Georgia, serif; font-style: italic; font-size: 20px; color: #F7F5F0">Discoverable by Design</div>
+<div class="u22">Discoverable by Design</div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start">
-<a href="mailto:Jennifer@jenalston.com" style="font-size: 16px; color: #F7F5F0; padding: 8px 0">Jennifer@jenalston.com</a>
-<a href="https://www.linkedin.com/in/jenniferalstonseo/" style="font-size: 16px; color: #F7F5F0; padding: 8px 0">LinkedIn</a>
-<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 4px 22px; padding-top: 4px"><a href="/about" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">About</a><a href="/case-studies" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Case Studies</a><a href="/#services" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Expertise</a><a href="/blog/" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Blog</a><a href="/contact" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Contact</a></nav>
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; letter-spacing: 1px; color: #A9A8C8; padding-top: 8px">© 2026 Jennifer Alston · jenalston.com · Working remotely in the US</div>
+<div class="u23">
+<a class="u5" href="mailto:Jennifer@jenalston.com">Jennifer@jenalston.com</a>
+<a class="u5" href="https://www.linkedin.com/in/jenniferalstonseo/">LinkedIn</a>
+<nav class="u24" aria-label="Footer"><a class="u2" href="/about">About</a><a class="u2" href="/case-studies">Case Studies</a><a class="u2" href="/expertise">Expertise</a><a class="u2" href="/blog/">Blog</a><a class="u2" href="/contact">Contact</a></nav>
+<div class="u25">© 2026 Jennifer Alston · jenalston.com · Working remotely in the US</div>
 </div>
 </div>
 </footer>
 
 </div>
-<script>
-(function(){
-  document.querySelectorAll('.gw').forEach(function(w){
-    var tabs=w.querySelectorAll('[data-gw-prompt]'), fills=w.querySelectorAll('.gw-fill'), vals=w.querySelectorAll('.gw-val');
-    tabs.forEach(function(t){t.addEventListener('click',function(){
-      tabs.forEach(function(x){x.setAttribute('aria-pressed',x===t?'true':'false');});
-      t.getAttribute('data-gw-prompt').split(',').forEach(function(v,i){fills[i].style.width=v+'%';vals[i].textContent=v+'%';});
-    });});
-    var detail=w.querySelector('.gw-detail'), heads=Array.prototype.map.call(w.querySelectorAll('.gw-m thead th'),function(h){return h.textContent;});
-    var dots=w.querySelectorAll('.gw-dot');
-    dots.forEach(function(d){
-      var row=d.closest('tr'), col=Array.prototype.indexOf.call(row.children,d.parentNode);
-      var label=row.querySelector('th').textContent+' · '+heads[col];
-      d.setAttribute('aria-label',label+(d.classList.contains('no')?': tested, not visible yet':': visible'));
-      if(label==='Hoodie designer · AI Overviews') d.setAttribute('aria-pressed','true'); else d.setAttribute('aria-pressed','false');
-      d.addEventListener('click',function(){
-        dots.forEach(function(x){x.setAttribute('aria-pressed',x===d?'true':'false');});
-        detail.innerHTML='';var b=document.createElement('b');b.textContent=label+':';detail.appendChild(b);detail.appendChild(document.createTextNode(' '+d.getAttribute('data-t')));
-      });
-    });
-  });
-  document.querySelectorAll('.dw').forEach(function(w){
-    var tabs=w.querySelectorAll('[data-dw]');
-    tabs.forEach(function(t){t.addEventListener('click',function(){
-      tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-pressed',on?'true':'false');document.getElementById(x.getAttribute('data-dw')).hidden=!on;});
-    });});
-  });
-})();
-</script>
+
 </body>
 </html>

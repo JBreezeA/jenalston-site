@@ -1,0 +1,50 @@
+/* Case Studies interactive graphics */
+.gw,.dw{background:#14142B;color:#F7F5F0;border-radius:24px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:22px;font-family:'DM Sans','Helvetica Neue',sans-serif}
+.gw-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;font-family:'JetBrains Mono','Courier New',monospace;font-size:12px;letter-spacing:1px;color:#A084FF}
+.gw-h{margin:0 0 10px;font-family:Syne,'Arial Black',sans-serif;font-weight:700;font-size:18px;color:#F7F5F0}
+.gw-sub{margin:-6px 0 12px;font-size:13px;line-height:1.5;color:#A9A8C8}
+.gw-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.gw-kpi{border:1px solid #3A3A5C;border-radius:14px;padding:14px}
+.gw-kpi b{display:block;font-family:Syne,'Arial Black',sans-serif;font-weight:800;font-size:clamp(24px,2.6vw,30px);line-height:1}
+.gw-kpi span{display:block;margin-top:6px;font-size:12.5px;line-height:1.4;color:#C9C8E0}
+.gw-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.gw-tab{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #3A3A5C;background:transparent;color:#F7F5F0;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.gw-tab[aria-pressed="true"]{background:#7FDCCF;border-color:#7FDCCF;color:#14142B}
+.gw-bar{display:grid;grid-template-columns:minmax(92px,120px) 1fr 52px;align-items:center;gap:10px;margin-bottom:10px;font-size:14px}
+.gw-track{height:14px;border-radius:7px;background:#2A2A48;overflow:hidden}
+.gw-fill{height:100%;border-radius:7px;background:#A084FF;transition:width .5s ease}
+.gw-val{font-weight:700;text-align:right}
+.gw-scroll{overflow-x:auto}
+.gw-m{width:100%;min-width:470px;border-collapse:collapse;font-size:14px}
+.gw-m th{padding:0 2px 8px;font-size:11.5px;font-weight:700;color:#A9A8C8;text-align:center}
+.gw-m th:first-child,.gw-m td:first-child{text-align:left}
+.gw-m td{padding:2px;border-top:1px solid #2A2A48;text-align:center;white-space:nowrap}
+.gw-none{color:#6B6A8A}
+.gw-dot{display:inline-flex;align-items:center;justify-content:center;gap:3px;min-width:40px;height:40px;padding:0 4px;border:none;border-radius:20px;background:transparent;color:#A084FF;font:inherit;font-size:11px;font-weight:700;cursor:pointer}
+.gw-dot::before{content:"";width:13px;height:13px;border-radius:50%;background:#A084FF}
+.gw-dot.no::before{background:transparent;border:2px solid #6B6A8A}
+.gw-dot:hover,.gw-dot[aria-pressed="true"]{background:#2A2A48}
+.gw-dot[aria-pressed="true"]{box-shadow:inset 0 0 0 2px #7FDCCF}
+.gw-detail{margin-top:12px;min-height:72px;padding:12px 14px;border-left:3px solid #7FDCCF;border-radius:0 12px 12px 0;background:#1C1C3A;font-size:14.5px;line-height:1.5}
+.gw-detail b{color:#7FDCCF}
+.gw-note{font-size:12px;color:#A9A8C8;margin-top:8px}
+.dw-panel{display:flex;flex-direction:column;gap:12px;font-size:14.5px;line-height:1.55}
+.dw-panel[hidden]{display:none}
+.dw-tier{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center}
+.dw-tier i{display:block;height:12px;border-radius:6px;background:#A084FF}
+.dw-tier span{font-size:13.5px;color:#C9C8E0}
+.dw-card{background:#F7F5F0;color:#14142B;border-radius:16px;padding:18px}
+.dw-card b{font-family:Syne,'Arial Black',sans-serif;font-size:19px}
+.dw-card p{margin:6px 0 0;font-size:14px;line-height:1.5;color:#34334F}
+.dw-mark{background:#FFD9CC;padding:0 3px;border-radius:3px}
+.dw-btn{display:inline-block;margin-top:10px;padding:8px 14px;border-radius:999px;background:#14142B;color:#F7F5F0;font-size:12px;font-weight:700;letter-spacing:1px}
+.dw-stat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.dw-stat div{border:1px solid #3A3A5C;border-radius:14px;padding:14px}
+.dw-stat b{display:block;font-family:Syne,'Arial Black',sans-serif;font-size:26px}
+.dw-stat span{font-size:12.5px;color:#C9C8E0;line-height:1.4}
+.dw-c{border:1px solid #3A3A5C;border-radius:14px;padding:14px}
+.dw-c .who{font-size:12px;font-weight:700;color:#A9A8C8;margin-bottom:4px}
+.dw-c.me{border-color:#7FDCCF;margin-left:24px}
+.dw-link{color:#A084FF;text-decoration:underline}
+@media (prefers-reduced-motion:reduce){.gw-fill{transition:none}}
+@media (max-width:480px){.gw-kpis,.dw-stat{grid-template-columns:1fr}}

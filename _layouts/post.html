@@ -10,42 +10,6 @@ layout: null
 <link rel="alternate" type="application/atom+xml" title="Jennifer Alston: Blog" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&amp;family=JetBrains+Mono:wght@500&amp;family=Syne:wght@700;800&amp;display=swap">
-<style>
-body{margin:0;background:#14142B}
-a{color:#F7F5F0}a:hover{color:#FF7A59}
-a:focus-visible,button:focus-visible{outline:3px solid #A084FF;outline-offset:3px}
-.post-body{font-size:19px;line-height:1.75;color:#24233F}
-.post-body>*{margin:0 0 1.1em}
-.post-body h2{margin:1.9em 0 .6em;font-family:Syne,'Arial Black',sans-serif;font-weight:800;font-size:clamp(26px,3vw,34px);line-height:1.12;letter-spacing:-.02em;color:#14142B}
-.post-body h3{margin:1.5em 0 .4em;font-family:Syne,'Arial Black',sans-serif;font-weight:700;font-size:22px;color:#14142B}
-.post-body a{color:#5B3FD9;text-underline-offset:3px}.post-body a:hover{color:#14142B}
-.post-body strong{color:#14142B}
-.post-body ul,.post-body ol{padding-left:1.3em}.post-body li{margin-bottom:.5em}
-.post-body blockquote{margin:1.6em 0;padding:18px 24px;border-left:4px solid #FF7A59;background:#EFECE4;border-radius:0 14px 14px 0;font-family:Fraunces,Georgia,serif;font-style:italic;font-size:21px;line-height:1.5;color:#14142B}
-.post-body blockquote p{margin:0}
-.post-body code{font-family:'JetBrains Mono','Courier New',monospace;font-size:.85em;background:#EFECE4;padding:2px 6px;border-radius:6px}
-.post-body pre{background:#14142B;color:#F7F5F0;padding:18px 22px;border-radius:14px;overflow-x:auto}.post-body pre code{background:none;padding:0;color:inherit}
-.post-body table{display:block;overflow-x:auto;border-collapse:collapse;font-size:16px;line-height:1.5}
-.post-body th,.post-body td{padding:10px 16px;border-bottom:1px solid #DEDAD0;text-align:left;white-space:nowrap}
-.post-body th{font-weight:700;color:#14142B;border-bottom:2px solid #14142B}
-.takeaways{background:#14142B;color:#F7F5F0;border-radius:20px;padding:26px 30px 14px}
-.takeaways h2{margin:0 0 12px!important;font-size:22px!important;color:#F7F5F0!important}
-.takeaways li{color:#E4E1FF}.takeaways strong{color:#FFFFFF}.takeaways li::marker{color:#FF7A59}
-.toc{border:1px solid #DEDAD0;border-radius:20px;padding:22px 30px 12px;background:#FFFFFF}
-.toc h2{margin:0 0 10px!important;font-size:20px!important}
-.toc ol{margin:0;padding-left:1.3em;font-size:17px}.toc li{margin-bottom:.4em}
-.echo{margin:1.8em 0;padding:22px 26px;border:2px solid #A084FF;border-radius:18px;background:#FFFFFF}
-.echo .echo-label{margin:0 0 6px;font-family:'JetBrains Mono','Courier New',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#5B3FD9}
-.echo .echo-q{margin:0 0 8px;font-family:Syne,'Arial Black',sans-serif;font-weight:700;font-size:21px;line-height:1.3;color:#14142B}
-.echo p:last-child{margin:0}
-.post-hero{padding:0 5%;background:linear-gradient(#14142B 50%,#F7F5F0 50%)}
-.post-hero img{display:block;width:100%;max-width:1100px;height:auto;margin:0 auto;border-radius:24px;box-shadow:0 24px 48px rgba(20,20,43,.25)}
-.post-body figure{margin:2em 0}.post-body figure img{display:block;width:100%;height:auto;border-radius:20px;border:1px solid #DEDAD0}
-.post-body figcaption{margin-top:10px;font-size:15px;line-height:1.5;color:#4A4966}
-.faq-item p:last-child{margin:0}
-.faq-item{padding:18px 0;border-top:1px solid #DEDAD0}.faq-item:last-child{border-bottom:1px solid #DEDAD0}
-.faq-item h3{margin:0 0 8px!important;font-size:21px!important}.faq-item p{margin:0}
-</style>
 <title>{{ page.title }} | Jennifer Alston</title>
 <meta name="description" content="{{ page.description | escape }}">
 <link rel="canonical" href="https://jenalston.com{{ page.url }}">
@@ -66,63 +30,66 @@ a:focus-visible,button:focus-visible{outline:3px solid #A084FF;outline-offset:3p
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for item in page.faq %}{"@type":"Question","name":{{ item.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ item.a | markdownify | strip_html | strip | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}
 </script>
 {% endif %}
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/post.css">
+<script src="/assets/site.js" defer></script>
 </head>
 <body>
-<div style="width: 100%; min-height: 100vh; display: flex; flex-direction: column; background: #F7F5F0; font-family: 'DM Sans', 'Helvetica Neue', sans-serif; color: #14142B">
-<header style="background: #14142B; padding: 20px 5%; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; border-bottom: 1px solid #2A2A48">
-<a href="/" aria-label="Jen Alston, home" style="display: flex; align-items: flex-start; gap: 3px; text-decoration: none; padding: 8px 0">
-<span style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 28px; line-height: 1; letter-spacing: -1px; color: #F7F5F0">jen alston</span>
-<span style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 11px; line-height: 1; color: #A084FF">[1]</span>
+<div class="u46">
+<header class="u8">
+<a class="u9" href="/" aria-label="Jen Alston, home">
+<span class="u10">jen alston</span>
+<span class="u11">[1]</span>
 </a>
-<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px">
-<a href="/about" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">About</a>
-<a href="/case-studies" style="font-size: 16px; font-weight: 500; color: #F7F5F0; text-decoration: none; padding: 12px 0">Case Studies</a>
-<details class="nav-dd" style="position: relative"> <summary style="list-style: none; cursor: pointer; font-size: 16px; font-weight: 500; color: #F7F5F0; padding: 12px 0">Expertise <span aria-hidden="true" style="font-size: 11px; color: #FF7A59">&#9660;</span></summary> <div style="position: absolute; top: 100%; left: -18px; z-index: 50; min-width: 240px; max-width: calc(100vw - 32px); background: #1E1E3A; border: 1px solid #3A3960; border-radius: 14px; padding: 10px; display: flex; flex-direction: column; box-shadow: 0 16px 40px rgba(0,0,0,.35)"> <a href="/geo-aeo-services" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px"  >GEO &amp; AEO</a> <a href="/ai-visibility-audit" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">AI Visibility Audit</a> <a href="/seo-services" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px" >SEO</a> <a href="/enterprise-seo" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">Enterprise SEO &amp; GEO</a> <a href="/small-business-seo" style="font-size: 15px; color: #F7F5F0; text-decoration: none; padding: 10px 12px; border-radius: 8px">Small Business SEO &amp; GEO</a> <a href="/#services" style="font-size: 14px; color: #A084FF; text-decoration: none; padding: 10px 12px; margin-top: 4px; border-top: 1px solid #3A3960">All services &#8594;</a> </div> </details> <style>.nav-dd summary::-webkit-details-marker{display:none}.nav-dd a:hover{background:#2A2950}.nav-dd[open] summary span{display:inline-block;transform:rotate(180deg)}@media (max-width:640px){.nav-dd>div{position:fixed!important;top:auto!important;left:16px!important;right:16px!important;min-width:0!important;max-width:none!important}}</style> <script>document.addEventListener('click',function(e){document.querySelectorAll('details.nav-dd[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('details.nav-dd[open]').forEach(function(d){d.removeAttribute('open')})});window.addEventListener('scroll',function(){if(window.innerWidth<=640)document.querySelectorAll('details.nav-dd[open]').forEach(function(d){d.removeAttribute('open')})},{passive:true});</script> <a href="/blog/" aria-current="page" style="font-size: 16px; font-weight: 700; color: #F7F5F0; text-decoration: none; padding: 12px 0 10px; border-bottom: 2px solid #FF7A59">Blog</a>
-<a href="/contact" style="font-size: 16px; font-weight: 700; color: #14142B; background: #FF7A59; text-decoration: none; padding: 13px 24px; border-radius: 999px">Let's talk</a>
+<nav class="u12" aria-label="Main">
+<a class="u3" href="/about">About</a>
+<a class="u3" href="/case-studies">Case Studies</a>
+<details class="nav-dd u13"> <summary class="u14">Expertise <span class="u15" aria-hidden="true">&#9660;</span></summary> <div class="u16"> <a class="u1" href="/geo-aeo-services"  >GEO &amp; AEO</a> <a class="u1" href="/ai-visibility-audit">AI Visibility Audit</a> <a class="u1" href="/seo-services" >SEO</a> <a class="u1" href="/enterprise-seo">Enterprise SEO &amp; GEO</a> <a class="u1" href="/small-business-seo">Small Business SEO &amp; GEO</a> <a class="u17" href="/expertise">All expertise &#8594;</a> </div> </details>  <a class="u65" href="/blog/" aria-current="page">Blog</a>
+<a class="u18" href="/contact">Let's talk</a>
 </nav>
 </header>
 <main>
 <article>
-<header style="background: #14142B; padding: clamp(64px, 8vw, 112px) 5% clamp(48px, 6vw, 80px)">
-<div style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px">
-<a href="/blog/" style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #A084FF; text-decoration: none">[1] Blog</a>
-<h1 style="margin: 0; font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); line-height: 1.04; letter-spacing: -0.03em; color: #F7F5F0">{{ page.title }}</h1>
-<p style="margin: 0; font-size: clamp(18px, 1.6vw, 21px); line-height: 1.6; color: #C9C8E0">{{ page.description }}</p>
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; letter-spacing: 1px; color: #A9A8C8">By Jennifer Alston · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time> · {{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</div>
+<header class="u209">
+<div class="u210">
+<a class="u211" href="/blog/">[1] Blog</a>
+<h1 class="u212">{{ page.title }}</h1>
+<p class="u213">{{ page.description }}</p>
+<div class="u214">By Jennifer Alston · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time> · {{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</div>
 </div>
 </header>
 {% if page.image %}<div class="post-hero"><img src="{{ page.image }}" alt="{{ page.image_alt | escape }}" width="1600" height="840" fetchpriority="high"></div>{% endif %}
-<div style="padding: clamp(48px, 6vw, 88px) 5%">
-<div class="post-body" style="max-width: 760px; margin: 0 auto">
+<div class="u215">
+<div class="post-body u216">
 {{ content }}
 </div>
 </div>
 </article>
-<aside style="padding: 0 5% clamp(64px, 8vw, 112px)">
-<div style="max-width: 760px; margin: 0 auto; background: #14142B; border-radius: 24px; padding: clamp(24px, 4vw, 40px); display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; align-items: flex-start; gap: 3px"><span style="font-family: Syne, 'Arial Black', sans-serif; font-weight: 800; font-size: 26px; line-height: 1; letter-spacing: -1px; color: #F7F5F0">jen alston</span><span style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 11px; line-height: 1; color: #A084FF">[1]</span></div>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C9C8E0">Jennifer Alston is an SEO, GEO and AEO strategist with 14+ years in search, content and web. She has led AI-visibility programs for an enterprise software brand, building the prompt-testing frameworks and dashboards behind them.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 6px">
-<a href="/contact" style="font-size: 16px; font-weight: 700; color: #14142B; background: #FF7A59; text-decoration: none; padding: 14px 24px; border-radius: 999px">Start a project</a>
-<a href="/about" style="font-size: 16px; font-weight: 700; color: #F7F5F0; border: 2px solid #F7F5F0; text-decoration: none; padding: 12px 22px; border-radius: 999px">About Jennifer</a>
+<aside class="u217">
+<div class="u218">
+<div class="u136"><span class="u219">jen alston</span><span class="u220">[1]</span></div>
+<p class="u66">Jennifer Alston is an SEO, GEO and AEO strategist with 14+ years in search, content and web. She has led AI-visibility programs for an enterprise software brand, building the prompt-testing frameworks and dashboards behind them.</p>
+<div class="u221">
+<a class="u222" href="/contact">Start a project</a>
+<a class="u223" href="/about">About Jennifer</a>
 </div>
 </div>
 </aside>
 </main>
-<footer style="margin-top: auto; background: #14142B; padding: 56px 5%">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px">
-<div style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; align-items: flex-start; gap: 3px">
-<span style="... font-size: 32px; ...">jen alston</span>
+<footer class="u19">
+<div class="u20">
+<div class="u21">
+<div class="u136">
+<span class="u224">jen alston</span>
 <span ...>[1]</span>
 </div>
-<div style="font-family: Fraunces, Georgia, serif; font-style: italic; font-size: 20px; color: #F7F5F0">Discoverable by Design</div>
+<div class="u22">Discoverable by Design</div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start">
-<a href="mailto:Jennifer@jenalston.com" style="font-size: 16px; color: #F7F5F0; padding: 8px 0">Jennifer@jenalston.com</a>
-<a href="https://www.linkedin.com/in/jenniferalstonseo/" style="font-size: 16px; color: #F7F5F0; padding: 8px 0">LinkedIn</a>
-<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 4px 22px; padding-top: 4px"><a href="/about" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">About</a><a href="/case-studies" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Case Studies</a><a href="/#services" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Expertise</a><a href="/blog/" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Blog</a><a href="/contact" style="font-size: 15px; color: #C9C8E0; padding: 6px 0">Contact</a></nav>
-<div style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; letter-spacing: 1px; color: #A9A8C8; padding-top: 8px">© 2026 Jennifer Alston · jenalston.com · Working remotely in the US</div>
+<div class="u23">
+<a class="u5" href="mailto:Jennifer@jenalston.com">Jennifer@jenalston.com</a>
+<a class="u5" href="https://www.linkedin.com/in/jenniferalstonseo/">LinkedIn</a>
+<nav class="u24" aria-label="Footer"><a class="u2" href="/about">About</a><a class="u2" href="/case-studies">Case Studies</a><a class="u2" href="/expertise">Expertise</a><a class="u2" href="/blog/">Blog</a><a class="u2" href="/contact">Contact</a></nav>
+<div class="u25">© 2026 Jennifer Alston · jenalston.com · Working remotely in the US</div>
 </div>
 </div>
 </footer>

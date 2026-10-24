@@ -1,17 +1,27 @@
 ---
-title: "How to Measure AI Share of Voice"
-description: "How to track how often AI assistants mention your brand vs. competitors, with the formula, a worked example and the mistakes that skew the number."
+title: How to Measure AI Share of Voice
+description: How to track how often AI assistants mention your brand vs.
+  competitors, with the formula, a worked example and the mistakes that skew the
+  number.
 date: 2026-10-06 09:00:00 -0400
-last_modified_at: 2026-10-07 09:00:00 -0400
+last_modified_at: 2026-10-24 17:00:00 -0400
 faq:
-  - q: "What's a good AI share of voice?"
-    a: "There's no universal benchmark, because it depends on how many competitors you track and how crowded your category is. Compare your share with your top competitor's, and focus on the trend: a share that rises month over month means your work is landing."
-  - q: "Why does my brand show up in ChatGPT but not in Gemini?"
-    a: "Each AI platform draws on different sources and weighs them differently, so visibility in one doesn't guarantee visibility in another. Check which sources each platform cites for your prompts, and focus your efforts on the sources the weaker platform relies on."
-  - q: "Can I improve my AI share of voice?"
-    a: "Yes. Get your brand featured accurately on the pages AI platforms cite, publish clear content that answers your customers' questions directly, and keep your brand name close to the topics you want to own. Then measure again each month to see what's working."
+  - q: What's a good AI share of voice?
+    a: "There's no universal benchmark, because it depends on how many competitors
+      you track and how crowded your category is. Compare your share with your
+      top competitor's, and focus on the trend: a share that rises month over
+      month means your work is landing."
+  - q: Why does my brand show up in ChatGPT but not in Gemini?
+    a: Each AI platform draws on different sources and weighs them differently, so
+      visibility in one doesn't guarantee visibility in another. Check which
+      sources each platform cites for your prompts, and focus your efforts on
+      the sources the weaker platform relies on.
+  - q: Can I improve my AI share of voice?
+    a: Yes. Get your brand featured accurately on the pages AI platforms cite,
+      publish clear content that answers your customers' questions directly, and
+      keep your brand name close to the topics you want to own. Then measure
+      again each month to see what's working.
 ---
-
 Rankings tell you where a page sits in Google. They don't tell you whether ChatGPT recommends you, whether Gemini names a competitor instead, or whether Google's AI Overview cites your product page or someone else's.
 
 **AI share of voice** answers that question. It's the metric I rely on most when running [GEO (generative engine optimization)](/blog/beginners-guide-to-geo-for-small-businesses/) and AEO (answer engine optimization) programs, and you can start measuring it today with nothing more than a spreadsheet.

@@ -482,6 +482,48 @@ content:
         type: code
         options:
           format: html
+  - name: page-sov-calculator
+    label: "Page: AI Share of Voice Calculator"
+    type: file
+    path: ai-share-of-voice-calculator.html
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: SEO title
+        type: string
+        required: true
+        description: "Shows in the browser tab and as the blue headline in Google. Aim for 50-60 characters."
+      - name: description
+        label: Meta description
+        type: text
+        required: true
+        description: "The snippet under your title in Google. Aim for 140-160 characters."
+      - name: canonical
+        label: Page address
+        type: string
+        readonly: true
+        description: "Set automatically. Don't change this."
+      - name: social_title
+        label: Social share title (optional)
+        type: string
+        description: "Title on LinkedIn, Facebook and X previews. Leave blank to use the SEO title."
+      - name: social_description
+        label: Social share description (optional)
+        type: text
+        description: "Leave blank to use the meta description."
+      - name: social_image
+        label: Social share image (optional)
+        type: image
+        description: "1200 x 630 works best. Leave blank to use your main jenalston.com share image."
+      - name: social_image_alt
+        label: Social share image alt text (optional)
+        type: string
+        description: "Describe the share image. Leave blank to use the default description."
+      - name: body
+        label: Page content (HTML)
+        type: code
+        options:
+          format: html
   - name: page-blog-index
     label: "Page: Blog home page"
     type: file

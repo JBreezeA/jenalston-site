@@ -1,0 +1,62 @@
+# Pages CMS settings for jenalston.com (https://app.pagescms.org)
+# Upload this file to the main folder of the jenalston-site repo.
+
+media:
+  input: images
+  output: /images
+
+content:
+  - name: posts
+    label: Blog posts
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Title (H1 and SEO title)
+        type: string
+        required: true
+        description: "Aim for about 50-60 characters."
+      - name: description
+        label: Meta description
+        type: text
+        required: true
+        description: "Shown in Google results and social shares. Aim for 140-160 characters."
+      - name: date
+        label: Publish date
+        type: string
+        required: true
+        description: "Format: 2026-10-24 09:00:00 -0400"
+      - name: last_modified_at
+        label: Last updated
+        type: string
+        description: "Update this when you make a meaningful edit. Same format as the publish date."
+      - name: image
+        label: Header image
+        type: image
+        description: "Optional. Wide images (1200 x 630 or larger) work best."
+      - name: image_alt
+        label: Header image alt text
+        type: string
+        description: "Describe what the image shows, for screen readers and search engines."
+      - name: faq
+        label: FAQ (adds FAQ schema)
+        type: object
+        list: true
+        fields:
+          - name: q
+            label: Question
+            type: string
+          - name: a
+            label: Answer
+            type: text
+      - name: body
+        label: Post content (Markdown)
+        type: code
+        options:
+          format: markdown

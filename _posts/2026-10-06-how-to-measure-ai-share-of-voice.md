@@ -81,6 +81,9 @@ A mention builds awareness. A citation and a link are what send people to your s
 </div>
 
 > AI share of voice = (your brand's mentions ÷ total mentions of all tracked brands) × 100
+>
+> Want to skip the counting? Try my [free AI share of voice calculator](/ai-share-of-voice-calculator)
+> 
 
 "All tracked brands" means you plus the competitors you've chosen to watch. Pick them once and keep the list stable, or your numbers won't be comparable month to month.
 

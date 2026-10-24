@@ -1,0 +1,22 @@
+{%- assign seo_title = page.social_title | default: page.title -%}
+{%- assign seo_desc = page.social_description | default: page.description -%}
+{%- assign seo_image = page.social_image | default: "/images/jenalston-social.jpg" -%}
+<title>{{ page.title | escape }}</title>
+<meta name="description" content="{{ page.description | escape }}">
+<link rel="canonical" href="{{ site.url }}{{ page.canonical }}">
+<meta name="author" content="Jennifer Alston">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Jennifer Alston">
+<meta property="og:title" content="{{ seo_title | escape }}">
+<meta property="og:description" content="{{ seo_desc | escape }}">
+<meta property="og:url" content="{{ site.url }}{{ page.canonical }}">
+<meta property="og:image" content="{{ site.url }}{{ seo_image }}">
+{%- if seo_image == "/images/jenalston-social.jpg" %}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{%- endif %}
+<meta property="og:image:alt" content="{{ page.social_image_alt | default: 'Jen Alston, Discoverable by Design: SEO, GEO, AEO and AI visibility strategy.' | escape }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seo_title | escape }}">
+<meta name="twitter:description" content="{{ seo_desc | escape }}">
+<meta name="twitter:image" content="{{ site.url }}{{ seo_image }}">

@@ -55,7 +55,7 @@ layout: null
 <a class="u211" href="/blog/">[1] Blog</a>
 <h1 class="u212">{{ page.title }}</h1>
 <p class="u213">{{ page.description }}</p>
-<div class="u214">By Jennifer Alston · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time> · {{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</div>
+<div class="u214">By Jennifer Alston · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>{% if page.last_modified_at %} · Updated <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%B %-d, %Y" }}</time>{% endif %} · {{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</div>
 </div>
 </header>
 {% if page.image %}<div class="post-hero"><img src="{{ page.image }}" alt="{{ page.image_alt | escape }}" width="1600" height="840" fetchpriority="high"></div>{% endif %}

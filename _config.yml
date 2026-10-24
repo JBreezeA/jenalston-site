@@ -1,7 +1,6 @@
 title: Jennifer Alston
 description: SEO, GEO and AEO strategy. Discoverable by Design.
 url: "https://jenalston.com"
-permalink: /blog/:title/
 markdown: kramdown
 kramdown:
   input: GFM
@@ -15,6 +14,7 @@ defaults:
       type: posts
     values:
       layout: post
+      permalink: /blog/:title/
 exclude:
   - README.md
   - README.txt

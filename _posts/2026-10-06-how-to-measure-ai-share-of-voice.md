@@ -5,6 +5,10 @@ description: How to track how often AI assistants mention your brand vs.
   number.
 date: 2026-10-06 09:00:00 -0400
 last_modified_at: 2026-10-24 19:22:00 -0400
+image: /images/ai-share-of-voice-header.jpg
+image_alt: "Graphic showing the AI share of voice formula, your mentions divided
+  by all tracked brand mentions times 100, with an example result of 31%
+  overall: 40% in Google AI Overviews, 31% in ChatGPT and 20% in Gemini."
 faq:
   - q: What's a good AI share of voice?
     a: "There's no universal benchmark, because it depends on how many competitors

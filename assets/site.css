@@ -241,3 +241,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ft{--ft:linear-gradient(180deg,#7D76B8 0,rgba(125,118,184,0) var(--fl))}
 .fb{--fb:linear-gradient(0deg,#7D76B8 0,rgba(125,118,184,0) var(--fl))}
 .fbn{--fb:linear-gradient(0deg,#14142B 0,rgba(20,20,43,0) var(--fl))}
+
+/* free tool callout (home) */
+.tool-callout{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;margin-top:8px;padding:clamp(22px,3vw,32px) clamp(22px,3vw,36px);border-radius:24px;background:#14142B;color:#F7F5F0}
+.tool-callout-text{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.tool-callout-lab{font-family:'JetBrains Mono','Courier New',monospace;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#9BEADF}
+.tool-callout h3{margin:0;font-family:Syne,'Arial Black',sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,30px);line-height:1.15;color:#FFFFFF}
+.tool-callout p{margin:0;font-size:17px;line-height:1.6;color:#C9C8E0;max-width:640px}
+.tool-callout-btn{flex:0 0 auto;font-size:17px;font-weight:700;color:#14142B;background:linear-gradient(120deg,#9BEADF,#A9CFF7 55%,#CDB9FF);text-decoration:none;padding:16px 28px;border-radius:999px}
+.tool-callout-btn:hover{filter:brightness(1.05)}
+.tool-callout-btn:focus-visible{outline:3px solid #9BEADF;outline-offset:3px}

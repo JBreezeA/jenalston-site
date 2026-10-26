@@ -15,6 +15,8 @@ var STORE_KEY = 'jen-sov-calculator-v2';
 function blankComp() { return { name: '', aliases: '', domain: '' }; }
 function blankState() {
 var s = {
+view: 'quick',
+qPlat: 'chatgpt',
 mode: 'paste',
 countBy: 'unique',
 you: { name: '', aliases: '', domain: '', pages: '' },
@@ -46,9 +48,27 @@ if (typeof s.answers[p.id] !== 'string') s.answers[p.id] = b.answers[p.id];
 if (!s.counts[p.id] || typeof s.counts[p.id] !== 'object') s.counts[p.id] = {};
 if (!s.cites[p.id] || typeof s.cites[p.id] !== 'object') s.cites[p.id] = {};
 });
+if (!PLATFORMS.some(function (p) { return p.id === s.qPlat; })) {
+var filled = PLATFORMS.filter(function (p) { return s.answers[p.id].trim(); });
+s.qPlat = filled.length === 1 ? filled[0].id : 'chatgpt';
+}
+if (s.view !== 'quick' && s.view !== 'advanced') s.view = hasAdvanced(s) ? 'advanced' : 'quick';
 return s;
 } catch (e) { return null; }
 }
+function filledVal(v) { return v !== undefined && v !== null && String(v).trim() !== ''; }
+function hasAdvanced(s) {
+if (s.mode === 'manual' || s.countBy === 'all') return true;
+if (s.you.aliases.trim() || s.you.domain.trim() || s.you.pages.trim()) return true;
+if (s.comps.some(function (c, i) { return (i >= 2 && c.name.trim()) || c.aliases.trim() || c.domain.trim(); })) return true;
+return PLATFORMS.some(function (p) {
+if (p.id !== s.qPlat && s.answers[p.id].trim()) return true;
+return Object.keys(s.counts[p.id]).some(function (k) { return filledVal(s.counts[p.id][k]); }) ||
+Object.keys(s.cites[p.id]).some(function (k) { return filledVal(s.cites[p.id][k]); });
+});
+}
+function isQuick() { return state.view === 'quick'; }
+function platName(id) { for (var i = 0; i < PLATFORMS.length; i++) if (PLATFORMS[i].id === id) return PLATFORMS[i].name; return ''; }
 function save() {
 try { window.localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* ignore */ }
 }
@@ -129,18 +149,24 @@ if (v > 0 && v < 1) return v.toFixed(1) + '%';
 return Math.round(v) + '%';
 }
 function num(v) { var n = parseInt(v, 10); return isNaN(n) || n < 0 ? 0 : n; }
+// Quick start counts only what it shows: your brand name, competitors 1-2 (names only) and the one answer box.
 function brands() {
-var list = [{ key: 'you', name: state.you.name.trim() || 'Your brand', aliases: state.you.aliases, domain: cleanDomain(state.you.domain), isYou: true }];
+var q = isQuick();
+var list = [{ key: 'you', name: state.you.name.trim() || 'Your brand', aliases: q ? '' : state.you.aliases, domain: q ? '' : cleanDomain(state.you.domain), isYou: true }];
 state.comps.forEach(function (c, i) {
-if (c.name.trim()) list.push({ key: 'c' + i, name: c.name.trim(), aliases: c.aliases, domain: cleanDomain(c.domain), isYou: false });
+if (q && i > 1) return;
+if (c.name.trim()) list.push({ key: 'c' + i, name: c.name.trim(), aliases: q ? '' : c.aliases, domain: q ? '' : cleanDomain(c.domain), isYou: false });
 });
 return list;
 }
 function compute() {
+var q = isQuick();
+var mode = q ? 'paste' : state.mode;
+var countBy = q ? 'unique' : state.countBy;
 var bs = brands();
-var pages = state.mode === 'paste' ? trackedPages() : [];
+var pages = mode === 'paste' && !q ? trackedPages() : [];
 var res = {
-mode: state.mode, countBy: state.countBy, brands: bs, pages: pages, platforms: [],
+quick: q, mode: mode, countBy: countBy, brands: bs, pages: pages, platforms: [],
 totals: {}, citeTotals: {}, grand: 0, citeGrand: 0,
 answers: 0, youMentionAnswers: 0, youCiteAnswers: 0, pageAnswers: {},
 domain: bs[0].domain, anyDomains: bs.some(function (b) { return !!b.domain; })
@@ -153,17 +179,18 @@ nm[b.key] = nameMatcher(splitAliases(b.isYou ? state.you.name.trim() : b.name, b
 dm[b.key] = domainMatcher(b.domain);
 });
 PLATFORMS.forEach(function (p) {
+if (q && p.id !== state.qPlat) return;
 var row = { id: p.id, name: p.name, counts: {}, cites: {}, total: 0, citeTotal: 0, answers: 0, youAnswers: 0, youCited: 0, pages: {} };
 bs.forEach(function (b) { row.counts[b.key] = 0; row.cites[b.key] = 0; });
 pages.forEach(function (pg) { row.pages[pg.key] = 0; });
-if (state.mode === 'paste') {
+if (mode === 'paste') {
 var ans = splitAnswers(state.answers[p.id]);
 row.answers = ans.length;
 ans.forEach(function (a) {
 bs.forEach(function (b) {
 var n = countIn(nm[b.key], a);
 var c = countIn(dm[b.key], a);
-if (state.countBy === 'unique') { n = Math.min(n, 1); c = Math.min(c, 1); }
+if (countBy === 'unique') { n = Math.min(n, 1); c = Math.min(c, 1); }
 row.counts[b.key] += n;
 row.cites[b.key] += c;
 if (b.isYou && n > 0) row.youAnswers++;
@@ -178,7 +205,7 @@ row.cites[b.key] = num(state.cites[p.id][b.key]);
 });
 }
 bs.forEach(function (b) { row.total += row.counts[b.key]; row.citeTotal += row.cites[b.key]; });
-var used = state.mode === 'paste' ? row.answers > 0 : (row.total > 0 || row.citeTotal > 0);
+var used = mode === 'paste' ? row.answers > 0 : (row.total > 0 || row.citeTotal > 0);
 if (!used) return;
 bs.forEach(function (b) { res.totals[b.key] += row.counts[b.key]; res.citeTotals[b.key] += row.cites[b.key]; });
 pages.forEach(function (pg) { res.pageAnswers[pg.key] += row.pages[pg.key]; });
@@ -227,20 +254,62 @@ function renderAnswers() {
 var box = $('#sov-answers');
 box.textContent = '';
 PLATFORMS.forEach(function (p) {
-var ta = el('textarea', { id: 'sov-ans-' + p.id, rows: '6', spellcheck: 'false', placeholder: 'Paste ' + p.name + ' answers here, including their sources. Put a line with --- between answers.' });
+var ta = el('textarea', { id: 'sov-ans-' + p.id, rows: '6', spellcheck: 'false', placeholder: 'Paste a ' + p.name + ' answer here.' });
 ta.value = state.answers[p.id];
 var meta = el('span', { class: 'sov-meta', 'aria-live': 'polite' });
 function upd() { var n = splitAnswers(ta.value).length; meta.textContent = n ? n + (n === 1 ? ' answer' : ' answers') : 'Skipped'; }
 ta.addEventListener('input', function () { state.answers[p.id] = ta.value; upd(); changed(false); });
 upd();
+var addBtn = el('button', { type: 'button', class: 'sov-add-answer', text: '+ Add another answer', 'aria-label': 'Add another ' + p.name + ' answer' });
+addBtn.addEventListener('click', function () { addAnswer(ta, p.id, upd); });
 var det = el('details', { class: 'sov-plat' }, [
 el('summary', null, [el('span', { class: 'sov-plat-name', text: p.name }), meta]),
 el('label', { class: 'sr', for: 'sov-ans-' + p.id, text: p.name + ' answers' }),
-ta
+ta,
+el('div', { class: 'sov-plat-actions' }, [addBtn, el('span', { class: 'sov-plat-tip', text: 'Paste one answer, click this, then paste the next.' })])
 ]);
-if (state.answers[p.id].trim() || p.id === 'aio') det.open = true;
+if (state.answers[p.id].trim() || p.id === state.qPlat) det.open = true;
 box.appendChild(det);
 });
+}
+// Inserts the --- separator so beginners never have to type it.
+function addAnswer(ta, pid, upd) {
+var v = ta.value.replace(/\s+$/, '');
+if (v && !/(^|\n)\s*-{3,}\s*$/.test(v)) v += '\n---\n';
+else if (v) v += '\n';
+ta.value = v;
+state.answers[pid] = ta.value; upd(); changed(false);
+ta.focus();
+try { ta.setSelectionRange(ta.value.length, ta.value.length); } catch (e) { /* ignore */ }
+ta.scrollTop = ta.scrollHeight;
+}
+function ensureTwoComps() { while (state.comps.length < 2) state.comps.push(blankComp()); }
+function quickMeta() {
+var n = splitAnswers(state.answers[state.qPlat]).length;
+$('#sov-q-meta').textContent = n ? n + (n === 1 ? ' answer' : ' answers') : '';
+}
+function renderQuick() {
+ensureTwoComps();
+$('#sov-q-name').value = state.you.name;
+$('#sov-q-c0').value = state.comps[0].name;
+$('#sov-q-c1').value = state.comps[1].name;
+var sel = $('#sov-q-plat');
+if (!sel.options.length) PLATFORMS.forEach(function (p) { sel.appendChild(el('option', { value: p.id, text: p.name })); });
+sel.value = state.qPlat;
+$('#sov-q-answer').value = state.answers[state.qPlat];
+quickMeta();
+$('#sov-q-hidden-note').hidden = !hasAdvanced(state);
+}
+function renderView() {
+var q = isQuick();
+$('#sov-quick').hidden = !q;
+$('#sov-adv').hidden = q;
+var btn = $('#sov-view-toggle');
+btn.textContent = q ? 'Show advanced options' : 'Back to quick start';
+btn.setAttribute('aria-expanded', q ? 'false' : 'true');
+$('#sov-view-note').textContent = q
+? 'Quick start: your brand, a competitor or two and one AI answer. That’s it.'
+: 'Advanced options: up to six platforms, more competitors, other names and websites, specific pages, how mentions are counted, and citation share of voice.';
 }
 function countTable(store, what) {
 var bs = brands();
@@ -324,10 +393,11 @@ var r = compute();
 var out = $('#sov-results');
 out.textContent = '';
 lastResult = r;
+if (r.quick) { renderQuickResult(out, r); return; }
 if (!r.platforms.length || (r.grand === 0 && r.citeGrand === 0)) {
 out.appendChild(el('p', { class: 'sov-empty', text: r.platforms.length
 ? 'No tracked brands or websites were found in these answers yet. Check the names and websites in step 1.'
-: (state.mode === 'paste' ? 'Paste at least one AI answer in step 2 to see your share of voice.' : 'Enter mention counts in step 2 to see your share of voice.') }));
+: (r.mode === 'paste' ? 'Paste at least one AI answer in step 2 to see your share of voice.' : 'Enter mention counts in step 2 to see your share of voice.') }));
 return;
 }
 var you = r.brands[0];
@@ -401,6 +471,52 @@ tips.forEach(function (t) { ul.appendChild(el('li', { text: t })); });
 out.appendChild(el('div', { class: 'sov-insights' }, [el('h3', { text: 'What this tells you' }), ul]));
 }
 }
+function joinNames(list) {
+if (list.length <= 1) return list.join('');
+if (list.length === 2) return list[0] + ' and ' + list[1];
+return list.slice(0, -1).join(', ') + ' and ' + list[list.length - 1];
+}
+function quickSentence(r) {
+var you = r.brands[0].name, plat = r.platforms[0].name, n = r.answers, named = r.youMentionAnswers;
+var s = [];
+if (n === 1) s.push(named ? plat + ' named ' + you + ' in this answer.' : plat + ' didn’t name ' + you + ' in this answer.');
+else s.push(plat + ' named ' + you + ' in ' + named + ' of ' + n + ' answers.');
+var others = r.brands.slice(1);
+var top = Math.max.apply(null, r.brands.map(function (b) { return r.totals[b.key]; }));
+var leaders = others.filter(function (b) { return r.totals[b.key] === top; }).map(function (b) { return b.name; });
+if (r.totals.you > 0) {
+s.push('That gives ' + you + ' ' + fmtPct(pct(r.totals.you, r.grand)) + ' of the mentions among the brands you’re tracking.');
+if (r.totals.you === top && !leaders.length) s.push('You’re in the lead. Nice!');
+else if (r.totals.you === top) s.push('You’re tied for the lead with ' + joinNames(leaders) + '.');
+else s.push(joinNames(leaders) + (leaders.length > 1 ? ' were' : ' was') + ' named more often, so it’s worth reading what the answer says about them.');
+} else {
+s.push(joinNames(others.filter(function (b) { return r.totals[b.key] > 0; }).map(function (b) { return b.name; })) + ' got all the mentions this time. That’s useful to know, and it’s a good place to start working.');
+}
+return s.join(' ');
+}
+function renderQuickResult(out, r) {
+var hasComp = r.brands.length > 1;
+if (!r.answers) { out.appendChild(el('p', { class: 'sov-empty', text: 'Paste an AI answer in step 2 to see your result.' })); return; }
+if (!hasComp) { out.appendChild(el('p', { class: 'sov-empty', text: 'Add at least one competitor in step 1 so there’s someone to compare you with.' })); return; }
+if (r.grand === 0) {
+out.appendChild(el('p', { class: 'sov-empty', text: r.platforms[0].name + ' didn’t name any of these brands. That happens! Try another question your customers would ask, or check the spelling of the names in step 1.' }));
+return;
+}
+var you = r.brands[0];
+var blended = pct(r.totals.you, r.grand);
+out.appendChild(el('div', { class: 'sov-head' }, [el('div', null, [
+el('div', { class: 'sov-kicker', text: you.name + ': AI share of voice on ' + r.platforms[0].name }),
+el('div', { class: 'sov-big', text: fmtPct(blended) }),
+el('div', { class: 'sov-sub', text: r.totals.you + ' of ' + r.grand + ' brand mentions across ' + r.answers + (r.answers === 1 ? ' answer' : ' answers') })
+])]));
+out.appendChild(el('p', { class: 'sov-sentence', text: quickSentence(r) }));
+var ranked = r.brands.slice().sort(function (a, b) { return r.totals[b.key] - r.totals[a.key]; });
+out.appendChild(board('Share of the mentions', 'Each brand counts once per answer.', ranked, r.totals, r.grand));
+if (r.answers < 3) out.appendChild(el('div', { class: 'sov-insights' }, [el('p', { class: 'sov-nudge', text: SAMPLE_NOTE_QUICK })]));
+out.appendChild(el('p', { class: 'sov-note', text: 'Want to compare platforms, add more competitors or see whether AI tools cite your website? Use Show advanced options at the top of the calculator.' }));
+}
+var SAMPLE_NOTE_QUICK = 'Nice start! AI answers change from run to run, so think of this as a snapshot. For a steadier number, ask the same question two or three more times in a fresh chat, and add each answer with “+ Add another answer.”';
+var SAMPLE_NOTE = 'Nice start! AI answers change from run to run, so think of this as a snapshot. Ask each question two or three times per platform for a steadier number.';
 function insights(r, ranked) {
 var t = [];
 var you = r.brands[0].name;
@@ -426,7 +542,7 @@ var none = r.pages.filter(function (pg) { return r.pageAnswers[pg.key] === 0; })
 if (none.length === r.pages.length) t.push('None of your tracked pages were cited. Check that each page answers these prompts directly, and that it is indexed and linked from your other pages.');
 else if (none.length) t.push(none.length + (none.length === 1 ? ' tracked page was' : ' tracked pages were') + ' not cited in any answer: ' + none.map(function (p) { return p.label; }).join(', ') + '.');
 }
-if (r.mode === 'paste' && r.answers < 10) t.push('This is a small sample. Run each prompt two or three times per platform for a steadier number.');
+if (r.mode === 'paste' && r.answers < 10) t.push(SAMPLE_NOTE);
 return t;
 }
 function methodLabel(r) { return r.countBy === 'unique' ? 'counted once per answer' : 'counting every mention'; }
@@ -479,8 +595,21 @@ function flash(btn, msg) {
 var old = btn.textContent; btn.textContent = msg;
 setTimeout(function () { btn.textContent = old; }, 1600);
 }
+function loadQuickExample() {
+var s = blankState();
+s.view = 'quick';
+s.qPlat = 'chatgpt';
+s.you.name = 'Sketchwell';
+s.comps[0].name = 'Pixelry';
+s.comps[1].name = 'Canvasly';
+s.answers.chatgpt = 'Here are a few strong options for small business design: 1. Canvasly, the easiest to learn. 2. Pixelry, great for photo editing. 3. Sketchwell, known for ready-made social templates. 4. Draw Deck. Each has a free tier.';
+state = s;
+renderAll();
+}
 function loadExample() {
 var s = blankState();
+s.view = 'advanced';
+s.qPlat = 'aio';
 s.mode = state.mode;
 s.countBy = state.countBy;
 if (s.mode === 'paste') {
@@ -543,10 +672,39 @@ $('#sov-you-name').value = state.you.name;
 $('#sov-you-aliases').value = state.you.aliases;
 $('#sov-you-domain').value = state.you.domain;
 $('#sov-you-pages').value = state.you.pages;
-renderBrands(); renderAnswers(); renderCounts(); renderMode(); renderCountBy(); renderPagesNote(); renderResults(); save();
+renderBrands(); renderAnswers(); renderCounts(); renderMode(); renderCountBy(); renderPagesNote(); renderQuick(); renderView(); renderResults(); save();
+}
+function clearAll() {
+var keep = { view: state.view, mode: state.mode, countBy: state.countBy, qPlat: state.qPlat };
+state = blankState();
+Object.keys(keep).forEach(function (k) { state[k] = keep[k]; });
+renderAll();
+}
+function initQuick() {
+$('#sov-q-name').addEventListener('input', function (e) { state.you.name = e.target.value; changed(false); });
+[0, 1].forEach(function (i) {
+$('#sov-q-c' + i).addEventListener('input', function (e) { ensureTwoComps(); state.comps[i].name = e.target.value; changed(false); });
+});
+$('#sov-q-plat').addEventListener('change', function (e) {
+var next = e.target.value, prev = state.qPlat;
+if (next === prev) return;
+var t = state.answers[next]; state.answers[next] = state.answers[prev]; state.answers[prev] = t; // the answer follows the dropdown
+state.qPlat = next;
+renderAnswers(); renderQuick(); changed(false);
+});
+var ta = $('#sov-q-answer');
+ta.addEventListener('input', function () { state.answers[state.qPlat] = ta.value; quickMeta(); changed(false); });
+$('#sov-q-add').addEventListener('click', function () { addAnswer(ta, state.qPlat, quickMeta); });
+$('#sov-q-example').addEventListener('click', loadQuickExample);
+$('#sov-q-clear').addEventListener('click', clearAll);
+$('#sov-view-toggle').addEventListener('click', function () {
+state.view = isQuick() ? 'advanced' : 'quick';
+renderAll();
+});
 }
 function init() {
 if (!$('#sov-app')) return;
+initQuick();
 $('#sov-you-name').addEventListener('input', function (e) { state.you.name = e.target.value; changed(true); });
 $('#sov-you-aliases').addEventListener('input', function (e) { state.you.aliases = e.target.value; changed(false); });
 $('#sov-you-domain').addEventListener('input', function (e) { state.you.domain = e.target.value; changed(false); });
@@ -563,9 +721,7 @@ $('#sov-mode-manual').addEventListener('click', function () { state.mode = 'manu
 $('#sov-count-all').addEventListener('click', function () { state.countBy = 'all'; renderCountBy(); changed(false); });
 $('#sov-count-unique').addEventListener('click', function () { state.countBy = 'unique'; renderCountBy(); changed(false); });
 $('#sov-example').addEventListener('click', loadExample);
-$('#sov-clear').addEventListener('click', function () {
-var mode = state.mode, cb = state.countBy; state = blankState(); state.mode = mode; state.countBy = cb; renderAll();
-});
+$('#sov-clear').addEventListener('click', clearAll);
 $('#sov-copy').addEventListener('click', function (e) {
 var btn = e.currentTarget;
 if (!lastResult || (!lastResult.grand && !lastResult.citeGrand)) { flash(btn, 'Nothing to copy yet'); return; }

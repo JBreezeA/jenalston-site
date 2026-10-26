@@ -105,3 +105,30 @@
 }
 #sov-results{display:flex;flex-direction:column;gap:24px}
 #sov-results .sov-board + .sov-table-wrap{margin-top:-10px}
+.sov-howto{border:1px solid #D8DCF0;border-radius:16px;background:#F4F7FD;padding:0 18px}
+.sov-howto summary{cursor:pointer;padding:14px 0;font-weight:700;color:#5B3FD9;list-style:none}
+.sov-howto summary::-webkit-details-marker{display:none}
+.sov-howto summary::before{content:"+ ";font-family:'JetBrains Mono',monospace}
+.sov-howto[open] summary::before{content:"– "}
+.sov-howto ol{margin:0 0 12px;padding-left:1.3em;display:flex;flex-direction:column;gap:10px;font-size:16px;line-height:1.55;color:#34334F}
+.sov-howto .sov-help{margin-bottom:16px}
+.sov-plat-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:-6px 0 16px}
+.sov-add-answer{font-family:inherit;font-size:14px;font-weight:700;border:1px dashed #5B3FD9;color:#5B3FD9;background:#FFFFFF;border-radius:999px;padding:8px 16px;cursor:pointer}
+.sov-add-answer:hover{background:#F1ECFD}
+.sov-add-answer:focus-visible{outline:3px solid #9BEADF;outline-offset:2px}
+.sov-plat-tip{font-size:13px;color:#4A4966}
+.sov-howto ol.sov-howto-sub{list-style:lower-alpha;margin:8px 0;gap:6px;font-size:15px}
+.sov-howto code{font-family:'JetBrains Mono',monospace;font-size:.88em;background:#FFFFFF;padding:1px 6px;border-radius:6px}
+.sov [hidden]{display:none!important}
+.sov-view{display:flex;flex-direction:column;gap:24px}
+.sov-viewbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;background:#F4F7FD;border:1px solid #D8DCF0;border-radius:20px;padding:14px 18px}
+.sov-viewbar .sov-help{flex:1 1 280px;font-size:15px}
+.sov-q-fields{display:flex;flex-direction:column;gap:14px}
+.sov-q-plat{max-width:360px}
+.sov select{box-sizing:border-box;width:100%;border:1px solid #A9AEC8;border-radius:12px;padding:12px 14px;font-family:inherit;font-size:16px;color:#14142B;background:#FFFFFF}
+.sov select:focus{outline:3px solid #9BEADF;outline-offset:2px}
+.sov-q-lblrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+#sov-q-answer{min-height:180px}
+#sov-quick .sov-plat-actions{margin:0}
+.sov-sentence{margin:0;font-size:clamp(18px,1.8vw,21px);line-height:1.55;color:#14142B;max-width:760px}
+.sov-nudge{margin:0;font-size:16px;line-height:1.55;color:#34334F}

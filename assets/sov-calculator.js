@@ -267,7 +267,8 @@ var det = el('details', { class: 'sov-plat' }, [
 el('summary', { class: p.id === 'aio' ? 'sov-tip-host' : '' }, [el('span', { class: 'sov-plat-name' }, [document.createTextNode(p.name), p.id === 'aio' ? aioTip('sov-aio-tip-adv') : null]), meta]),
 el('label', { class: 'sr', for: 'sov-ans-' + p.id, text: p.name + ' answers' }),
 ta,
-el('div', { class: 'sov-plat-actions' }, [addBtn, el('span', { class: 'sov-plat-tip', text: 'Paste one answer, click this, then paste the next.' })])
+el('div', { class: 'sov-plat-actions' }, [addBtn, el('span', { class: 'sov-plat-tip', text: 'Paste one answer, click this, then paste the next.' })]),
+p.id === 'gemini' ? el('p', { class: 'sov-note sov-gem-tip', text: 'Want Gemini\u2019s sources? Copy the answer and paste it here. Then click \u22EE (More) at the bottom of the answer, choose Sources, copy the list that opens on the right, and paste it right under the answer.' }) : null
 ]);
 if (state.answers[p.id].trim() || p.id === state.qPlat) det.open = true;
 box.appendChild(det);

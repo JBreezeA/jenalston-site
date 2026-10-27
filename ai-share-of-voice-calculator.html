@@ -85,11 +85,11 @@ social_image_alt: ""
 
 <div class="sov-panel">
 <div class="sov-step"><span class="num">STEP 2</span><h3>Paste one AI answer</h3></div>
-<p class="sov-help">Ask an AI tool a question your customers would ask, then paste its answer below. One answer is enough to get started.</p>
+<p class="sov-help">Ask an AI tool a question (a prompt) your customers would ask, then paste its answer below. One answer is enough to get started.</p>
 <details class="sov-howto">
 <summary>New to this? How to get and copy an AI answer</summary>
 <ol>
-<li><strong>Open the AI tool in a private window</strong> (Ctrl+Shift+N in Chrome, Cmd+Shift+N on a Mac) so your past chats don&#39;t affect the answer. For ChatGPT, go to chatgpt.com. For Google AI Overviews, search on google.com.</li>
+<li><strong>Open the AI tool in a private window</strong> (Ctrl+Shift+N in Chrome, Cmd+Shift+N on a Mac) so your past chats don&#39;t affect the answer. For ChatGPT, go to chatgpt.com. For Google AI Overviews, go to google.com and type your question into the regular search box. The AI Overview is the summary at the top of the results. If Google opens a chat-style AI Mode page instead, that&#39;s a different tool.</li>
 <li><strong>Start a new chat and ask one question,</strong> the way a customer would. Leave your brand name out. For example: &ldquo;Who are the best bakeries for wedding cakes in Denver?&rdquo; or &ldquo;What&#39;s the best project management tool for small teams?&rdquo;</li>
 <li><strong>Copy the whole answer.</strong> In ChatGPT, Gemini, Claude, Copilot and Perplexity, click the <strong>Copy</strong> icon (two overlapping squares) under the answer. In Gemini, it may be inside the &#8942; menu. For a Google AI Overview, click and drag from the first word to the last, then press Ctrl+C (Cmd+C on a Mac). Don&#39;t use Ctrl+A, which selects the whole page.</li>
 <li><strong>Pick the tool you used</strong> under &ldquo;Where did this answer come from?&rdquo;, then <strong>paste the answer into the box</strong> with Ctrl+V (Cmd+V on a Mac).</li>
@@ -98,7 +98,7 @@ social_image_alt: ""
 <p class="sov-help sov-small">You don&#39;t need the sources for quick start. If some links come along when you copy, that&#39;s fine. Leave them in.</p>
 </details>
 <div class="sov-q-fields">
-<div class="sov-q-plat"><label for="sov-q-plat">Where did this answer come from?</label><select id="sov-q-plat"></select></div>
+<div class="sov-q-plat sov-tip-host"><div class="sov-q-lblrow sov-q-lblrow-start"><label for="sov-q-plat">Where did this answer come from?</label><span id="sov-q-aio-tip" hidden></span></div><select id="sov-q-plat"></select></div>
 <div><div class="sov-q-lblrow"><label for="sov-q-answer">The AI answer</label><span class="sov-meta" id="sov-q-meta" aria-live="polite"></span></div><textarea id="sov-q-answer" rows="8" spellcheck="false" placeholder="Paste the AI answer here."></textarea></div>
 </div>
 <div class="sov-plat-actions"><button type="button" class="sov-add-answer" id="sov-q-add">+ Add another answer</button><span class="sov-plat-tip">Optional. Paste one answer, click this, then paste the next.</span></div>
@@ -128,11 +128,11 @@ social_image_alt: ""
 <button type="button" role="tab" id="sov-mode-manual" aria-controls="sov-manual-panel" aria-selected="false">Enter counts</button>
 </div>
 <div id="sov-paste-panel" role="tabpanel" aria-labelledby="sov-mode-paste">
-<p class="sov-help">Ask an AI tool a question your customers would ask, then paste its answer into the matching box below. Add as many answers as you like. Platforms you leave empty are skipped.</p>
+<p class="sov-help">Run your unbranded, customer-style prompts on each platform and paste every answer into its platform box. Separate answers with &ldquo;+ Add another answer&rdquo; (or a line with only <code>---</code>). Run each prompt two or three times in a fresh chat for a steadier number. Empty platforms are skipped.</p>
 <details class="sov-howto">
 <summary>New to this? How to get and copy an AI answer</summary>
 <ol>
-<li><strong>Open the AI tool in a private window</strong> (Ctrl+Shift+N in Chrome, Cmd+Shift+N on a Mac) so your past chats don&#39;t affect the answer. For ChatGPT, go to chatgpt.com. For Google AI Overviews, search on google.com.</li>
+<li><strong>Open the AI tool in a private window</strong> (Ctrl+Shift+N in Chrome, Cmd+Shift+N on a Mac) so your past chats don&#39;t affect the answer. For ChatGPT, go to chatgpt.com. For Google AI Overviews, go to google.com and type your question into the regular search box. The AI Overview is the summary at the top of the results. If Google opens a chat-style AI Mode page instead, that&#39;s a different tool.</li>
 <li><strong>Start a new chat and ask one question,</strong> the way a customer would. Leave your brand name out. For example: &ldquo;Who are the best bakeries for wedding cakes in Denver?&rdquo; or &ldquo;What&#39;s the best project management tool for small teams?&rdquo;</li>
 <li><strong>Copy the whole answer.</strong> In ChatGPT, Gemini, Claude, Copilot and Perplexity, click the <strong>Copy</strong> icon (two overlapping squares) under the answer. In Gemini, it may be inside the &#8942; menu. For a Google AI Overview, click and drag from the first word to the last, then press Ctrl+C (Cmd+C on a Mac). Don&#39;t use Ctrl+A, which selects the whole page.</li>
 <li><strong>Paste it into the matching box</strong> with Ctrl+V (Cmd+V on a Mac).</li>

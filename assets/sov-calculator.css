@@ -132,3 +132,11 @@
 #sov-quick .sov-plat-actions{margin:0}
 .sov-sentence{margin:0;font-size:clamp(18px,1.8vw,21px);line-height:1.55;color:#14142B;max-width:760px}
 .sov-nudge{margin:0;font-size:16px;line-height:1.55;color:#34334F}
+.sov-tip-host{position:relative}
+.sov-q-lblrow-start{justify-content:flex-start;align-items:center;gap:8px;margin-bottom:6px}
+.sov-q-lblrow-start label{margin:0}
+.sov-tip{display:inline-block;vertical-align:middle;margin-left:8px}
+.sov-tip-btn{width:24px;height:24px;border-radius:50%;border:1px solid #5B3FD9;background:#FFFFFF;color:#5B3FD9;font-family:inherit;font-size:13px;font-weight:700;line-height:1;cursor:help;padding:0}
+.sov-tip-btn:hover,.sov-tip-btn:focus-visible{background:#F1ECFD}
+.sov-tip-text{display:none;position:absolute;left:0;right:0;top:100%;z-index:5;max-width:420px;margin-top:6px;background:#14142B;color:#FFFFFF;font-size:14px;font-weight:500;line-height:1.5;padding:12px 14px;border-radius:12px;box-shadow:0 8px 24px rgba(20,20,43,.18);text-align:left;white-space:normal}
+.sov-tip:hover .sov-tip-text,.sov-tip:focus-within .sov-tip-text{display:block}

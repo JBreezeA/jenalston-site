@@ -263,7 +263,7 @@ upd();
 var addBtn = el('button', { type: 'button', class: 'sov-add-answer', text: '+ Add another answer', 'aria-label': 'Add another ' + p.name + ' answer' });
 addBtn.addEventListener('click', function () { addAnswer(ta, p.id, upd); });
 var det = el('details', { class: 'sov-plat' }, [
-el('summary', null, [el('span', { class: 'sov-plat-name', text: p.name }), meta]),
+el('summary', { class: p.id === 'aio' ? 'sov-tip-host' : '' }, [el('span', { class: 'sov-plat-name' }, [document.createTextNode(p.name), p.id === 'aio' ? aioTip('sov-aio-tip-adv') : null]), meta]),
 el('label', { class: 'sr', for: 'sov-ans-' + p.id, text: p.name + ' answers' }),
 ta,
 el('div', { class: 'sov-plat-actions' }, [addBtn, el('span', { class: 'sov-plat-tip', text: 'Paste one answer, click this, then paste the next.' })])
@@ -271,6 +271,13 @@ el('div', { class: 'sov-plat-actions' }, [addBtn, el('span', { class: 'sov-plat-
 if (state.answers[p.id].trim() || p.id === state.qPlat) det.open = true;
 box.appendChild(det);
 });
+}
+// Google AI Overviews tip: shows on hover, keyboard focus or tap.
+var AIO_TIP = 'Google AI Overviews are the AI summary at the top of regular Google results. Go to google.com, type your question into the normal search box and press Enter. If Google opens a chat-style AI Mode page that looks like Gemini, that’s a different tool, so go back to the regular results. No summary at the top? Try rewording the question.';
+function aioTip(id) {
+var btn = el('button', { type: 'button', class: 'sov-tip-btn', 'aria-label': 'How to get a Google AI Overview', 'aria-describedby': id, text: '?' });
+btn.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); btn.focus(); });
+return el('span', { class: 'sov-tip' }, [btn, el('span', { class: 'sov-tip-text', role: 'tooltip', id: id, text: AIO_TIP })]);
 }
 // Inserts the --- separator so beginners never have to type it.
 function addAnswer(ta, pid, upd) {
@@ -297,6 +304,9 @@ var sel = $('#sov-q-plat');
 if (!sel.options.length) PLATFORMS.forEach(function (p) { sel.appendChild(el('option', { value: p.id, text: p.name })); });
 sel.value = state.qPlat;
 $('#sov-q-answer').value = state.answers[state.qPlat];
+var tipSlot = $('#sov-q-aio-tip');
+if (!tipSlot.firstChild) tipSlot.appendChild(aioTip('sov-aio-tip-quick'));
+tipSlot.hidden = state.qPlat !== 'aio';
 quickMeta();
 $('#sov-q-hidden-note').hidden = !hasAdvanced(state);
 }

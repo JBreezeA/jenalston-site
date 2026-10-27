@@ -259,6 +259,7 @@ ta.value = state.answers[p.id];
 var meta = el('span', { class: 'sov-meta', 'aria-live': 'polite' });
 function upd() { var n = splitAnswers(ta.value).length; meta.textContent = n ? n + (n === 1 ? ' answer' : ' answers') : 'Skipped'; }
 ta.addEventListener('input', function () { state.answers[p.id] = ta.value; upd(); changed(false); });
+smartPaste(ta);
 upd();
 var addBtn = el('button', { type: 'button', class: 'sov-add-answer', text: '+ Add another answer', 'aria-label': 'Add another ' + p.name + ' answer' });
 addBtn.addEventListener('click', function () { addAnswer(ta, p.id, upd); });
@@ -273,11 +274,63 @@ box.appendChild(det);
 });
 }
 // Google AI Overviews tip: shows on hover, keyboard focus or tap.
-var AIO_TIP = 'Google AI Overviews are the AI summary at the top of regular Google results. Go to google.com, type your question into the normal search box and press Enter. If Google opens a chat-style AI Mode page that looks like Gemini, that’s a different tool, so go back to the regular results. No summary at the top? Try rewording the question.';
+var AIO_TIP = 'Google AI Overviews are the AI summary at the top of regular Google results. Go to google.com, type your question into the normal search box and press Enter. If Google opens a chat-style AI Mode page that looks like Gemini, that’s a different tool, so go back to the regular results. No summary at the top? Try rewording the question. Counting citations? Drag to select the whole AI Overview, including its source cards, then copy and paste: the calculator picks up any real source links automatically. If you only see codes starting /goto?url=, right-click each source and choose Copy link address instead.';
 function aioTip(id) {
 var btn = el('button', { type: 'button', class: 'sov-tip-btn', 'aria-label': 'How to get a Google AI Overview', 'aria-describedby': id, text: '?' });
 btn.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); btn.focus(); });
 return el('span', { class: 'sov-tip' }, [btn, el('span', { class: 'sov-tip-text', role: 'tooltip', id: id, text: AIO_TIP })]);
+}
+// Smart paste: when a copy carries formatted text, pull out the real source links and add them under the answer.
+var SKIP_HOSTS = /(^|\.)(google\.[a-z.]+|gstatic\.com|googleusercontent\.com|chatgpt\.com|openai\.com|perplexity\.ai|bing\.com|copilot\.microsoft\.com|claude\.ai)$/i;
+function sourceLinks(html) {
+var out = [], seen = {};
+try {
+var doc = new DOMParser().parseFromString(html, 'text/html');
+Array.prototype.forEach.call(doc.querySelectorAll('a[href]'), function (a) {
+var h = a.getAttribute('href') || '';
+var m = h.match(/[?&](?:q|url)=(https?[^&]+)/i); // Google /url?q= redirects carry the real address
+if (m) { try { h = decodeURIComponent(m[1]); } catch (e) { h = m[1]; } }
+if (!/^https?:\/\//i.test(h)) return;
+var u; try { u = new URL(h); } catch (e) { return; }
+var host = u.hostname.replace(/^www\./, '');
+if (SKIP_HOSTS.test(host)) return; // links to the AI tool or search engine itself, not a source
+u.hash = '';
+['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'srsltid'].forEach(function (k) { u.searchParams.delete(k); });
+var clean = u.toString().replace(/\?$/, '');
+var key = clean.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '').toLowerCase();
+if (seen[key]) return; seen[key] = true; out.push(clean);
+});
+} catch (e) { /* ignore */ }
+return out;
+}
+function pasteNote(ta, msg) {
+var note = ta.nextElementSibling && ta.nextElementSibling.classList.contains('sov-paste-note') ? ta.nextElementSibling : null;
+if (!note) { note = el('p', { class: 'sov-note sov-paste-note', 'aria-live': 'polite' }); ta.parentNode.insertBefore(note, ta.nextSibling); }
+note.textContent = msg; note.hidden = false;
+clearTimeout(note._t); note._t = setTimeout(function () { note.hidden = true; }, 9000);
+}
+function smartPaste(ta) {
+ta.addEventListener('paste', function (e) {
+var cd = e.clipboardData; if (!cd) return;
+var old = ta.nextElementSibling; if (old && old.classList.contains('sov-paste-note')) old.hidden = true;
+var html = cd.getData('text/html') || '', plain = cd.getData('text/plain') || '';
+var coded = /\/goto\?url=/i.test(html + plain);
+var links = html ? sourceLinks(html) : [];
+var low = plain.toLowerCase();
+links = links.filter(function (l) { return low.indexOf(l.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '').toLowerCase()) === -1; });
+setTimeout(function () {
+if (links.length) {
+var pos = ta.selectionEnd, v = ta.value;
+var add = '\nSources:\n' + links.join('\n') + '\n';
+ta.value = v.slice(0, pos).replace(/\s+$/, '') + '\n' + add + v.slice(pos);
+try { ta.setSelectionRange(pos + add.length + 1, pos + add.length + 1); } catch (er) { /* ignore */ }
+ta.dispatchEvent(new Event('input', { bubbles: true }));
+pasteNote(ta, 'Found ' + links.length + (links.length === 1 ? ' source link' : ' source links') + ' in your paste and added ' + (links.length === 1 ? 'it' : 'them') + ' under the answer.');
+} else if (coded) {
+pasteNote(ta, 'This paste only had Google’s coded links (/goto?url=), so no sources could be added. To count citations, right-click each source and choose Copy link address.');
+}
+}, 0);
+});
 }
 // Inserts the --- separator so beginners never have to type it.
 function addAnswer(ta, pid, upd) {
@@ -454,6 +507,9 @@ out.appendChild(el('p', { class: 'sov-note', text: 'No website entered for ' + m
 }
 } else if (r.mode === 'paste' && r.anyDomains) {
 out.appendChild(el('p', { class: 'sov-note', text: 'None of the tracked websites were found in these answers. If the AI showed sources, make sure the web addresses were included when you copied the answer.' }));
+}
+if (r.mode === 'paste' && /\/goto\?url=|google\.com\/url\?/i.test(state.answers.aio || '')) {
+out.appendChild(el('p', { class: 'sov-note sov-warn', text: 'Heads up: your Google AI Overviews answer has Google redirect links (they start with /goto?url=), so the sites behind them can\u2019t be counted as citations. To include them, right-click each source in the AI Overview, choose Copy link address, and paste those addresses under the answer.' }));
 }
 if (r.mode === 'paste' && r.pages.length) {
 var thead = el('tr', null, [el('th', { scope: 'col', text: 'Page' })]
@@ -704,6 +760,7 @@ renderAnswers(); renderQuick(); changed(false);
 });
 var ta = $('#sov-q-answer');
 ta.addEventListener('input', function () { state.answers[state.qPlat] = ta.value; quickMeta(); changed(false); });
+smartPaste(ta);
 $('#sov-q-add').addEventListener('click', function () { addAnswer(ta, state.qPlat, quickMeta); });
 $('#sov-q-example').addEventListener('click', loadQuickExample);
 $('#sov-q-clear').addEventListener('click', clearAll);

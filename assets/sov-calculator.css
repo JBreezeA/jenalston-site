@@ -140,3 +140,5 @@
 .sov-tip-btn:hover,.sov-tip-btn:focus-visible{background:#F1ECFD}
 .sov-tip-text{display:none;position:absolute;left:0;right:0;top:100%;z-index:5;max-width:420px;margin-top:6px;background:#14142B;color:#FFFFFF;font-size:14px;font-weight:500;line-height:1.5;padding:12px 14px;border-radius:12px;box-shadow:0 8px 24px rgba(20,20,43,.18);text-align:left;white-space:normal}
 .sov-tip:hover .sov-tip-text,.sov-tip:focus-within .sov-tip-text{display:block}
+.sov-warn{background:#FFF7E0;border:1px solid #F2D27A;border-radius:12px;padding:10px 14px;color:#5A4500}
+.sov-paste-note{margin:-8px 0 12px;font-size:13px;color:#2F6F64;background:#EEFAF7;border-radius:10px;padding:8px 12px}

@@ -4,14 +4,14 @@ layout: null
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://jenalston.com/</loc><lastmod>2026-10-26</lastmod></url>
-  <url><loc>https://jenalston.com/about</loc><lastmod>2026-10-26</lastmod></url>
-  <url><loc>https://jenalston.com/case-studies</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://jenalston.com/about</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://jenalston.com/case-studies</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://jenalston.com/contact</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://jenalston.com/expertise</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://jenalston.com/geo-aeo-services</loc><lastmod>2026-10-26</lastmod></url>
-  <url><loc>https://jenalston.com/ai-visibility-audit</loc><lastmod>2026-10-26</lastmod></url>
-  <url><loc>https://jenalston.com/ai-share-of-voice-calculator</loc><lastmod>2026-10-26</lastmod></url>
-  <url><loc>https://jenalston.com/seo-services</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://jenalston.com/ai-visibility-audit</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://jenalston.com/ai-share-of-voice-calculator</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://jenalston.com/seo-services</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://jenalston.com/enterprise-seo</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://jenalston.com/small-business-seo</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://jenalston.com/blog/</loc><lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod></url>

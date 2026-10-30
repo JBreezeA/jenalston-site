@@ -33,3 +33,13 @@ a:focus-visible,button:focus-visible{outline:3px solid #A084FF;outline-offset:3p
 .faq-item p:last-child{margin:0}
 .faq-item{padding:18px 0;border-top:1px solid #A9CFF7; border-image: linear-gradient(90deg, rgba(169,207,247,0) 0%, rgba(155,234,223,.9) 20%, rgba(169,207,247,.9) 50%, rgba(205,185,255,.9) 80%, rgba(205,185,255,0) 100%) 1}.faq-item:last-child{border-bottom:1px solid #A9CFF7; border-image: linear-gradient(90deg, rgba(169,207,247,0) 0%, rgba(155,234,223,.9) 20%, rgba(169,207,247,.9) 50%, rgba(205,185,255,.9) 80%, rgba(205,185,255,0) 100%) 1}
 .faq-item h3{margin:0 0 8px!important;font-size:21px!important}.faq-item p{margin:0}
+/* Visual-editor posts: quick answers are quote blocks that start with a bold question */
+.post-body blockquote.echo{margin:1.8em 0;padding:22px 26px;border:2px solid #A084FF;border-left-width:2px;border-radius:18px;background:#FFFFFF;font-family:inherit;font-style:normal;font-size:inherit;line-height:1.75;color:#24233F}
+.post-body blockquote.echo p{margin:0 0 .6em}.post-body blockquote.echo p:last-child{margin:0}
+.post-body blockquote.echo .echo-q strong{color:inherit;font-weight:inherit}
+/* Images and captions */
+.post-body p:has(>img){margin:2em 0 0}
+.post-body p>img{display:block;width:100%;height:auto;border-radius:20px;border:1px solid #D8DCF0}
+.post-body p:has(>img)+p:has(>em:only-child){margin:10px 0 2em;font-size:15px;line-height:1.5;color:#4A4966}
+.post-body p:has(>img)+p>em:only-child{font-style:normal}
+.takeaways ul{margin:0;padding-left:1.2em}.takeaways li{margin-bottom:.6em}

@@ -4,7 +4,7 @@ description: How to track how often AI assistants mention your brand vs.
   competitors, with the formula, a worked example and the mistakes that skew the
   number.
 date: 2026-10-06 09:00:00 -0400
-last_modified_at: 2026-10-24 19:22:00 -0400
+last_modified_at: 2026-11-08 09:00:00 -0500
 image: /images/ai-share-of-voice-header.jpg
 image_alt: "Graphic showing the AI share of voice formula, your mentions divided
   by all tracked brand mentions times 100, with an example result of 31%

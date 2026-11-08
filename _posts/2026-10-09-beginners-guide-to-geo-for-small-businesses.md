@@ -2,7 +2,7 @@
 title: "GEO for Small Businesses: A Beginner's Guide"
 description: "Customers ask ChatGPT, Gemini and Google's AI for recommendations. Here's how small businesses can show up in those answers, with a checklist to start now."
 date: 2026-10-09 08:00:00 -0400
-last_modified_at: 2026-10-30 09:00:00 -0400
+last_modified_at: 2026-11-08 09:00:00 -0500
 image: /images/geo-guide-header.jpg
 image_alt: "Illustration of an AI assistant answering the question 'Who makes the best custom wedding cakes near me?' and recommending a local bakery first, with the bakery's website, customer reviews and local news listed as sources."
 takeaways:
@@ -12,6 +12,8 @@ takeaways:
   - "**Start with a baseline:** ask five customer questions in four AI tools, then fix your listings, answer real questions on your site and earn mentions."
   - "**No one can guarantee an AI recommendation,** but you can raise your odds and measure your progress every month."
 faq:
+  - q: "Does my business need GEO?"
+    a: "If your customers ask ChatGPT, Gemini or Google's AI who to hire or what to buy, yes. Ask those tools the questions your customers ask. If they name competitors and not you, GEO is how you close that gap. Most of the work, like consistent listings and clear answers on your site, helps your Google rankings too."
   - q: "How long does GEO take to work?"
     a: "Some changes, like fixing listings or adding FAQ content, can show up in AI answers within weeks. Building a reputation through reviews and mentions takes months. Measure monthly so you can see the trend."
   - q: "Do I need a new website?"
@@ -136,4 +138,4 @@ What good GEO strategies can do is raise the odds that you're mentioned and let 
 
 GEO helps your business get named when customers ask AI tools for recommendations. It builds on the SEO basics you may already have, then focuses on the signals AI tools rely on: consistent business details, a clear website that answers real questions, and reviews and mentions on trusted sites. Start by testing five customer questions to see where you stand, work through the seven steps and the checklist, and measure again each month. No one can guarantee a recommendation, but steady work raises your odds.
 
-If you'd like to know exactly how AI tools see your business today, and what to fix first, [let's talk](/contact). An AI visibility audit shows where you're mentioned, where your competitors are winning, and the steps most likely to change that.
+If you'd like to know exactly how AI tools see your business today, and what to fix first, [let's talk](/contact). An [AI visibility audit](/ai-visibility-audit) shows where you're mentioned, where your competitors are winning, and the steps most likely to change that. Prefer to hand it off? See my [small business GEO services](/small-business-seo).

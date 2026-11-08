@@ -48,7 +48,7 @@ A mention is the brand name in the answer. A web address in the source list is a
 
 ## A worked example: business card tools
 
-Full disclosure: I've worked on Adobe Express's AI visibility as a contractor (via Envision). For this test, I asked two questions a small business owner might ask, logged out, in fresh chats: "What are the best tools for quick business card design?" and "Can you create a professional business card in minutes?" I tracked Adobe Express against Canva and Vistaprint. That gave me 8 answers across three platforms.
+Full disclosure: I've worked on Adobe Express's AI visibility as a contractor (via Envision). For this test, I asked two questions a small business owner might ask, logged out, in fresh chats: "What are the best tools for quick business card design?" and "Can you create a professional business card in minutes?" I tracked Adobe Express against [Canva](https://www.canva.com/create/business-cards/) and Vistaprint. That gave me 8 answers across three platforms.
 
 | Platform | Answers | Adobe Express | Canva | Vistaprint |
 | --- | --- | --- | --- | --- |
@@ -73,7 +73,7 @@ Mention rate = answers that name you ÷ total answers × 100. Adobe Express was 
 
 ### Citation rate
 
-Citation rate = answers that cite or link your site ÷ total answers × 100. Adobe Express was cited in 3 of 8 answers, a 38% citation rate. All three were ChatGPT answers to the "best tools" question, and each one linked Adobe's business card page directly. (I didn't capture the source links from Gemini or the AI Overview in this round, so those may be undercounted.)
+Citation rate = answers that cite or link your site ÷ total answers × 100. Adobe Express was cited in 3 of 8 answers, a 38% citation rate. All three were ChatGPT answers to the "best tools" question, and each one linked [Adobe's business card page](https://www.adobe.com/express/create/business-card) directly. Citations matter because clicks are scarce: [Pew Research Center found](https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/) that Google users clicked a regular search result in 8% of visits when an AI summary appeared, compared with 15% without one. (I didn't capture the source links from Gemini or the AI Overview in this round, so those may be undercounted.)
 
 Put together, the story gets more useful. Share of voice says it's a tie. Mention rate says Adobe Express shows up in under two-thirds of answers. Citation rate says only ChatGPT is sending people to the page.
 
@@ -90,6 +90,8 @@ Eight answers is a starting point, not a verdict. If one more Gemini run had nam
 ## Calculate yours
 
 You don't have to do the math by hand (put the coffee down, it's fine). Paste your AI answers into my [free AI Share of Voice Calculator](/ai-share-of-voice-calculator), add your brand and competitors, and it works out your share of voice, mention rate and citation rate for each platform. Nothing you paste leaves your browser.
+
+Want it done for you? An [AI visibility audit](/ai-visibility-audit) tracks all three numbers across every platform.
 
 For help choosing the questions to test, see [how to measure AI share of voice](/blog/how-to-measure-ai-share-of-voice/).
 

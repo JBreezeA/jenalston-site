@@ -65,6 +65,8 @@ A mention builds awareness. A citation and a link are what send people to your s
 
 "All tracked brands" means you plus the competitors you've chosen to watch. Pick them once and keep the list stable, or your numbers won't be comparable month to month.
 
+For the formula step by step on real ChatGPT, Gemini and Google AI Overviews answers, see [The AI Share of Voice Formula (With a Worked Example)](/blog/ai-share-of-voice-formula/).
+
 ## A worked example
 
 Say you market a design app and you're tracking four competitors. You run five prompts on three AI platforms and count every brand mention in the answers.
@@ -135,4 +137,4 @@ If your share is low on a platform, look at the sources that platform cites in i
 
 AI share of voice shows how often AI assistants name your brand compared with your competitors, and it's simple to measure: run a focused set of prompts across the major AI platforms, count every brand mention, and divide yours by the total. Report it per platform, keep mentions, citations and links separate, label branded prompts, and repeat the test monthly. The trend tells you whether your GEO work is paying off, and the per-platform gaps tell you where to focus next.
 
-If you'd like to know where your brand stands in AI answers today, [let's talk](/contact). An [AI visibility audit](/#services) is often the best first step.
+If you'd like to know where your brand stands in AI answers today, [let's talk](/contact). An [AI visibility audit](/ai-visibility-audit) is often the best first step.

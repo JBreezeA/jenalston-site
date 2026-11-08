@@ -33,6 +33,7 @@ Key facts:
 
 - [How to Measure AI Share of Voice](https://jenalston.com/blog/how-to-measure-ai-share-of-voice/): A step-by-step method and formula for tracking how often AI assistants mention a brand compared with competitors.
 - [A Beginner's Guide to GEO for Small Businesses](https://jenalston.com/blog/beginners-guide-to-geo-for-small-businesses/): What GEO is, how AI tools choose which businesses to recommend, and a seven-step plan with a quick-start checklist.
+- [The AI Share of Voice Formula (With a Worked Example)](https://jenalston.com/blog/ai-share-of-voice-formula/): The formula step by step, with a real test from ChatGPT, Gemini and Google AI Overviews, plus mention rate and citation rate.
 
 ## Optional
 

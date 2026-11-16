@@ -76,9 +76,28 @@ return n;
 // ---------- Matching ----------
 function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 var modernRe = (function () { try { new RegExp('(?<![\\p{L}])a', 'u'); return true; } catch (e) { return false; } })();
+// Accents don't matter: "Café" and "Cafe" match.
+function fold(s) { return s.normalize ? s.normalize('NFD').replace(/[\u0300-\u036f]/g, '') : s; }
+// One name -> a pattern where spaces, hyphens or nothing between words all match ("Chat GPT", "ChatGPT", "Chat-GPT"),
+// and any apostrophe style, or none, matches ("Lowe's", "Lowe’s", "Lowes"). A capital inside a name marks a word break too.
+function namePattern(n) {
+return fold(n).trim().replace(/([a-z])([A-Z])/g, '$1 $2').split(/[\s\u2010-\u2015-]+/).filter(Boolean).map(function (w) {
+return w.split(/['\u2018\u2019`]/).map(escRe).join("['\u2018\u2019`]?");
+}).join('[\\s\\u2010-\\u2015-]*');
+}
+// Several names for one brand can go in one box, separated by commas.
+function splitNames(raw) {
+var seen = {};
+return (raw || '').split(/[,;]/).map(function (s) { return s.trim(); }).filter(function (s) {
+var k = s.toLowerCase(); if (!s || seen[k]) return false; seen[k] = true; return true;
+});
+}
+// Text prepared for name matching: accents removed, and a list number with no space ("1.Canva") separated.
+function nameText(a) { return fold(a).replace(/(^|\s)(\d{1,3})\.(?=[^\s\d])/g, '$1$2. '); }
 function nameMatcher(name) {
-if (!name) return null;
-var body = escRe(name);
+var names = splitNames(name);
+if (!names.length) return null;
+var body = names.map(namePattern).sort(function (x, y) { return y.length - x.length; }).join('|');
 if (modernRe) return new RegExp('(?<![\\p{L}\\p{N}./@])(?:' + body + ')(?![\\p{L}\\p{N}]|\\.[\\p{L}\\p{N}])', 'giu');
 return new RegExp('\\b(?:' + body + ')\\b(?!\\.[a-z0-9])', 'gi');
 }
@@ -113,8 +132,13 @@ return { dom: dom, page: page, label: page || dom };
 function quickValue(e) { return e.page.trim() ? e.page : e.site; }
 function setQuick(e, v) {
 var t = parseTarget(v);
-if (t && t.page) { e.page = v; var ts = parseTarget(e.site); if (!ts || ts.dom !== t.dom) e.site = t.dom; } // fills the website so advanced shows both
+if (t && t.page) { e.page = v; var ts = parseTarget(e.site); if (!ts || ts.dom !== t.dom) e.site = siteFrom(v); } // fills the website so advanced shows both
 else { e.site = v; e.page = ''; }
+}
+// "competitor.com/services" -> "https://competitor.com/". Keeps http:// or www. if they were typed.
+function siteFrom(v) {
+var m = v.trim().match(/^([a-z]+:\/\/)?([^\/?#\s]+)/i);
+return m ? (m[1] || 'https://').toLowerCase() + m[2].toLowerCase() + '/' : '';
 }
 function filledEnt(c) { return !!(c.site.trim() || c.page.trim() || c.name.trim()); }
 function hits(re, text) { if (!re) return false; re.lastIndex = 0; return re.test(text); }
@@ -143,11 +167,12 @@ function tally(answers, ents) {
 var t = { answers: answers.length, by: {}, page: 0, dom: 0, men: 0 };
 ents.forEach(function (e) { t.by[e.key] = { page: 0, dom: 0, men: 0 }; });
 answers.forEach(function (a) {
+var na = nameText(a);
 ents.forEach(function (e) {
 var b = t.by[e.key];
 if (hits(e.pm, a)) b.page++;
 if (hits(e.dm, a)) b.dom++;
-if (hits(e.nm, a)) b.men++;
+if (hits(e.nm, na)) b.men++;
 });
 });
 ents.forEach(function (e) { var b = t.by[e.key]; t.page += b.page; t.dom += b.dom; t.men += b.men; });
@@ -167,6 +192,8 @@ return r;
 }
 function pct(n, d) { return d > 0 ? (n / d) * 100 : null; }
 function fmtPct(v) { if (v === null || v === undefined) return '–'; return Math.round(v) + '%'; }
+// Nobody tracked was cited or named, so there's no share to give (never NaN% or Infinity%).
+function fmtShare(v) { return v === null || v === undefined ? 'None found' : fmtPct(v); }
 function times(n) { return n === 1 ? '1 time' : n + ' times'; }
 function ans(n) { return n === 1 ? '1 answer' : n + ' answers'; }
 function lead(r) { return r.isPage ? { k: 'page', label: 'page-level share', what: 'your page', pool: 'the pages you’re tracking' } : { k: 'dom', label: 'domain-level share', what: 'your site', pool: 'the sites you’re tracking' }; }
@@ -191,16 +218,16 @@ if (msg) { out.appendChild(el('p', { class: 'sov-empty', text: msg })); r.ok = f
 r.ok = true;
 var L = lead(r), me = r.all.by.you, tot = r.all[L.k], n = me[L.k], who = whereText(r);
 out.appendChild(el('div', { class: 'sov-kicker', text: 'Your ' + L.label + (r.quick ? ' on ' + r.platforms[0].name : ', all platforms') }));
-out.appendChild(el('div', { class: 'sov-big', text: fmtPct(pct(n, tot)) }));
+out.appendChild(el('div', { class: 'sov-big' + (tot ? '' : ' sov-big-none'), text: fmtShare(pct(n, tot)) }));
 var why;
 if (!tot) why = who + ' didn’t cite any of ' + L.pool + ' in ' + (r.answers === 1 ? 'this answer' : 'these answers') + '. Check that you copied the sources, and that the web addresses in step 1 are spelled right.';
 else if (r.quick) why = who + ' cited ' + L.what + ' in ' + n + ' of ' + ans(r.answers) + '. That gives ' + L.what + ' ' + fmtPct(pct(n, tot)) + ' of the citations among ' + L.pool + '.';
 else why = 'AI tools cited ' + L.what + ' ' + n + ' of the ' + times(tot) + ' they cited ' + L.pool + ', across ' + ans(r.answers) + '.';
 out.appendChild(el('p', { class: 'sov-why', text: why }));
 var stats = el('div', { class: 'sov-stats' });
-if (r.isPage) stats.appendChild(stat('Domain-level share', fmtPct(pct(me.dom, r.all.dom)), 'Counts any page on each site. ' + who + ' cited ' + r.you.t.dom + ' ' + me.dom + ' of ' + times(r.all.dom) + '.'));
+if (r.isPage) stats.appendChild(stat('Domain-level share', fmtShare(pct(me.dom, r.all.dom)), r.all.dom ? 'Counts any page on each site. ' + who + ' cited ' + r.you.t.dom + ' ' + me.dom + ' of ' + times(r.all.dom) + '.' : 'None of the sites you’re tracking were cited.'));
 else stats.appendChild(el('p', { class: 'sov-stat-line', text: 'Want page-level results? Enter a page URL, like https://' + r.you.t.dom + '/your-page, in step 1.' }));
-if (r.hasNames) stats.appendChild(stat('Mention share', fmtPct(pct(me.men, r.all.men)), r.all.men ? who + ' named ' + r.you.name + ' in ' + me.men + ' of ' + r.all.men + ' brand mentions.' : who + ' didn’t name any of these brands.'));
+if (r.hasNames) stats.appendChild(stat('Mention share', fmtShare(pct(me.men, r.all.men)), r.all.men ? who + ' named ' + (splitNames(r.you.name)[0] || r.you.name) + ' in ' + me.men + ' of ' + r.all.men + ' brand mentions.' : who + ' didn’t name any of these brands.'));
 else stats.appendChild(el('p', { class: 'sov-stat-line', text: 'Want brand mentions too? Open “Also count brand mentions” in step 1.' }));
 out.appendChild(stats);
 if (!r.quick) renderPlatformTable(out, r, L);
@@ -239,9 +266,9 @@ return 'Tracked: ' + label(r.you) + ' vs. ' + r.ents.slice(1).map(label).join(',
 function summary(r) {
 var me = r.all.by.you, s = [];
 s.push('AI share of voice, ' + (r.quick ? r.platforms[0].name : (r.platforms.length === 1 ? '1 platform' : r.platforms.length + ' platforms')) + ', ' + ans(r.answers) + ' (' + today() + ')');
-if (r.isPage) s.push('Page-level share: ' + fmtPct(pct(me.page, r.all.page)) + ' (your page was cited ' + me.page + ' of ' + times(r.all.page) + ')');
-s.push('Domain-level share: ' + fmtPct(pct(me.dom, r.all.dom)) + (r.isPage ? '' : ' (your site was cited ' + me.dom + ' of ' + times(r.all.dom) + ')'));
-if (r.hasNames) s.push('Mention share: ' + fmtPct(pct(me.men, r.all.men)));
+if (r.isPage) s.push('Page-level share: ' + (r.all.page ? fmtPct(pct(me.page, r.all.page)) + ' (your page was cited ' + me.page + ' of ' + times(r.all.page) + ')' : 'none found (no tracked pages were cited)'));
+s.push('Domain-level share: ' + (r.all.dom ? fmtPct(pct(me.dom, r.all.dom)) + (r.isPage ? '' : ' (your site was cited ' + me.dom + ' of ' + times(r.all.dom) + ')') : 'none found (no tracked sites were cited)'));
+if (r.hasNames) s.push('Mention share: ' + (r.all.men ? fmtPct(pct(me.men, r.all.men)) : 'none found (no tracked brands were named)'));
 if (!r.quick && r.platforms.length > 1) {
 s.push('By platform:');
 r.platforms.forEach(function (p) {
@@ -285,7 +312,7 @@ if (!bar) return;
 if (r && r.ok) {
 var L = lead(r);
 $('#sov-bar-label').textContent = 'Your ' + L.label + ': ';
-$('#sov-bar-val').textContent = fmtPct(pct(r.all.by.you[L.k], r.all[L.k]));
+$('#sov-bar-val').textContent = fmtShare(pct(r.all.by.you[L.k], r.all[L.k]));
 }
 bar.hidden = !(lastResult && lastResult.ok && barSeen.calc && !barSeen.results);
 }

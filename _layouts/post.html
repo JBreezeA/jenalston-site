@@ -30,7 +30,7 @@ layout: null
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for item in page.faq %}{"@type":"Question","name":{{ item.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ item.a | markdownify | strip_html | strip | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}
 </script>
 {% endif %}
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=2">
 <link rel="stylesheet" href="/assets/post.css">
 <script src="/assets/site.js" defer></script>
 {% include analytics.html %}
@@ -38,9 +38,10 @@ layout: null
 <body>
 <div class="u46">
 <header class="u8">
-<a class="u9" href="/" aria-label="Jen Alston, home">
-<span class="u10">jen alston</span>
-<span class="u11">[1]</span>
+<a class="u9" href="/" aria-label="Jen Alston, Discoverable by Design, home">
+<span class="brand-row"><span class="u10">jen alston</span>
+<span class="u11">[1]</span></span>
+<span class="brand-dba">Discoverable by Design</span>
 </a>
 <nav class="u12" aria-label="Main">
 <a class="u3" href="/about">About</a>
@@ -50,6 +51,7 @@ layout: null
 <a class="u18" href="/contact">Let's talk</a>
 </nav>
 </header>
+<div class="slogan-bar"><p>Organized chaos: cats, coffee and tabs everywhere. I&rsquo;m the calm one who finds the order in it.</p></div>
 <main>
 <article>
 <header class="u209">

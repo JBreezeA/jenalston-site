@@ -285,19 +285,16 @@ return s.join('\n');
 }
 function csvCell(v) { v = String(v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
 function share(n, d) { var v = pct(n, d); return v === null ? '' : v.toFixed(1); }
+// Filter-friendly: the header is row 1, every row carries its date and answer count, and there are no blank rows.
 function toCSV(r) {
-var lines = [];
-lines.push('AI share of voice');
-lines.push(['Date', today()].map(csvCell).join(','));
-lines.push(['Answers', r.answers].map(csvCell).join(','));
-lines.push('');
-lines.push(['Platform', 'Website', 'Page', 'Brand name', 'Answers citing the page', 'Answers citing the domain', 'Answers naming the brand', 'Page-level share %', 'Domain-level share %', 'Mention share %'].map(csvCell).join(','));
+var lines = [], date = today();
+lines.push(['Platform', 'Website', 'Page', 'Brand name', 'Answers citing the page', 'Answers citing the domain', 'Answers naming the brand', 'Page-level share %', 'Domain-level share %', 'Mention share %', 'Answers', 'Date'].map(csvCell).join(','));
 var blocks = r.platforms.map(function (p) { return { name: p.name, t: p.t }; }).concat([{ name: 'All platforms', t: r.all }]);
 blocks.forEach(function (b) {
 r.ents.forEach(function (e) {
 var m = b.t.by[e.key], hasPage = !!(e.t && e.t.page);
 lines.push([b.name, e.t ? e.t.dom : '', hasPage ? e.t.page : '', e.name, hasPage ? m.page : '', e.t ? m.dom : '', e.name ? m.men : '',
-e.t ? share(m.page, b.t.page) : '', e.t ? share(m.dom, b.t.dom) : '', e.name ? share(m.men, b.t.men) : ''].map(csvCell).join(','));
+e.t ? share(m.page, b.t.page) : '', e.t ? share(m.dom, b.t.dom) : '', e.name ? share(m.men, b.t.men) : '', b.t.answers, date].map(csvCell).join(','));
 });
 });
 return lines.join('\n');
@@ -518,7 +515,7 @@ var q = isQuick();
 $('#sov-quick').hidden = !q;
 $('#sov-adv').hidden = q;
 var btn = $('#sov-view-toggle');
-btn.textContent = q ? 'Compare more competitors and platforms' : 'Back to quick start';
+btn.textContent = q ? 'Compare more competitors and platforms \u2192' : '\u2190 Back to quick start';
 btn.setAttribute('aria-expanded', q ? 'false' : 'true');
 $('#sov-view-note').textContent = q
 ? 'Quick start: your website or page, a competitor or two and one AI answer. That’s it.'
@@ -619,6 +616,10 @@ if (inputs.length) inputs[inputs.length - 1].focus();
 $('#sov-add-card').addEventListener('click', addCard);
 $('#sov-clear').addEventListener('click', clearAll);
 $('#sov-view-toggle').addEventListener('click', switchView);
+// The same switch at the bottom of each view; it brings people back to the top of the calculator.
+Array.prototype.forEach.call(document.querySelectorAll('.sov-view-switch'), function (b) {
+b.addEventListener('click', function () { switchView(); $('#calculator').scrollIntoView({ block: 'start' }); });
+});
 // Results
 $('#sov-copy').addEventListener('click', function (e) {
 var btn = e.currentTarget;
@@ -638,6 +639,12 @@ document.body.appendChild(a); a.click();
 setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
 });
 initBar();
+// "Start calculating" at the top of the page also puts the cursor in the first URL box.
+Array.prototype.forEach.call(document.querySelectorAll('a[href="#calculator"]'), function (a) {
+a.addEventListener('click', function () {
+setTimeout(function () { var f = $(isQuick() ? '#sov-q-url' : '#sov-you-site'); if (f) { try { f.focus({ preventScroll: true }); } catch (e) { f.focus(); } } }, 450);
+});
+});
 renderAll();
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

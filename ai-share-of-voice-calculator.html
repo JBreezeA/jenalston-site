@@ -21,9 +21,9 @@ social_image_alt: "Free AI Share of Voice Calculator by Jen Alston for ChatGPT, 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is AI share of voice?", "acceptedAnswer": {"@type": "Answer", "text": "AI share of voice is the percentage of brand mentions in AI-generated answers that belong to your brand, compared with the competitors you track. It shows how often ChatGPT, Gemini, Perplexity and Google's AI Overviews name you when people ask about your category."}}, {"@type": "Question", "name": "How does the calculator count mentions?", "acceptedAnswer": {"@type": "Answer", "text": "Each brand counts once per answer, so a single long or repetitive answer can't inflate a brand's share. It matches whole words and ignores capitalization, spacing, hyphens, apostrophe styles and accents, so ChatGPT and Chat GPT both count. You can list more than one name for a brand, separated by commas. Web addresses, like yourbrand.com in a source list, count toward your citations instead of your mentions."}}, {"@type": "Question", "name": "Is my data saved or shared?", "acceptedAnswer": {"@type": "Answer", "text": "No. The calculator runs entirely in your browser, and nothing you paste is sent anywhere. Your entries carry over when you switch between quick start and advanced. Your last session is saved only in this browser so you can pick up where you left off, and Clear all removes it."}}, {"@type": "Question", "name": "How many prompts should I test?", "acceptedAnswer": {"@type": "Answer", "text": "One is enough to start. Paste a single answer and you'll see your share of voice right away. For a steadier number, ask the same question two or three times, in a fresh chat each time, since AI answers vary from run to run. Add a few more questions your customers would ask when you're ready, and keep the same questions and competitors each month so your numbers stay comparable."}}, {"@type": "Question", "name": "What's the difference between mentions and citations?", "acceptedAnswer": {"@type": "Answer", "text": "A mention is when an AI answer names a brand. A citation is when it includes the brand's website as a source or link. Mention share of voice shows who AI tools talk about, and citation share of voice shows who they send people to. Mentions build awareness, while citations are what bring visitors to your site."}}, {"@type": "Question", "name": "Can I track citations for a specific page?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter a page URL, like https://jenalston.com/ai-visibility-audit, in step 1, and the calculator shows your page-level share next to your domain-level share. Pages are matched exactly, so citations of other pages on your site aren't counted toward them."}}]}</script>
 <link rel="stylesheet" href="/assets/site.css?v=2">
 <link rel="stylesheet" href="/assets/services.css">
-<link rel="stylesheet" href="/assets/sov-calculator.css?v=4">
+<link rel="stylesheet" href="/assets/sov-calculator.css?v=5">
 <script src="/assets/site.js" defer></script>
-<script src="/assets/sov-calculator.js?v=4" defer></script>
+<script src="/assets/sov-calculator.js?v=5" defer></script>
 </head>
 <body>
 <div class="page">
@@ -69,11 +69,16 @@ social_image_alt: "Free AI Share of Voice Calculator by Jen Alston for ChatGPT, 
 <div class="lab">[2] Calculator</div>
 <div class="sov" id="sov-app">
 
-<div class="sov-viewbar">
-<p class="sov-help" id="sov-view-note">Quick start: your website or page, a competitor or two and one AI answer. That&#39;s it.</p>
+<div class="sov-viewbar sov-viewbar-v2">
+<ol class="sov-how" aria-label="How it works">
+<li><span class="sov-how-n">1</span><span><b>Add your URL</b> and a competitor&#39;s</span></li>
+<li><span class="sov-how-n">2</span><span><b>Ask an AI tool</b> a question and paste its answer</span></li>
+<li><span class="sov-how-n">3</span><span><b>See your share</b> of voice right away</span></li>
+</ol>
 <div class="sov-viewbar-act">
-<button type="button" class="sov-btn" id="sov-view-toggle" aria-expanded="false" aria-controls="sov-adv">Compare more competitors and platforms</button>
+<button type="button" class="sov-linkbtn" id="sov-view-toggle" aria-expanded="false" aria-controls="sov-adv">Compare more competitors and platforms &rarr;</button>
 <span class="sov-carry" id="sov-view-carry">Everything you&#39;ve entered comes with you.</span>
+<p class="sov-help" id="sov-view-note" hidden></p>
 </div>
 </div>
 
@@ -82,7 +87,7 @@ social_image_alt: "Free AI Share of Voice Calculator by Jen Alston for ChatGPT, 
 
 <div class="sov-view" id="sov-quick">
 <div class="sov-panel">
-<div class="sov-step"><span class="num">STEP 1</span><h3>Who are you comparing?</h3></div>
+<div class="sov-step"><span class="num">STEP 1</span><h3>Who are you comparing?</h3><span class="sov-start">Start here</span></div>
 <p class="sov-help">Enter your website or a specific page, then add one or two competitors. Enter a page URL to see exactly which pages AI tools cite.</p>
 <div class="sov-you">
 <div class="sov-tip-host"><div class="sov-q-lblrow sov-q-lblrow-start"><label for="sov-q-url">Your website or page URL</label><span class="sov-tip"><button type="button" class="sov-tip-btn sov-tip-i" aria-label="What to enter for your website or page URL" aria-describedby="sov-ut-1">i</button><span class="sov-tip-text" role="tooltip" id="sov-ut-1"><b>Your website</b> = your homepage URL, like https://jenalston.com/<br><b>A page</b> = that page&#39;s URL, like https://jenalston.com/about</span></span></div><input type="text" id="sov-q-url" maxlength="200" placeholder="e.g., https://jenalston.com/about" inputmode="url" autocomplete="url"></div>
@@ -107,7 +112,7 @@ social_image_alt: "Free AI Share of Voice Calculator by Jen Alston for ChatGPT, 
 <p class="sov-help">Ask an AI tool a question (a prompt) your customers would ask, then paste its answer below, including its sources. One answer is enough to get started.</p>
 <div class="sov-shared" id="sov-q-shared">
 <details class="sov-howto" id="sov-howto">
-<summary>New to this? How to get and copy an AI answer <span class="sov-start">Start here</span></summary>
+<summary>New to this? How to get and copy an AI answer <span class="sov-start sov-start-soft">First time? Read this</span></summary>
 <ol>
 <li><strong>Open the AI tool in a private window</strong> (Ctrl+Shift+N in Chrome, Cmd+Shift+N on a Mac) so your past chats don&#39;t affect the answer. For ChatGPT, go to chatgpt.com. For Google AI Overviews, go to google.com and type your question into the regular search box. The AI Overview is the summary at the top of the results. If Google opens a chat-style AI Mode page instead, that&#39;s a different tool.</li>
 <li><strong>Start a new chat and ask one question,</strong> the way a customer would. Leave your brand name out. For example: &ldquo;Who are the best bakeries for wedding cakes in Denver?&rdquo; or &ldquo;What&#39;s the best project management tool for small teams?&rdquo;</li>
@@ -147,13 +152,13 @@ No time? Brand mentions still count if you added names in step 1. You just won&#
 </div>
 <div class="sov-plat-actions"><button type="button" class="sov-add-answer" id="sov-q-add">+ Add another answer</button><span class="sov-plat-tip">Optional. Paste one answer, click this, then paste the next.</span></div>
 <p class="sov-note" id="sov-q-hidden-note" hidden>Your other competitors and platforms are saved. Quick start counts only competitors 1 and 2 and one platform. Switch to advanced to include them.</p>
-<div class="sov-btn-row"><button type="button" class="sov-btn" id="sov-q-clear">Clear all</button></div>
+<div class="sov-btn-row sov-bottom-row"><button type="button" class="sov-btn" id="sov-q-clear">Clear all</button><span class="sov-bottom-switch"><button type="button" class="sov-btn sov-view-switch" aria-controls="sov-adv">Compare more competitors and platforms</button><span class="sov-carry">Everything you&#39;ve entered comes with you.</span></span></div>
 </div>
 </div>
 
 <div class="sov-view" id="sov-adv" hidden>
 <div class="sov-panel">
-<div class="sov-step"><span class="num">STEP 1</span><h3>Who are you comparing?</h3></div>
+<div class="sov-step"><span class="num">STEP 1</span><h3>Who are you comparing?</h3><span class="sov-start">Start here</span></div>
 <p class="sov-help">Add your website and, for page-level results, one of your pages. Then add up to 8 competitors the same way. Brand names are optional and count mentions too.</p>
 <p class="sov-help sov-small">For brand names, use the short name the AI would say, like Adobe or Canva, not a product description. To count more than one name for a brand, separate them with commas, like Adobe Express, Premiere Elements.</p>
 <div class="sov-ent sov-ent-you" role="group" aria-labelledby="sov-you-h">
@@ -179,7 +184,7 @@ No time? Brand mentions still count if you added names in step 1. You just won&#
 <div class="sov-shared" id="sov-a-shared"></div>
 <div class="sov-cards" id="sov-cards"></div>
 <div class="sov-plat-actions"><button type="button" class="sov-add-answer" id="sov-add-card">+ Add another answer</button></div>
-<div class="sov-btn-row"><button type="button" class="sov-btn" id="sov-clear">Clear all</button></div>
+<div class="sov-btn-row sov-bottom-row"><button type="button" class="sov-btn" id="sov-clear">Clear all</button><span class="sov-bottom-switch"><button type="button" class="sov-btn sov-view-switch" aria-controls="sov-quick">Back to quick start</button><span class="sov-carry">Everything you&#39;ve entered comes with you. Quick start counts competitors 1 and 2 and one platform.</span></span></div>
 </div>
 </div>
 

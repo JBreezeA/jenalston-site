@@ -1,0 +1,24 @@
+{
+  "id": "/ai-share-of-voice-calculator",
+  "name": "AI Share of Voice Calculator by Jen Alston",
+  "short_name": "SOV Calculator",
+  "description": "Free AI share of voice calculator. Paste answers from ChatGPT, Gemini, Perplexity and AI Overviews, and see how often AI cites your pages and names your brand. Nothing you paste leaves your device.",
+  "lang": "en-US",
+  "dir": "ltr",
+  "start_url": "/ai-share-of-voice-calculator?source=app",
+  "scope": "/ai-share-of-voice-calculator",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#14142B",
+  "theme_color": "#14142B",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    { "src": "/images/app/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/images/app/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/images/app/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "/images/app/screenshot-wide.png", "sizes": "1600x1000", "type": "image/png", "form_factor": "wide", "label": "AI Share of Voice Calculator with live results beside the steps" },
+    { "src": "/images/app/screenshot-narrow.png", "sizes": "750x1334", "type": "image/png", "form_factor": "narrow", "label": "AI Share of Voice Calculator on a phone" }
+  ]
+}

@@ -14,6 +14,11 @@ social_image_alt: "Free AI Share of Voice Calculator by Jen Alston for ChatGPT, 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {% include seo.html %}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#14142B">
+<link rel="apple-touch-icon" href="/images/app/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="SOV Calculator">
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&amp;family=JetBrains+Mono:wght@500&amp;family=Syne:wght@700;800&amp;display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "AI Share of Voice Calculator", "url": "https://jenalston.com/ai-share-of-voice-calculator", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (runs in your web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Paste answers from ChatGPT, Gemini, Perplexity and Google AI Overviews to count brand mentions and citations and calculate AI share of voice and citation share of voice by platform, including citations of specific pages.", "creator": {"@type": "Person", "@id": "https://jenalston.com/#jennifer", "name": "Jennifer Alston", "url": "https://jenalston.com/about"}}</script>
@@ -24,6 +29,7 @@ social_image_alt: "Free AI Share of Voice Calculator by Jen Alston for ChatGPT, 
 <link rel="stylesheet" href="/assets/sov-calculator.css?v=5">
 <script src="/assets/site.js" defer></script>
 <script src="/assets/sov-calculator.js?v=5" defer></script>
+<script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('/sw.js',{scope:'/ai-share-of-voice-calculator'}).catch(function(){})})}</script>
 </head>
 <body>
 <div class="page">
